@@ -88,7 +88,7 @@ sufficient CSS styling:
   - [ ] Format list of users
   - [ ] Style search form and display
 
-### Phase 5: Additional Styling (1.5 days)
+### Phase 5: Additional Styling (1 day)
 
 **Objective:** Extra styling to make everything look nice.
 
@@ -97,7 +97,7 @@ sufficient CSS styling:
 - [ ] Make menu and splash look nice
 - [ ] Make things look nice with icons
 
-### Phase 6: User Experience Testing (0.5 day)
+### Hidden Phase: User Experience Testing (throughout project)
 
 **Objective:** To understand how bad my app is.
 
