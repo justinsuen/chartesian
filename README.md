@@ -24,7 +24,7 @@
 
 ## Minimum Viable Product
 
-A Chartio Clone is a web application inspired by [Chartio](https://www.chartio.com) built using Ruby on Rails backend and React/Redux frontend.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and
+Chartesian is a web application inspired by [Chartio](https://www.chartio.com) built using Ruby on Rails backend and React/Redux frontend.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
 - [ ] Hosting on Heroku
@@ -41,55 +41,72 @@ sufficient CSS styling:
 
 **Objective:** Working authentication for both front and backend. Users created are persisted in database.
 
-* Functional
-  * Sign up
-  * Sign In
-  * Demo
-* Visual
-  * Splash page
-  * Pick font and color
+- [ ] Functional
+  - [ ] Sign up
+  - [ ] Sign In
+  - [ ] Demo
+- [ ] Visual
+  - [ ] Splash page
+  - [ ] Pick font and color
 
 ### Phase 2: Upload Data (1 day)
 
 **Objective:** Data can be uploaded for users and data will be persisted in database.
 
-* Functional
-  * Store data with user in database
-  * Support JSON, TSV, CSV
-  * Create usable and query-able states
-* Visual
-  * Upload form
+- [ ] Functional
+  - [ ] Store data with user in database
+  - [ ] Support JSON, TSV, CSV
+  - [ ] Create usable and query-able states
+- [ ] Visual
+  - [ ] Upload form
 
 ### Phase 3: Charts Model, API, and components (3 days)
 
 **Objective:** Charts can be created, read, edited and destroyed through the API.
 
-* Functional
-  * API Util to get data from database
-  * Charts using [Victory.js](http://formidable.com/open-source/victory/) or [React D3](http://www.reactd3.org/)
-  * Display charts and desired information
-* Visual
-  * Chart styling
-  * Information layout and display
+- [ ] Functional
+  - [ ] API Util to get data from database
+  - [ ] Charts using [Victory.js](http://formidable.com/open-source/victory/) or [React D3](http://www.reactd3.org/)
+  - [ ] Display charts using desired information
+  - [ ] Enable bar, line, and dot charts
+- [ ] Visual
+  - [ ] Chart styling
+  - [ ] Information layout and display
 
-### Phase 4: Notebooks (2 day)
+### Phase 4: Chart Sharing (2 day)
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** Charts can be shared with other users in database and users can view all charts shared with them.
 
-### Phase 5: Tags (1 days)
+- [ ] Functional
+  - [ ] Allow shared users to see charts
+  - [ ] See charts shared with current user
+  - [ ] Fetch all charts shared
+  - [ ] Ajax enabled search
+- [ ] Visual
+  - [ ] Style list of shared charts
+  - [ ] Sharing form styling
+  - [ ] Format list of users
+  - [ ] Style search form and display
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+### Phase 5: Additional Styling (1.5 days)
 
-### Phase 6: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+**Objective:** Extra styling to make everything look nice.
 
-**objective:** Allow rich text editing of notes.
+- [ ] Make charts look nice
+- [ ] Make data display look nice
+- [ ] Make menu and splash look nice
+- [ ] Make things look nice with icons
 
-### Phase 7: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: User Experience Testing (0.5 day)
 
-**objective:** Add infinite scroll to Notes Index
+**Objective:** To understand how bad my app is.
+
+- [ ] Minor improvements after hearing scathing feedback
+- [ ] Be devastated
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Search graph by different fields
+- [ ] More charts (histograms, pie charts, heat maps, etc)
+- [ ] Notebook/report creating for charts and data
+- [ ] Combine similar plots
+- [ ] Extract data from interacting with graphs
