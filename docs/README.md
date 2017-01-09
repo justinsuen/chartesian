@@ -6,8 +6,8 @@
 * [Heroku][heroku]
 * [Trello][trello]
 
-[heroku]: http://www.herokuapp.com
-[trello]: https://trello.com
+[heroku]: http://chartesian.herokuapp.com/
+[trello]: https://trello.com/b/y7o7tgvF/chartesian
 
 ### Documentation
 * [View Wireframes][wireframes]
