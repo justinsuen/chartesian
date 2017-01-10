@@ -1,12 +1,5 @@
 class Api::SessionsController < ApplicationController
   def create
-    if current_user
-      render(
-      json: ['Someone is already signed in'],
-      status: 401
-      )
-    end
-
     @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]

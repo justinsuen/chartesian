@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
+import GreetingContainer from './greeting/greeting_container';
 
-const App = ({ store }) => (
+const App = ({ children }) => (
   <div>
-    <h1>App</h1>
+    <h1>Chartesian</h1>
+    <GreetingContainer />
+    { children }
   </div>
 );
 

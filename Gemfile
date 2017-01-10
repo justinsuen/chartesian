@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Custom gems
 gem 'turnout'
+gem 'email_validator'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
