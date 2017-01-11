@@ -1,1 +1,104 @@
 // Session styles (login and sign up)
+@import "../variables";
+
+.main-login-splash {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signup, .header-group {
+  font-family: $roboto-stack;
+}
+
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+
+  font-family: $roboto-stack;
+  background: $primary-color;
+  border-radius: 5px;
+  box-shadow: $bot-shadows;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 180%;
+    color: white;
+  }
+
+  p {
+    font-family: $roboto-stack;
+    font-weight: 200;
+    margin-bottom: 15px;
+    color: white;
+  }
+
+  a {
+    color: $primary-color-lighter;
+  }
+
+  a:visited {
+    color: $primary-color-lighter;
+  }
+
+  a:hover {
+    color: $primary-color-lightest;
+  }
+
+  .login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 500px;
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      input {
+        box-sizing: border-box;
+        width: 90%;
+        padding: 15px;
+        margin: 10px;
+        margin-top: 15px;
+
+        border: none;
+        cursor: text;
+
+        font-size: 80%;
+      }
+
+      input:hover {
+        box-shadow: $bot-shadows;
+        transition: $shadows-transition;
+      }
+
+      input:focus {
+        outline: none;
+        box-shadow: $mid-shadows;
+        transition: $shadows-transition;
+      }
+
+      .button {
+        background-color: $primary-color-light;
+        color: white;
+        text-transform: uppercase;
+      }
+
+      .button:hover{
+        background-color: $primary-color-lighter;
+        cursor: pointer;
+      }
+    }
+  }
+}

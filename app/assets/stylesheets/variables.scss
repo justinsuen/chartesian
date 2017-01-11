@@ -1,0 +1,21 @@
+// colors
+$primary-color-lightest: #E8F5E9;
+$primary-color-lighter:  #C8E6C9;
+$primary-color-light:    #A5D6A7;
+$primary-color:          #4CAF50;
+$primary-color-dark:     #388E3C;
+$primary-color-text:     #FFFFFF;
+$accent-color-light:     #FFD180;
+$accent-color:           #FF9100;
+$primary-text-color:     #212121;
+$secondary-text-color:   #757575;
+$divider-color:          #BDBDBD;
+
+// shadows
+$bot-shadows: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+$bot-shadows-hover: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$shadows-transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+$mid-shadows: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+// fonts
+$roboto-stack: "Roboto", sans-serif;

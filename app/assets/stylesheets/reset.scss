@@ -45,3 +45,28 @@ button {
   border: 0;
   cursor: pointer;
 }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 250%;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 200%;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 150%;
+  letter-spacing: 1px;
+}
