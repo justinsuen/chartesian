@@ -14,6 +14,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createDemoUser = this.createDemoUser.bind(this);
+    this.fillInput = this.fillInput.bind(this);
   }
 
   componentDidUpdate() {
@@ -52,6 +53,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === "signup") {
       return (
         <input type="text"
+          ref="email"
 					placeholder="email (optional)"
 					value={this.state.email}
 					onChange={this.update("email")}
@@ -70,12 +72,33 @@ class SessionForm extends React.Component {
     }
   }
 
-  createDemoUser() {
+  createDemoUser(e) {
+    e.preventDefault();
     const username = `demo-user-${genRandNum(1000)}`;
     const password = "c0g17o-Erg0-$uM";
     const email = `${username}@chartesian.com`;
-    this.setState({username, password, email, demo: true});
+
+    this.fillInput('username', username);
+    setTimeout(() => {
+      this.fillInput('password', password);
+      setTimeout(() => {
+        this.fillInput('email', email);
+        setTimeout(() => {
+          const user = this.state;
+          this.props.processForm(user);
+        }, 900);
+      }, 700);
+    }, 700);
   }
+
+  fillInput(input, str, n = 1) {
+		setTimeout(()=>{
+			if (n < str.length) {
+        this.fillInput(input, str, n + 1);
+      }
+			this.setState({[input]: str.slice(0, n)});
+		}, 40);
+	}
 
   render() {
     return (
@@ -100,7 +123,6 @@ class SessionForm extends React.Component {
   						{this.renderEmailForm()}
 
               <input type="submit"
-  							value="Submit"
   							className="button"/>
 
               {this.renderDemoButton()}
@@ -110,7 +132,6 @@ class SessionForm extends React.Component {
       </div>
     );
   }
-
 }
 
 // Possible graphics for later
