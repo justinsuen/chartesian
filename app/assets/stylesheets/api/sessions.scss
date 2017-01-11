@@ -81,12 +81,14 @@
       input:hover {
         box-shadow: $bot-shadows;
         transition: $shadows-transition;
+        background-color: $accent-color-lighter;
       }
 
       input:focus {
         outline: none;
         box-shadow: $mid-shadows;
         transition: $shadows-transition;
+        background-color: $accent-color-lighter;
       }
 
       .button {

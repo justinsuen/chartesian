@@ -95,7 +95,7 @@ html, body {
   .login-signup, .header-group {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
 
     p, a, button {
       display: flex;
@@ -103,29 +103,35 @@ html, body {
       align-items: center;
       justify-content: center;
 
-      padding: 0px 15px;
+      padding: 0px;
+      margin-right: 20px;
       height: 100%;
 
       font-weight: 300;
-      color: white;
+      color: $primary-color-lighter;
+    }
+
+    a:last-child, button:last-child {
+      margin-right: 35px;
     }
 
     button {
       font-family: $roboto-stack;
       font-size: 100%;
-      min-width: 120px;
-    }
-
-    p, a {
-      min-width: 90px;
-    }
-
-    button:hover, a:hover {
-      background-color: $primary-color-light;
     }
 
     button:visited, a:visited {
-      color: white;
+      color: $primary-color-lighter;
+    }
+
+    button:hover, a:hover {
+      text-decoration: underline;
+      color: $primary-color-lightest;
+    }
+
+    .current, button:active, a:active {
+      text-decoration: underline;
+      color: $accent-color-light !important;
     }
   }
 }
