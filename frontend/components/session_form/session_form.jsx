@@ -74,9 +74,10 @@ class SessionForm extends React.Component {
 
   createDemoUser(e) {
     e.preventDefault();
-    const username = `demo-user-${genRandNum(1000)}`;
+    const randNum = `${genRandNum(100)}`;
+    const username = `chartesian${randNum}`;
     const password = "c0g17o-Erg0-$uM";
-    const email = `${username}@chartesian.com`;
+    const email = `demo${randNum}@chartesian.com`;
 
     this.fillInput('username', username);
     setTimeout(() => {
@@ -86,8 +87,8 @@ class SessionForm extends React.Component {
         setTimeout(() => {
           const user = this.state;
           this.props.processForm(user);
-        }, 900);
-      }, 700);
+        }, 1200);
+      }, 850);
     }, 700);
   }
 
@@ -97,7 +98,7 @@ class SessionForm extends React.Component {
         this.fillInput(input, str, n + 1);
       }
 			this.setState({[input]: str.slice(0, n)});
-		}, 40);
+		}, 50);
 	}
 
   render() {

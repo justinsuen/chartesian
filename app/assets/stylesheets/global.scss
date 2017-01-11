@@ -121,9 +121,10 @@ html, body {
       margin-right: 35px;
     }
 
-    button {
+    a, button {
       font-family: $roboto-stack;
       font-size: 100%;
+      text-transform: uppercase;
     }
 
     button:visited, a:visited {
