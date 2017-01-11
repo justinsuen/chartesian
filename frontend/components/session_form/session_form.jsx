@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
       email: "",
       demo: false
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createDemoUser = this.createDemoUser.bind(this);
     this.fillInput = this.fillInput.bind(this);
@@ -19,6 +20,13 @@ class SessionForm extends React.Component {
 
   componentDidUpdate() {
     this.redirectIfLoggedIn();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.t1);
+    clearTimeout(this.t2);
+    clearTimeout(this.t3);
+    clearTimeout(this.t4);
   }
 
   redirectIfLoggedIn() {
@@ -62,6 +70,7 @@ class SessionForm extends React.Component {
     }
   }
 
+  // demo account functions
   renderDemoButton() {
     if (this.props.formType === "signup") {
       return (
@@ -80,11 +89,11 @@ class SessionForm extends React.Component {
     const email = `demo${randNum}@chartesian.com`;
 
     this.fillInput('username', username);
-    setTimeout(() => {
+      this.t1 = setTimeout(() => {
       this.fillInput('password', password);
-      setTimeout(() => {
+        this.t2 = setTimeout(() => {
         this.fillInput('email', email);
-        setTimeout(() => {
+          this.t3 = setTimeout(() => {
           const user = this.state;
           this.props.processForm(user);
         }, 1200);
@@ -93,7 +102,7 @@ class SessionForm extends React.Component {
   }
 
   fillInput(input, str, n = 1) {
-		setTimeout(()=>{
+		this.t4 = setTimeout(()=>{
 			if (n < str.length) {
         this.fillInput(input, str, n + 1);
       }
