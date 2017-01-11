@@ -9,6 +9,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  demo            :boolean          default("false")
 #
 
 require 'test_helper'
