@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router';
 import {merge} from 'lodash';
+import {genRandNum} from '../../util/util_func';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,9 +9,11 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      email: ""
+      email: "",
+      demo: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createDemoUser = this.createDemoUser.bind(this);
   }
 
   componentDidUpdate() {
@@ -68,7 +71,10 @@ class SessionForm extends React.Component {
   }
 
   createDemoUser() {
-    
+    const username = `demo-user-${genRandNum(1000)}`;
+    const password = "c0g17o-Erg0-$uM";
+    const email = `${username}@chartesian.com`;
+    this.setState({username, password, email, demo: true});
   }
 
   render() {
