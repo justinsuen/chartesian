@@ -14,6 +14,9 @@ class Header extends React.Component {
   headerGroup(currentUser, logout) {
     return (
     	<div className="header-group">
+        <Link to="/dashboards" activeClassName="current">Dashboards</Link>
+        <Link to="/charts" activeClassName="current">Charts</Link>
+        <Link to="/datasources" activeClassName="current">Data Sources</Link>
         <p className="header-name">{currentUser.username}</p>
         <button className="header-button" onClick={logout}>Log out</button>
     	</div>
@@ -24,7 +27,10 @@ class Header extends React.Component {
     const { currentUser, logout } = this.props;
 
     return (
-      currentUser ? this.headerGroup(currentUser, logout) : this.sessionLinks()
+      <div className="app-header">
+        <div className="logo"><h1>Chartesian</h1></div>
+        {currentUser ? this.headerGroup(currentUser, logout) : this.sessionLinks()}
+      </div>
     );
   }
 }

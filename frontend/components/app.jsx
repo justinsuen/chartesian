@@ -5,10 +5,7 @@ import Footer from './footer/footer';
 
 const App = ({ children }) => (
   <div className="app-container">
-    <div className="app-header">
-      <div className="logo"><h1>Chartesian</h1></div>
-      <HeaderContainer />
-    </div>
+    <HeaderContainer />
     <div className="app-body">
       { children }
     </div>
