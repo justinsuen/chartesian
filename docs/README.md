@@ -28,7 +28,8 @@ Chartesian is a web application inspired by [Chartio](https://www.chartio.com) b
 sufficient CSS styling:
 
 - [x] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation and login
+- [ ] Guest/demo account
 - [ ] Upload data and visualize it with a variety of charts
 - [ ] Logged in users can persist their data
 - [ ] Share charts with other users
@@ -42,12 +43,12 @@ sufficient CSS styling:
 **Objective:** Working authentication for both front and backend. Users created are persisted in database.
 
 - [ ] Functional
-  - [ ] Sign up
-  - [ ] Sign In
+  - [x] Sign up
+  - [x] Sign In
   - [ ] Demo
 - [ ] Visual
   - [ ] Splash page
-  - [ ] Pick font and color
+  - [x] Pick font and color
 
 ### Phase 2: Upload Data (1 day)
 
