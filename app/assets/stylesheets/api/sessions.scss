@@ -65,7 +65,7 @@
       align-items: center;
       width: 100%;
 
-      input {
+      input, .button {
         box-sizing: border-box;
         width: 90%;
         padding: 15px;
@@ -78,7 +78,7 @@
         font-size: 80%;
       }
 
-      input:hover {
+      .button:hover, input:hover {
         box-shadow: $bot-shadows;
         transition: $shadows-transition;
         background-color: $accent-color-lighter;

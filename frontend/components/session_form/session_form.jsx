@@ -33,14 +33,6 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  navText() {
-    if (this.props.formType === "login") {
-      return "Log in";
-    } else {
-      return "Sign up";
-    }
-  }
-
   renderErrors() {
     return (
       <ul className="error-list">
@@ -65,11 +57,25 @@ class SessionForm extends React.Component {
     }
   }
 
+  renderDemoButton() {
+    if (this.props.formType === "signup") {
+      return (
+        <button className="button demo" onClick={this.createDemoUser} >
+          Demo
+        </button>
+      );
+    }
+  }
+
+  createDemoUser() {
+    
+  }
+
   render() {
     return (
       <div className="main-login-splash">
         <div className="login-form-box">
-          <h3>{this.navText()}</h3>
+          <h3>{this.props.formType === "login" ? "Log in" : "Sign up"}</h3>
           {this.renderErrors()}
           <form onSubmit={this.handleSubmit} className="login-form-container">
             <div className="login-form">
@@ -90,6 +96,8 @@ class SessionForm extends React.Component {
               <input type="submit"
   							value="Submit"
   							className="button"/>
+
+              {this.renderDemoButton()}
             </div>
           </form>
         </div>

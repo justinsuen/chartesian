@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500');
 
 html, body {
-  height: 100%;
-
   min-width: 100%;
   width: 100%;
   max-width: 100%;
@@ -33,6 +31,13 @@ html, body {
       box-shadow: $mid-shadows;
     }
 
+    .app-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+
     .app-footer {
       width: 100%;
       display: flex;
@@ -46,42 +51,43 @@ html, body {
     .app-footer-tags {
       padding-left: 20px;
 
-      a {
-        margin-right: 10px;
+      a:first-child {
+        margin-left: 5px;
       }
 
-      img {
-        width: 40px;
-        height: 40px;
+      a {
+        margin-right: 15px;
+      }
+
+      i {
+        font-size: 180%;
+        color: $primary-color-light;
+      }
+
+      i:hover {
+        color: $primary-color-lightest;
       }
     }
 
     .app-footer-attr {
       p {
-        margin: 0px 30px;
+        margin: 0px 20px;
         padding: 5px;
 
         font-family: $roboto-stack;
-        color: $primary-color-light;
+        color: $primary-color-dark;
         font-size: 80%;
 
         text-align: right;
       }
 
       a, a:visited {
-        color: $primary-color-dark;
+        color: $primary-color-light;
       }
 
       a:hover {
-        color: $primary-color-lighter;
+        color: $primary-color-lightest;
       }
-    }
-
-    .app-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex: 1;
     }
   }
 
@@ -126,6 +132,9 @@ html, body {
 
     button:hover, a:hover {
       text-decoration: underline;
+    }
+
+    p, button:hover, a:hover {
       color: $primary-color-lightest;
     }
 
