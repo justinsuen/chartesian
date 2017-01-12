@@ -32,16 +32,89 @@ html, body {
     box-shadow: $mid-shadows;
 
     .dropdown {
-        display: inline-block;
+      display: inline-block;
+      height: 100%;
+
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     .dropdown-content {
-        display: none;
-        position: absolute;
+      display: none;
+      position: absolute;
+      right: 15px;
+      min-width: 200px;
+      background-color: $primary-color-dark;
+
+      .user-menu-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .menu-actions li {
+        p, a, button {
+          width: 100%;
+          padding: 10px 0px;
+        }
+
+        a, button {
+          font-size: 90%;
+        }
+
+        button {
+          min-height: 55px;
+        }
+
+        a {
+          min-height: 35px;
+        }
+
+        p {
+          min-height: 50px;
+          font-size: 100%;
+        }
+
+        .user-menu-name {
+          font-weight: 500;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .menu-actions li:nth-child(even) {
+        background-color: $primary-color
+      }
+
+      .menu-actions li:hover {
+        background-color: $primary-color-light;
+      }
+
+      .menu-actions li:first-child:hover {
+        background-color: $primary-color-dark;
+      }
     }
 
     .dropdown-active .dropdown-content {
-        display: block;
+      display: block;
+      box-shadow: $mid-shadows;
+    }
+
+    .dropdown-content:after {
+      bottom: 100%;
+      right: 0;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-bottom-color: $primary-color-dark;
+      border-width: 10px;
+      margin-right: 5px;
     }
   }
 

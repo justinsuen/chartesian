@@ -29,18 +29,24 @@ class Header extends React.Component {
 
   userOptions(currentUser, logout) {
     return (
-      <Dropdown>
-        <DropdownTrigger>Profile</DropdownTrigger>
-        <DropdownContent>
-          {currentUser.username}
-          <ul>
-            <li>
-              <a href="/profile">Profile</a>
-            </li>
-            <li>
-              <button className="header-button" onClick={logout}>Log out</button>
-            </li>
-          </ul>
+      <Dropdown className="user-menu">
+        <DropdownTrigger className="user-menu-icon">
+          <i className="fa fa-user-circle-o"></i>
+        </DropdownTrigger>
+        <DropdownContent className="user-menu-content-wrap">
+          <div className="user-menu-content">
+            <ul className="menu-actions">
+              <li className="menu-item">
+                <p>Hi,&nbsp;<div className="user-menu-name">{currentUser.username}</div></p>
+              </li>
+              <li className="menu-item">
+                <a href="/profile">Profile</a>
+              </li>
+              <li className="menu-item">
+                <button className="header-button" onClick={logout}>Log out</button>
+              </li>
+            </ul>
+          </div>
         </DropdownContent>
       </Dropdown>
     );
