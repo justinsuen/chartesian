@@ -40,7 +40,7 @@ class Header extends React.Component {
                 <p>Hi,&nbsp;<div className="user-menu-name">{currentUser.username}</div></p>
               </li>
               <li className="menu-item">
-                <a href="/profile">Profile</a>
+                <Link to="/profile">Profile</Link>
               </li>
               <li className="menu-item">
                 <button className="header-button" onClick={logout}>Log out</button>
