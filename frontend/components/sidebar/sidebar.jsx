@@ -7,16 +7,21 @@ class Sidebar extends React.Component {
     super(props);
   }
 
+  buildChildren(types) {
+    return(
+      types.map((type, idx) => <SidebarItem key={idx} type={`${type}`} />)
+    );
+  }
+
   render() {
     const {currentUser, logout} = this.props;
+    const types = ["dashboard", "chart", "datasource", "share"];
 
     if(currentUser) {
       return (
         <div className="sidebar">
           <h2>Actions</h2>
-          <SidebarItem type="dashboard" />
-          <SidebarItem type="chart" />
-          <SidebarItem type="share" />
+          {this.buildChildren(types)}
         </div>
       );
     } else {

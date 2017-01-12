@@ -11,6 +11,9 @@
   background-color: $primary-color-lighter;
   z-index: 0;
 
+  overflow-x: hidden;
+  overflow-y: scroll;
+
   .sidebar-item {
     width: 100%;
   }

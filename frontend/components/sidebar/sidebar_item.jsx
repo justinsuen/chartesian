@@ -7,9 +7,11 @@ class SidebarItem extends React.Component {
     super(props);
     this.state = {isOpened: false};
     this.handleClick = this.handleClick.bind(this);
+
     this.renderActions = this.renderActions.bind(this);
     this.renderChartActions = this.renderChartActions.bind(this);
     this.renderDashboardActions = this.renderDashboardActions.bind(this);
+    this.renderDataSourceActions = this.renderDataSourceActions.bind(this);
     this.renderShareActions = this.renderShareActions.bind(this);
   }
 
@@ -22,9 +24,8 @@ class SidebarItem extends React.Component {
   renderDashboardActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">All items</Link>
-        <Link to="/">Created by me</Link>
-        <Link to="/">Shared with me</Link>
+        <Link to="/">Create dashboard</Link>
+        <Link to="/">All dashboards</Link>
       </div>
     );
   }
@@ -32,9 +33,17 @@ class SidebarItem extends React.Component {
   renderChartActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">All items</Link>
-        <Link to="/">Created by me</Link>
-        <Link to="/">Shared with me</Link>
+        <Link to="/">Created chart</Link>
+        <Link to="/">All charts</Link>
+      </div>
+    );
+  }
+
+  renderDataSourceActions(type) {
+    return(
+      <div className="sidebar-actions">
+        <Link to="/">Import datasource</Link>
+        <Link to="/">All datasources</Link>
       </div>
     );
   }
@@ -42,21 +51,24 @@ class SidebarItem extends React.Component {
   renderShareActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Share settings</Link>
-        <Link to="/">Shared assets</Link>
-        <Link to="/">All shared with me</Link>
         <Link to="/">Groups</Link>
+        <Link to="/">Shared assets</Link>
+        <Link to="/">Shared with me</Link>
+        <Link to="/">Share settings</Link>
       </div>
     );
   }
 
   renderActions(type) {
-    if (type === "chart") {
-      return this.renderChartActions(type);
-    } else if (type === "dashboard") {
-      return this.renderDashboardActions(type);
-    } else {
-      return this.renderShareActions(type);
+    switch(type){
+      case "chart":
+        return this.renderChartActions(type);
+      case "dashboard":
+        return this.renderDashboardActions(type);
+      case "datasource":
+        return this.renderDataSourceActions(type);
+      case "share":
+        return this.renderShareActions(type);
     }
   }
 
@@ -64,10 +76,7 @@ class SidebarItem extends React.Component {
     const {type} = this.props;
     return (
       <div className={`sidebar-item ${type}`}>
-        <button onClick={this.handleClick}>
-          <i className="fa fa-caret-down"></i>
-          {type}
-        </button>
+        <button onClick={this.handleClick}>{type}</button>
         <Collapse isOpened={this.state.isOpened} className="sidebar-actions-wrap">
           {this.renderActions(type)}
         </Collapse>
