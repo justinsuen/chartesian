@@ -2,7 +2,65 @@
 @import "variables";
 
 .sidebar {
-  min-width: 400px;
-  background-color: $primary-color-light;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0 0 40px;
+
+  min-width: 300px;
+  background-color: $primary-color-lighter;
   z-index: 0;
+
+  .sidebar-item {
+    width: 100%;
+  }
+
+  .sidebar-actions-wrap {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .sidebar-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: calc(100% - 10px);
+  }
+
+  h2, a, button {
+    font-family: $font-stack;
+  }
+
+  h2, button {
+    color: $primary-text-color;
+  }
+
+  a, button {
+    padding: 10px;
+
+    text-align: left;
+    font-weight: 400;
+  }
+
+  h2:first-of-type {
+    margin-bottom: 30px;
+  }
+
+  button {
+    margin-top: 15px;
+    font-size: 120%;
+    width: 100%;
+    text-transform: capitalize;
+  }
+
+  a {
+    color: $secondary-text-color;
+    font-size: 100%;
+    width: 100%;
+  }
+
+  a:hover, button:hover {
+    background-color: $primary-color-lightest;
+  }
 }

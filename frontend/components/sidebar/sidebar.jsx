@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router';
+import SidebarItem from './sidebar_item';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class Sidebar extends React.Component {
       return (
         <div className="sidebar">
           <h2>Menu</h2>
+          <SidebarItem type="dashboard" />
+          <SidebarItem type="chart" />
         </div>
       );
     } else {
