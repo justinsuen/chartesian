@@ -9,14 +9,22 @@ email           | string    | indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
-## data
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-title       | string    | not null
-type        | string    | not null
-owner_id    | integer   | not null, foreign key (references users), indexed
-data_source | string    | not null
+## data_sources
+column name     | data type | details
+----------------|-----------|----------------------
+id              | integer   | not null, primary key
+title           | string    | not null
+type            | string    | not null
+owner_id        | integer   | not null, foreign key (references users), indexed
+data_source_url | string    | not null
+
+## data_tables
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+title          | string    | not null
+owner_id       | integer   | not null, foreign key (references users), indexed
+data_source_id | string    | not null
 
 ## dashboards
 column name | data type | details

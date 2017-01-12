@@ -17,4 +17,6 @@ class DataSource < ApplicationRecord
 
   belongs_to :user,
     foreign_key: :owner_id
+
+  has_many :data_tables
 end

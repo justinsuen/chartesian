@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: chartesian
+  api_key: '724217673939571'
+  api_secret: n6YbAcoH_97vm0pOL3MYvw9R9ho
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: chartesian
+  api_key: '724217673939571'
+  api_secret: n6YbAcoH_97vm0pOL3MYvw9R9ho
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: chartesian
+  api_key: '724217673939571'
+  api_secret: n6YbAcoH_97vm0pOL3MYvw9R9ho
+  enhance_image_tag: true
+  static_image_support: false

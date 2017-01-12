@@ -34,6 +34,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'turnout'
 gem 'email_validator'
 gem 'faker'
+gem 'cloudinary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
