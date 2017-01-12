@@ -16,6 +16,7 @@ class Sidebar extends React.Component {
           <h2>Menu</h2>
           <SidebarItem type="dashboard" />
           <SidebarItem type="chart" />
+          <SidebarItem type="share" />
         </div>
       );
     } else {
