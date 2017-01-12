@@ -40,10 +40,12 @@
   }
 
   a, button {
-    padding: 10px;
-
     text-align: left;
     font-weight: 400;
+  }
+
+  a {
+    padding: 15px 0px 15px 15px;
   }
 
   h2:first-of-type {
@@ -51,15 +53,21 @@
   }
 
   button {
+    padding: 10px;
     font-size: 120%;
     width: 100%;
     text-transform: capitalize;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   i {
     margin-right: 10px;
     -webkit-transition: $dropdown-transition; /* Safari */
     transition: $dropdown-transition;
+    font-size: 70%;
   }
 
   a {

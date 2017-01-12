@@ -43,8 +43,8 @@ class SidebarItem extends React.Component {
   renderDataSourceActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Import datasource</Link>
-        <Link to="/">All datasources</Link>
+        <Link to="/">Import data source</Link>
+        <Link to="/">All data sources</Link>
       </div>
     );
   }
@@ -76,10 +76,13 @@ class SidebarItem extends React.Component {
   render() {
     const {type} = this.props;
     const text = toTitleCase(type);
-    
+
     return (
       <div className={`sidebar-item ${type}`}>
-        <button onClick={this.handleClick}>{text}</button>
+        <button onClick={this.handleClick}>
+          <i className="fa fa-chevron-down"></i>
+          {text}
+        </button>
         <Collapse isOpened={this.state.isOpened} className="sidebar-actions-wrap">
           {this.renderActions(type)}
         </Collapse>

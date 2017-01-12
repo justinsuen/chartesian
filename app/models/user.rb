@@ -9,7 +9,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  demo            :boolean
+#  demo            :boolean          default("false")
 #
 
 class User < ApplicationRecord
@@ -22,6 +22,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
+
+  has_many :data_sources,
+    foreign_key: :owner_id
 
   # has_many :dashboards
   # has_many :charts
