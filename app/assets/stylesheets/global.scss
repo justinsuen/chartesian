@@ -37,6 +37,7 @@ html, body {
 
       a:hover {
         text-decoration: none;
+        cursor: pointer;
       }
     }
 
@@ -161,7 +162,7 @@ html, body {
       margin: 0px 20px;
       padding: 5px;
 
-      font-family: $roboto-stack;
+      font-family: $font-stack;
       color: $primary-color-dark;
       font-size: 80%;
 
@@ -180,9 +181,17 @@ html, body {
 
 .logo {
   margin: 15px 15px 15px 25px;
-  font-family: $roboto-stack;
+  font-family: $font-stack;
   font-weight: 300;
   color: white;
+
+  cursor: default;
+
+  // no highlighting
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 .login-signup, .header-group {
@@ -209,7 +218,7 @@ html, body {
   }
 
   a, button {
-    font-family: $roboto-stack;
+    font-family: $font-stack;
     font-size: 100%;
     // text-transform: uppercase;
   }

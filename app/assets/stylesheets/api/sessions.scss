@@ -9,7 +9,7 @@
 }
 
 .login-signup, .header-group {
-  font-family: $roboto-stack;
+  font-family: $font-stack;
 }
 
 .login-form-box {
@@ -19,7 +19,7 @@
   justify-content: space-between;
   padding: 35px;
 
-  font-family: $roboto-stack;
+  font-family: $font-stack;
   background: $primary-color;
   border-radius: 5px;
   box-shadow: $bot-shadows;
@@ -33,7 +33,7 @@
   }
 
   p {
-    font-family: $roboto-stack;
+    font-family: $font-stack;
     font-weight: 200;
     margin-bottom: 15px;
     color: white;
