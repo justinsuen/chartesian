@@ -14,10 +14,10 @@ class Api::DataSourcesController < ApplicationController
   end
 
   def show
-    @data_source = DataSource.find_by_id(params[:id])
+    @data_source = current_user.data_sources.find_by_id(params[:id])
   end
 
-  def delete
+  def destroy
     @data_source = DataSource.find_by_id(params[:id])
     DataSource.destroy(@data_source)
     render :index
