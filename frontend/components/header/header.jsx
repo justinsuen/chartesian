@@ -1,5 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
+
+// Dropdown menu
+import Dropdown from '../dropdown/dropdown';
+import DropdownTrigger from '../dropdown/dropdown_trigger';
+import DropdownContent from '../dropdown/dropdown_content';
 
 class Header extends React.Component {
   sessionLinks() {
@@ -13,23 +18,45 @@ class Header extends React.Component {
 
   headerGroup(currentUser, logout) {
     return (
-    	<div className="header-group">
+      <div className="header-group">
         <Link to="/dashboards" activeClassName="current">Dashboards</Link>
         <Link to="/charts" activeClassName="current">Charts</Link>
         <Link to="/datasources" activeClassName="current">Data Sources</Link>
-        <p className="header-name">{currentUser.username}</p>
-        <button className="header-button" onClick={logout}>Log out</button>
-    	</div>
+        {this.userOptions(currentUser, logout)}
+      </div>
     );
   }
 
-  render(){
-    const { currentUser, logout } = this.props;
+  userOptions(currentUser, logout) {
+    return (
+      <Dropdown>
+        <DropdownTrigger>Profile</DropdownTrigger>
+        <DropdownContent>
+          {currentUser.username}
+          <ul>
+            <li>
+              <a href="/profile">Profile</a>
+            </li>
+            <li>
+              <button className="header-button" onClick={logout}>Log out</button>
+            </li>
+          </ul>
+        </DropdownContent>
+      </Dropdown>
+    );
+  }
+
+  render() {
+    const {currentUser, logout} = this.props;
 
     return (
-      <div className="app-header">
-        <div className="logo"><h1>Chartesian</h1></div>
-        {currentUser ? this.headerGroup(currentUser, logout) : this.sessionLinks()}
+      <div className="app-header" ref="header">
+        <div className="logo">
+          <h1>Chartesian</h1>
+        </div>
+        {currentUser
+          ? this.headerGroup(currentUser, logout)
+          : this.sessionLinks()}
       </div>
     );
   }

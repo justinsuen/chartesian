@@ -15,133 +15,146 @@ html, body {
 #root {
   height: 100%;
   background-color: $primary-color-lightest;
+}
 
-  .app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 
-    .app-header {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: $primary-color;
-      box-shadow: $mid-shadows;
-    }
-
-    .app-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex: 1;
-    }
-
-    .app-footer {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      background-color: $primary-color;
-      padding: 20px 0px;
-    }
-
-    .app-footer-tags {
-      padding-left: 20px;
-
-      a:first-child {
-        margin-left: 5px;
-      }
-
-      a {
-        margin-right: 15px;
-      }
-
-      i {
-        font-size: 180%;
-        color: $primary-color-light;
-      }
-
-      i:hover {
-        color: $primary-color-lightest;
-      }
-    }
-
-    .app-footer-attr {
-      p {
-        margin: 0px 20px;
-        padding: 5px;
-
-        font-family: $roboto-stack;
-        color: $primary-color-dark;
-        font-size: 80%;
-
-        text-align: right;
-      }
-
-      a, a:visited {
-        color: $primary-color-light;
-      }
-
-      a:hover {
-        color: $primary-color-lightest;
-      }
-    }
-  }
-
-  .logo {
-    margin: 15px 15px 15px 25px;
-    font-family: $roboto-stack;
-    font-weight: 300;
-    color: white;
-  }
-
-  .login-signup, .header-group {
+  .app-header {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    justify-content: space-between;
+    background-color: $primary-color;
+    box-shadow: $mid-shadows;
 
-    p, a, button {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-
-      padding: 0px;
-      margin-right: 20px;
-      height: 100%;
-
-      font-weight: 300;
-      color: $primary-color-lighter;
+    .dropdown {
+        display: inline-block;
     }
 
-    a:last-child, button:last-child {
-      margin-right: 35px;
+    .dropdown-content {
+        display: none;
+        position: absolute;
     }
 
-    a, button {
-      font-family: $roboto-stack;
-      font-size: 100%;
-      // text-transform: uppercase;
+    .dropdown-active .dropdown-content {
+        display: block;
+    }
+  }
+
+  .app-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .app-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-color;
+    padding: 20px 0px;
+  }
+
+  .app-footer-tags {
+    padding-left: 20px;
+
+    a:first-child {
+      margin-left: 5px;
     }
 
-    button:visited, a:visited {
-      color: $primary-color-lighter;
+    a {
+      margin-right: 15px;
     }
 
-    button:hover, a:hover {
-      text-decoration: underline;
+    i {
+      font-size: 180%;
+      color: $primary-color-light;
     }
 
-    p, button:hover, a:hover {
+    i:hover {
       color: $primary-color-lightest;
     }
+  }
 
-    .current, button:active, a:active {
-      text-decoration: underline;
-      color: $accent-color-light !important;
+  .app-footer-attr {
+    p {
+      margin: 0px 20px;
+      padding: 5px;
+
+      font-family: $roboto-stack;
+      color: $primary-color-dark;
+      font-size: 80%;
+
+      text-align: right;
     }
+
+    a, a:visited {
+      color: $primary-color-light;
+    }
+
+    a:hover {
+      color: $primary-color-lightest;
+    }
+  }
+}
+
+.logo {
+  margin: 15px 15px 15px 25px;
+  font-family: $roboto-stack;
+  font-weight: 300;
+  color: white;
+}
+
+.login-signup, .header-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  p, a, button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0px;
+    margin-right: 20px;
+    height: 100%;
+
+    font-weight: 300;
+    color: $primary-color-lighter;
+  }
+
+  a:last-child, button:last-child {
+    margin-right: 35px;
+  }
+
+  a, button {
+    font-family: $roboto-stack;
+    font-size: 100%;
+    // text-transform: uppercase;
+  }
+
+  button:visited, a:visited {
+    color: $primary-color-lighter;
+  }
+
+  button:hover, a:hover {
+    text-decoration: underline;
+  }
+
+  p, button:hover, a:hover {
+    color: $primary-color-lightest;
+  }
+
+  .current, button:active, a:active {
+    text-decoration: underline;
+    color: $accent-color-light !important;
   }
 }
