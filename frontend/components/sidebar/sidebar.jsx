@@ -13,7 +13,7 @@ class Sidebar extends React.Component {
     if(currentUser) {
       return (
         <div className="sidebar">
-          <h2>Menu</h2>
+          <h2>Actions</h2>
           <SidebarItem type="dashboard" />
           <SidebarItem type="chart" />
           <SidebarItem type="share" />

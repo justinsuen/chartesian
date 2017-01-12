@@ -48,10 +48,15 @@
   }
 
   button {
-    margin-top: 15px;
     font-size: 120%;
     width: 100%;
     text-transform: capitalize;
+  }
+
+  i {
+    margin-right: 10px;
+    -webkit-transition: $dropdown-transition; /* Safari */
+    transition: $dropdown-transition;
   }
 
   a {
@@ -63,5 +68,12 @@
   a:hover, button:hover, .clicked {
     background-color: $primary-color-lightest;
     color: $secondary-text-color;
+  }
+
+  .clicked i {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: $dropdown-transition; /* Safari */
+    transition: $dropdown-transition;
   }
 }

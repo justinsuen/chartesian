@@ -64,7 +64,10 @@ class SidebarItem extends React.Component {
     const {type} = this.props;
     return (
       <div className={`sidebar-item ${type}`}>
-        <button onClick={this.handleClick}>{type}</button>
+        <button onClick={this.handleClick}>
+          <i className="fa fa-caret-down"></i>
+          {type}
+        </button>
         <Collapse isOpened={this.state.isOpened} className="sidebar-actions-wrap">
           {this.renderActions(type)}
         </Collapse>
