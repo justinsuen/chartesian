@@ -20,7 +20,7 @@ class Root extends React.Component {
   _ensureLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (!currentUser) {
-      replace('/login');
+      replace('/signup');
     }
   }
 

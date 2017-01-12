@@ -4,7 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  title           :string           not null
-#  type            :string           not null
+#  data_type       :string           not null
 #  owner_id        :integer          not null
 #  data_source_url :string           not null
 #  created_at      :datetime         not null

@@ -26,9 +26,6 @@ class User < ApplicationRecord
   has_many :data_sources,
     foreign_key: :owner_id
 
-  # has_many :dashboards
-  # has_many :charts
-
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.password_is?(password)

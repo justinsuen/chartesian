@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20170112180354) do
 
   create_table "data_sources", force: :cascade do |t|
     t.string   "title",           null: false
-    t.string   "type",            null: false
+    t.string   "data_type",       null: false
     t.integer  "owner_id",        null: false
     t.string   "data_source_url", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["data_source_url"], name: "index_data_sources_on_data_source_url", unique: true, using: :btree
+    t.index ["data_source_url"], name: "index_data_sources_on_data_source_url", using: :btree
+    t.index ["data_type"], name: "index_data_sources_on_data_type", using: :btree
     t.index ["owner_id"], name: "index_data_sources_on_owner_id", using: :btree
-    t.index ["title"], name: "index_data_sources_on_title", unique: true, using: :btree
-    t.index ["type"], name: "index_data_sources_on_type", using: :btree
+    t.index ["title"], name: "index_data_sources_on_title", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
