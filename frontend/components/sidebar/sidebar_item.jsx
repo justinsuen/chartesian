@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Collapse from 'react-collapse';
+import {toTitleCase} from '../../util/util_func'
 
 class SidebarItem extends React.Component {
   constructor(props) {
@@ -65,7 +66,7 @@ class SidebarItem extends React.Component {
         return this.renderChartActions(type);
       case "dashboard":
         return this.renderDashboardActions(type);
-      case "datasource":
+      case "data-source":
         return this.renderDataSourceActions(type);
       case "share":
         return this.renderShareActions(type);
@@ -74,9 +75,11 @@ class SidebarItem extends React.Component {
 
   render() {
     const {type} = this.props;
+    const text = toTitleCase(type);
+    
     return (
       <div className={`sidebar-item ${type}`}>
-        <button onClick={this.handleClick}>{type}</button>
+        <button onClick={this.handleClick}>{text}</button>
         <Collapse isOpened={this.state.isOpened} className="sidebar-actions-wrap">
           {this.renderActions(type)}
         </Collapse>
