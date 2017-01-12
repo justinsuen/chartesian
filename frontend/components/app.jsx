@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 import HeaderContainer from './header/header_container';
-import Footer from './footer/footer';
+import SidebarContainer from './sidebar/sidebar_container';
+import FooterContainer from './footer/footer_container';
 
 class App extends React.Component {
   render() {
@@ -9,12 +10,15 @@ class App extends React.Component {
       <div className="app-container">
         <HeaderContainer />
         <div className="app-body">
-          { this.props.children }
+          <SidebarContainer />
+          <div className="app-content">
+            { this.props.children }
+          </div>
         </div>
-        <Footer />
+        <FooterContainer />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

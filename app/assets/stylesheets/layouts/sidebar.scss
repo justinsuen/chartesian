@@ -1,0 +1,8 @@
+// Sidebar
+@import "variables";
+
+.sidebar {
+  min-width: 400px;
+  background-color: $primary-color-light;
+  z-index: 0;
+}

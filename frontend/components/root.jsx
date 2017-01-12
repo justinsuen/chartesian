@@ -7,6 +7,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 // react components
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
+import HomeContainer from './home/home_container';
 
 class Root extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Root extends React.Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
+            <IndexRoute component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
             <Route path="/login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="/signup" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
           </Route>
