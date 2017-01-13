@@ -1,0 +1,93 @@
+// info form styling
+@import "../../variables";
+
+.data-info-form-container {
+  margin-top: 30px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.data-info-form {
+  margin-top: 10px;
+  padding: 10px 15px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+
+  .button {
+    height: 50px;
+    padding: 15px;
+    border: none;
+
+    text-align: center;
+    line-height: 0px;
+
+    font-family: $font-stack;
+    font-size: 110%;
+    background-color: $primary-color-light;
+  }
+
+  .button:hover {
+    background-color: $accent-color-light;
+    box-shadow: $bot-shadows;
+    transition: $shadows-transition;
+  }
+
+  .button:active {
+    box-shadow: none;
+    transition: $shadows-transition;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+}
+
+.data-info-fields {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  margin-right: 15px;
+  flex: 1;
+
+  label {
+    font-weight: bold;
+    font-size: 120%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  input, select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    margin: 10px;
+    margin-top: 15px;
+
+    border: none;
+
+    font-size: 90%;
+  }
+
+  input {
+    cursor: text;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  input:hover, input:focus, select:focus {
+    outline: none;
+    box-shadow: $bot-shadows;
+    transition: $shadows-transition;
+    background-color: white;
+  }
+}

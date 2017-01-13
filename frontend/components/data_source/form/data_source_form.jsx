@@ -22,8 +22,13 @@ class DataSourceForm extends React.Component {
   onDrop(files) {
     console.log('Drag and drop success');
     this.setState({
-      uploadedFile: files[0]
+      uploadedFile: files[0],
+
+      //Testing
+      data_source_url: "successful_drop"
     });
+
+    $(".data-dropzone").hide();
 
     // Comment out when making UI things
     // this.handleUpload(files[0]);
@@ -51,29 +56,83 @@ class DataSourceForm extends React.Component {
     });
   }
 
-  dataPreview() {
-    if (this.state.data_source_url !== '') {
-      $(".data-dropzone").hide();
-      return(
-        <div className="data-preview">
-          <p>Display some text...</p>
-        </div>
-      );
-    }
-  }
-
-  render() {
+  dataUploadZone() {
     const acceptedTypes = "application/json,text/tsv,text/csv";
 
-    return (
-      <div className="data-form-container">
-        <h2>Add Data Source</h2>
+    return(
+      <div className="data-dropzone-container">
+        <h3>Upload Data</h3>
         <Dropzone className="data-dropzone"
           multiple={false}
           accept={acceptedTypes}
           onDrop={this.onDrop}>
           <p>Drag and drop a file here, or click to select files to upload.</p>
         </Dropzone>
+      </div>
+    );
+  }
+
+  dataPreview() {
+    if (this.state.data_source_url !== '') {
+      $(".data-dropzone-container").hide();
+      return(
+        <div className="data-preview-container">
+          <h3>Data Preview</h3>
+          <div className="data-preview">
+            <p>Preview of data goes here!</p>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  update(field) {
+    return e => this.setState({[field]: e.currentTarget.value});
+  }
+
+  dataInfoForm() {
+    const text = (this.state.data_source_url === "") ? "Waiting for data below..." : "Save data source";
+
+    return(
+      <form onSubmit={this.handleSubmit} className="data-info-form-container">
+        <h3>Data Source Information</h3>
+        <div className="data-info-form">
+          <div className="data-info-fields">
+            <label>
+              Title{'\u00A0'}
+              <input type="text"
+                placeholder="data source name"
+                value={this.state.title}
+                onChange={this.update("title")}
+                className="data-input"/>
+            </label>
+
+            <label>
+              Type{'\u00A0'}
+              <select value={this.state.data_type}
+                onChange={this.update("data_type")}
+                className="data-input">
+                <option value="csv">CSV</option>
+                <option value="tsv">TSV</option>
+                <option value="json">JSON</option>
+              </select>
+            </label>
+          </div>
+
+          <input type="submit"
+						className="button"
+            value={text}/>
+        </div>
+      </form>
+    );
+  }
+
+  render() {
+    return (
+      <div className="data-form-container">
+        <h2>Add Data Source</h2>
+        {this.dataInfoForm()}
+        {this.dataUploadZone()}
         {this.dataPreview()}
       </div>
     );

@@ -42,7 +42,7 @@ class Header extends React.Component {
           <div className="user-menu-content">
             <ul className="menu-actions">
               <li className="menu-item">
-                <p>Hi,&nbsp;<strong className="user-menu-name">{currentUser.username}</strong></p>
+                <p>Hi,{'\u00A0'}<strong className="user-menu-name">{currentUser.username}</strong></p>
               </li>
               <li className="menu-item">
                 <Link to="/profile">Profile</Link>
