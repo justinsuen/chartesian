@@ -23,6 +23,9 @@ class DataSourceForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // Need to change behavior
+    const dataSource = merge({}, this.state);
+    this.props.createDataSource(dataSource);
   }
 
   render() {
