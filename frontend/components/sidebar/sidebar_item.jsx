@@ -34,7 +34,7 @@ class SidebarItem extends React.Component {
   renderChartActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/charts/new">Created chart</Link>
+        <Link to="/charts/new">Create chart</Link>
         <Link to="/charts">All charts</Link>
       </div>
     );

@@ -1,6 +1,10 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import request from 'superagent';
 import {merge} from 'lodash';
+
+const CLOUDINARY_UPLOAD_PRESET = 'x4oxzcre';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/chartesian/upload';
 
 class DataSourceForm extends React.Component {
   constructor(props) {
@@ -8,48 +12,83 @@ class DataSourceForm extends React.Component {
     this.state = {
       title: "",
       data_type: "",
-      owner_id: "",
+      owner_id: this.props.currentUser.id,
       data_source_url: ""
     };
+
+    this.onDrop = this.onDrop.bind(this);
   }
 
-  onDrop() {
+  onDrop(files) {
     console.log('Drag and drop success');
+    this.setState({
+      uploadedFile: files[0]
+    });
+
+    this.handleUpload(files[0]);
   }
 
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    // Need to change behavior
-    const dataSource = merge({}, this.state);
-    this.props.createDataSource(dataSource);
+  handleUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', file);
+
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
+    });
+  }
+
+  dataPreview() {
+    if (this.state.uploadedFileCloudinaryUrl !== '') {
+      return(
+        <div className="data-preview">
+        </div>
+      );
+    }
   }
 
   render() {
+    const acceptedTypes = "application/json,text/tsv,text/csv";
+
     return (
       <div className="data-form-container">
         <h2>Add Data Source</h2>
-          <form onSubmit={this.handleSubmit} className="login-form-container">
-            <div className="data-url-form">
-              <input type="text"
-                placeholder="Enter url to data source here"
-                value={this.state.data_source_url}
-                onChange={this.update("data_source_url")}
-                className="data-url-input"/>
-
-              <input type="submit"
-                className="button"/>
-            </div>
-          </form>
-        <Dropzone className="data-dropzone" onDrop={this.onDrop}>
+        <Dropzone className="data-dropzone"
+          multiple={false}
+          accept={acceptedTypes}
+          onDrop={this.onDrop}>
           <p>Drag and drop a file here, or click to select files to upload.</p>
         </Dropzone>
+        {this.dataPreview()}
       </div>
     );
   }
 }
+
+// Handle URL submitting - bonus
+// <form onSubmit={this.handleURLSubmit} className="login-form-container">
+//   <div className="data-url-form">
+//     <input type="text"
+//       placeholder="Enter url to data source here"
+//       value={this.state.data_source_url}
+//       onChange={this.update("data_source_url")}
+//       className="data-url-input"/>
+//
+//     <input type="submit"
+//       className="button"/>
+//   </div>
+// </form>
 
 export default DataSourceForm;
