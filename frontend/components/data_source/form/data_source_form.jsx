@@ -17,21 +17,15 @@ class DataSourceForm extends React.Component {
     };
 
     this.onDrop = this.onDrop.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onDrop(files) {
     console.log('Drag and drop success');
     this.setState({
-      uploadedFile: files[0]
+      uploadedFile: files[0],
+      data_source_url: "file_dropped"
     });
-
-    // For display testing so file doesn't upload
-    // this.setState({
-    //   data_source_url: "successful_drop"
-    // });
-
-    // Comment out when making UI things
-    this.handleUpload(files[0]);
   }
 
   update(field) {
@@ -94,6 +88,11 @@ class DataSourceForm extends React.Component {
     const {title, data_type, data_source_url} = this.state;
     console.log(title, data_type, data_source_url);
     return (!title || !data_type || !data_source_url);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.handleUpload(this.state.uploadedFile);
   }
 
   dataInfoForm() {
