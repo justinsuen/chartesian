@@ -35,6 +35,7 @@ gem 'turnout'
 gem 'email_validator'
 gem 'faker'
 gem 'cloudinary'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
