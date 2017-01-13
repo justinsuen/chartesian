@@ -25,7 +25,8 @@ class DataSourceForm extends React.Component {
       uploadedFile: files[0]
     });
 
-    this.handleUpload(files[0]);
+    // Comment out when making UI things
+    // this.handleUpload(files[0]);
   }
 
   update(field) {
@@ -44,16 +45,18 @@ class DataSourceForm extends React.Component {
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          data_source_url: response.body.secure_url
         });
       }
     });
   }
 
   dataPreview() {
-    if (this.state.uploadedFileCloudinaryUrl !== '') {
+    if (this.state.data_source_url !== '') {
+      $(".data-dropzone").hide();
       return(
         <div className="data-preview">
+          <p>Display some text...</p>
         </div>
       );
     }
