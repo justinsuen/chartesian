@@ -12,7 +12,6 @@ export const receiveDataSource = data_source => ({
 });
 
 export const receiveDataSources = data_sources => {
-  debugger;
   return {
   type: RECEIVE_DATA_SOURCES,
   dataSources: data_sources

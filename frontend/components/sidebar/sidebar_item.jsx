@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Collapse from 'react-collapse';
-import {toTitleCase} from '../../util/util_func'
+import {toTitleCase} from '../../util/util_func';
 
 class SidebarItem extends React.Component {
   constructor(props) {
@@ -25,8 +25,8 @@ class SidebarItem extends React.Component {
   renderDashboardActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Create dashboard</Link>
-        <Link to="/">All dashboards</Link>
+        <Link to="/dashboards/new">Create dashboard</Link>
+        <Link to="/dashboards">All dashboards</Link>
       </div>
     );
   }
@@ -34,8 +34,8 @@ class SidebarItem extends React.Component {
   renderChartActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Created chart</Link>
-        <Link to="/">All charts</Link>
+        <Link to="/charts/new">Created chart</Link>
+        <Link to="/charts">All charts</Link>
       </div>
     );
   }
@@ -43,8 +43,8 @@ class SidebarItem extends React.Component {
   renderDataSourceActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Import data source</Link>
-        <Link to="/">All data sources</Link>
+        <Link to="/data_sources/new">Import data source</Link>
+        <Link to="/data_sources">All data sources</Link>
       </div>
     );
   }
@@ -52,10 +52,10 @@ class SidebarItem extends React.Component {
   renderShareActions(type) {
     return(
       <div className="sidebar-actions">
-        <Link to="/">Groups</Link>
-        <Link to="/">Shared assets</Link>
-        <Link to="/">Shared with me</Link>
-        <Link to="/">Share settings</Link>
+        <Link to="/share/groups">Groups</Link>
+        <Link to="/share/me">Shared assets</Link>
+        <Link to="/share/all">Shared with me</Link>
+        <Link to="/share/settings">Share settings</Link>
       </div>
     );
   }

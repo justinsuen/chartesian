@@ -7,10 +7,10 @@ class DataSourceIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        // your code here...
+      <div className="data-source-index-container">
+        <h2>Manage Data Sources</h2>
       </div>
-    )
+    );
   }
 }
 

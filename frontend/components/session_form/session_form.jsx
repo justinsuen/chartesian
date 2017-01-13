@@ -144,11 +144,4 @@ class SessionForm extends React.Component {
   }
 }
 
-// Possible graphics for later
-// <div className="main-login-graphic">
-//   <img src={require('../../../app/assets/images/chart-icons/bar-chart.png')} />
-//   <img src={require('../../../app/assets/images/chart-icons/analytics-4.png')} />
-//   <img src={require('../../../app/assets/images/chart-icons/stats.png')} />
-// </div>
-
 export default withRouter(SessionForm);

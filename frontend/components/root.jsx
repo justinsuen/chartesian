@@ -8,6 +8,9 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
+import DataSourceContainer from './data_source/data_source_container';
+import DataSourceIndexContainer from './data_source/index/data_source_index_container';
+import DataSourceFormContainer from './data_source/form/data_source_form_container';
 
 class Root extends React.Component {
   constructor(props) {
@@ -36,9 +39,13 @@ class Root extends React.Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
-            <IndexRoute component={ HomeContainer } onEnter={this._ensureLoggedIn}/>
-            <Route path="/login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
-            <Route path="/signup" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
+            <IndexRoute component={HomeContainer} onEnter={this._ensureLoggedIn}/>
+            <Route path="login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="signup" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="data_sources" component={DataSourceContainer}>
+              <IndexRoute component={DataSourceIndexContainer}/>
+              <Route path="new" component={DataSourceFormContainer}/>
+            </Route>
           </Route>
         </Router>
       </Provider>

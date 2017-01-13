@@ -1,16 +1,12 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import { deleteDataSource } from '../../actions/data_source_actions';
 import DataSource from './data_source.jsx';
 
-const mapStateToProps = (state, ownProps) => ({
-  // your code here...
-});
-
 const mapDispatchToProps = dispatch => ({
-  // your code here...
+  deleteDataSource: id => dispatch(deleteDataSource(id))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(DataSource);
