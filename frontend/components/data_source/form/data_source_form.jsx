@@ -28,8 +28,6 @@ class DataSourceForm extends React.Component {
       data_source_url: "successful_drop"
     });
 
-    $(".data-dropzone").hide();
-
     // Comment out when making UI things
     // this.handleUpload(files[0]);
   }
