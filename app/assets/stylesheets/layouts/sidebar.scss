@@ -35,8 +35,21 @@
     font-family: $font-stack;
   }
 
-  h2, button {
+  h2, button, .top-level-link {
     color: $primary-text-color;
+  }
+
+  h2:first-of-type {
+    margin-bottom: 30px;
+  }
+
+  .top-level-link {
+    margin: 15px 0 20px 0;
+    font-size: 135%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 10px;
   }
 
   a, button {
@@ -46,10 +59,9 @@
 
   a {
     padding: 15px;
-  }
-
-  h2:first-of-type {
-    margin-bottom: 30px;
+    color: $primary-color-lightest;
+    font-size: 100%;
+    width: calc(100% - 20px);
   }
 
   button {
@@ -68,12 +80,6 @@
     -webkit-transition: $dropdown-transition; /* Safari */
     transition: $dropdown-transition;
     font-size: 70%;
-  }
-
-  a {
-    color: $primary-color-lightest;
-    font-size: 100%;
-    width: calc(100% - 20px);
   }
 
   a:hover, button:hover, .clicked {

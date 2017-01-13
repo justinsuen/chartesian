@@ -156,7 +156,7 @@ html, body {
     color: $primary-color-lightest;
   }
 
-  .current, button:active, a:active {
+  button:active, a:active {
     text-decoration: underline;
     color: $accent-color-light !important;
   }

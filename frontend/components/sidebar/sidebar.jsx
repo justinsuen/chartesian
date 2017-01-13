@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import SidebarItem from './sidebar_item';
 
 class Sidebar extends React.Component {
@@ -21,6 +21,10 @@ class Sidebar extends React.Component {
       return (
         <div className="sidebar">
           <h2>Actions</h2>
+          <Link to="/" className="top-level-link">
+            <i className="fa fa-home"></i>
+            Home
+          </Link>
           {this.buildChildren(types)}
         </div>
       );
