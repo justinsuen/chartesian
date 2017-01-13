@@ -23,10 +23,15 @@ class DataSourceForm extends React.Component {
 
   onDrop(files) {
     console.log('Drag and drop success');
-    this.setState({
-      uploadedFile: files[0],
-      data_source_url: "file_dropped"
-    });
+    if (files[0] !== undefined) {
+      this.setState({
+        uploadedFile: files[0],
+        data_source_url: "file_dropped"
+      });
+    } else {
+      console.log("Not supported!");
+      files = [];
+    }
   }
 
   update(field) {
@@ -47,6 +52,9 @@ class DataSourceForm extends React.Component {
         this.setState({
           data_source_url: response.body.secure_url
         });
+
+        const {title, data_type, owner_id, data_source_url} = this.state;
+        this.props.createDataSource({title, data_type, owner_id, data_source_url});
         hashHistory.push("/data_sources");
       }
     });
@@ -88,7 +96,6 @@ class DataSourceForm extends React.Component {
 
   checkInput() {
     const {title, data_type, data_source_url} = this.state;
-    console.log(title, data_type, data_source_url);
     return (!title || !data_type || !data_source_url);
   }
 
