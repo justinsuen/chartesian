@@ -46,6 +46,11 @@
   .button:focus {
     outline: none;
   }
+
+  .button:disabled {
+    box-shadow: none;
+    background-color: $primary-color-light;
+  }
 }
 
 .data-info-fields {
@@ -64,12 +69,12 @@
   }
 
   input, select {
-    box-sizing: border-box;
     width: 100%;
     padding: 15px;
     margin: 10px;
     margin-top: 15px;
 
+    box-sizing: border-box;
     border: none;
 
     font-size: 75%;
@@ -77,6 +82,7 @@
 
   input {
     cursor: text;
+    font-weight: 300;
   }
 
   select {

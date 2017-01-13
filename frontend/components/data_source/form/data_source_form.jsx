@@ -11,7 +11,7 @@ class DataSourceForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      data_type: "",
+      data_type: "csv",
       owner_id: this.props.currentUser.id,
       data_source_url: ""
     };
@@ -22,14 +22,16 @@ class DataSourceForm extends React.Component {
   onDrop(files) {
     console.log('Drag and drop success');
     this.setState({
-      uploadedFile: files[0],
-
-      //Testing
-      data_source_url: "successful_drop"
+      uploadedFile: files[0]
     });
 
+    // For display testing so file doesn't upload
+    // this.setState({
+    //   data_source_url: "successful_drop"
+    // });
+
     // Comment out when making UI things
-    // this.handleUpload(files[0]);
+    this.handleUpload(files[0]);
   }
 
   update(field) {
@@ -88,6 +90,12 @@ class DataSourceForm extends React.Component {
     return e => this.setState({[field]: e.currentTarget.value});
   }
 
+  checkInput() {
+    const {title, data_type, data_source_url} = this.state;
+    console.log(title, data_type, data_source_url);
+    return (!title || !data_type || !data_source_url);
+  }
+
   dataInfoForm() {
     const text = (this.state.data_source_url === "") ? "Waiting for data below..." : "Save data source";
 
@@ -99,7 +107,7 @@ class DataSourceForm extends React.Component {
             <label>
               Title{'\u00A0'}
               <input type="text"
-                placeholder="data source name"
+                placeholder="Enter data source name"
                 value={this.state.title}
                 onChange={this.update("title")}
                 className="data-input"/>
@@ -119,6 +127,7 @@ class DataSourceForm extends React.Component {
 
           <input type="submit"
 						className="button"
+            disabled={this.checkInput()}
             value={text}/>
         </div>
       </form>
