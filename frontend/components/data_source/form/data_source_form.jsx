@@ -2,6 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import {merge} from 'lodash';
+import {hashHistory} from 'react-router';
 
 const CLOUDINARY_UPLOAD_PRESET = 'x4oxzcre';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/chartesian/upload';
@@ -46,6 +47,7 @@ class DataSourceForm extends React.Component {
         this.setState({
           data_source_url: response.body.secure_url
         });
+        hashHistory.push("/data_sources");
       }
     });
   }
