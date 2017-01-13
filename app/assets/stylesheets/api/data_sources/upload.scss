@@ -1,0 +1,39 @@
+// Upload page styling
+@import "../../variables";
+
+.data-form-container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.data-dropzone {
+  margin: 30px 0;
+  padding: 15px;
+  width: 100%;
+
+  border: 2px dashed $secondary-text-color;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  cursor: pointer;
+
+  p {
+    font-size: 200%;
+    color: $secondary-text-color;
+    cursor: pointer;
+  }
+}
+
+.data-dropzone:hover {
+  background-color: $primary-color-lighter;
+}

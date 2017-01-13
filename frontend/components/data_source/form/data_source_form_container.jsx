@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DataSourceForm from './data_source_form.jsx';
+import { createDataSource } from '../../../actions/data_source_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  // your code here...
 });
 
 const mapDispatchToProps = dispatch => ({
-  // your code here...
+  createDataSource: dataSource => dispatch(createDataSource(dataSource))
 });
 
 export default connect(
