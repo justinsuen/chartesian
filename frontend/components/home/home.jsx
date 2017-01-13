@@ -6,19 +6,11 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser) {
-      return (
-        <div>
-          <h1>Hello from logged in!</h1>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <h1>Hello from outside!</h1>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <h1>Hello from logged in!</h1>
+      </div>
+    );
   }
 }
 

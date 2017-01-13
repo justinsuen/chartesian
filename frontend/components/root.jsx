@@ -43,8 +43,8 @@ class Root extends React.Component {
             <Route path="login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="signup" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="data_sources" component={DataSourceContainer}>
-              <IndexRoute component={DataSourceIndexContainer}/>
-              <Route path="new" component={DataSourceFormContainer}/>
+              <IndexRoute component={DataSourceIndexContainer} onEnter={this._ensureLoggedIn}/>
+              <Route path="new" component={DataSourceFormContainer} onEnter={this._ensureLoggedIn}/>
             </Route>
           </Route>
         </Router>

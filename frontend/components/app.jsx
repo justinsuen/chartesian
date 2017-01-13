@@ -10,7 +10,7 @@ class App extends React.Component {
       <div className="app-container">
         <HeaderContainer />
         <div className="app-body">
-          <SidebarContainer pathname={this.props.location.pathname}/>
+          <SidebarContainer />
           <div className="app-content">
             { this.props.children }
           </div>

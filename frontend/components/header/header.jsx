@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
 // Dropdown menu
 import Dropdown from '../dropdown/dropdown';
@@ -7,6 +7,11 @@ import DropdownTrigger from '../dropdown/dropdown_trigger';
 import DropdownContent from '../dropdown/dropdown_content';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
   sessionLinks() {
     return (
       <div className="login-signup">
@@ -16,18 +21,18 @@ class Header extends React.Component {
     );
   }
 
-  headerGroup(currentUser, logout) {
+  headerGroup(currentUser) {
     return (
       <div className="header-group">
         <Link to="/dashboards">Dashboards</Link>
         <Link to="/charts">Charts</Link>
         <Link to="/data_sources">Data Sources</Link>
-        {this.userOptions(currentUser, logout)}
+        {this.userOptions(currentUser)}
       </div>
     );
   }
 
-  userOptions(currentUser, logout) {
+  userOptions(currentUser) {
     return (
       <Dropdown className="user-menu">
         <DropdownTrigger className="user-menu-icon">
@@ -43,13 +48,17 @@ class Header extends React.Component {
                 <Link to="/profile">Profile</Link>
               </li>
               <li className="menu-item">
-                <button className="header-button" onClick={logout}>Log out</button>
+                <button className="header-button" onClick={this.handleLogout}>Log out</button>
               </li>
             </ul>
           </div>
         </DropdownContent>
       </Dropdown>
     );
+  }
+
+  handleLogout() {
+    this.props.logout().then(() => hashHistory.push('/'));
   }
 
   render() {
