@@ -2,9 +2,16 @@
 @import "variables";
 
 .sidebar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 40px 0 0 40px;
 
   min-width: 300px;
@@ -24,9 +31,16 @@
   }
 
   .sidebar-actions {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     width: calc(100% - 10px);
     background-color: $primary-color-light;
   }
@@ -46,9 +60,16 @@
   .top-level-link {
     margin: 15px 0 20px 0;
     font-size: 135%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 15px 10px;
   }
 
@@ -65,14 +86,24 @@
   }
 
   button {
+    margin: 0;
     padding: 10px;
     font-size: 120%;
     width: 100%;
     text-transform: capitalize;
 
+    display: -webkit-flex;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   i {

@@ -19,9 +19,16 @@
   background-color: $primary-color-dark;
 
   .user-menu-content {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .menu-actions li {

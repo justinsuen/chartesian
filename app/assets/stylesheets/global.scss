@@ -16,42 +16,83 @@ html, body {
 }
 
 .app-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 
   .app-header {
     width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     background-color: $primary-color;
     box-shadow: $mid-shadows;
     z-index: 10;
   }
 
   .app-body {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex: 1;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     width: 100%;
   }
 
   .app-content{
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
+
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 
   .app-footer {
     width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-color: $primary-color;
     padding: 10px 0px;
   }
@@ -115,15 +156,32 @@ html, body {
 }
 
 .login-signup, .header-group {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  -webkit-flex-orient: horizontal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+
+  -webkit-flex-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 
   p, a, button {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    -webkit-flex-orient: horizontal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     padding: 0px;
     margin-right: 20px;
