@@ -1,8 +1,11 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
-import request from 'superagent';
 import {merge} from 'lodash';
 import {hashHistory} from 'react-router';
+
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+
+import DataPreview from './data_preview';
 
 const CLOUDINARY_UPLOAD_PRESET = 'x4oxzcre';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/chartesian/upload';
@@ -22,8 +25,8 @@ class DataSourceForm extends React.Component {
   }
 
   onDrop(files) {
-    console.log('Drag and drop success');
     if (files[0] !== undefined) {
+      console.log('Drag and drop success');
       this.setState({
         uploadedFile: files[0],
         data_source_url: "file_dropped"
@@ -76,20 +79,6 @@ class DataSourceForm extends React.Component {
     );
   }
 
-  dataPreview() {
-    if (this.state.data_source_url !== '') {
-      $(".data-dropzone-container").hide();
-      return(
-        <div className="data-preview-container">
-          <h3>Data Preview</h3>
-          <div className="data-preview">
-            <p>Preview of data goes here!</p>
-          </div>
-        </div>
-      );
-    }
-  }
-
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
@@ -140,6 +129,15 @@ class DataSourceForm extends React.Component {
         </div>
       </form>
     );
+  }
+
+  dataPreview() {
+    if (this.state.uploadedFile !== undefined) {
+      $(".data-dropzone-container").hide();
+      return(
+        <DataPreview file={this.state.uploadedFile} />
+      );
+    }
   }
 
   render() {

@@ -10,9 +10,12 @@ export const toTitleCase = str => {
 
 export const parseCSV = (file, row, col) => {
   const reader = new FileReader();
+  reader.readAsText(file);
 
-  const fileLines = file.split(/\r\n|\n/);
+  const fileText = reader.result;
+  const fileLines = fileText.split(/\r\n|\n/);
   const headers = fileLines[0].split(',');
+
   let lines = [];
 
   for (let i = 1; i < fileLines.length; i++) {
@@ -26,4 +29,6 @@ export const parseCSV = (file, row, col) => {
       lines.push(arr);
     }
   }
+
+  return lines;
 };
