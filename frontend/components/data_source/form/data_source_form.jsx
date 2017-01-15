@@ -64,7 +64,7 @@ class DataSourceForm extends React.Component {
   }
 
   dataUploadZone() {
-    const acceptedTypes = "application/json,text/tsv,text/csv";
+    const acceptedTypes = "application/json,text/tab-separated-values,text/csv";
 
     return(
       <div className="data-dropzone-container">

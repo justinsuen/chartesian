@@ -6,33 +6,49 @@ class DataPreview extends React.Component {
     super(props);
     this.readFile = this.readFile.bind(this);
     this.loadHandler = this.loadHandler.bind(this);
-    this.processCSV = this.processCSV.bind(this);
+    this.processFile = this.processFile.bind(this);
   }
 
   readFile(file) {
     var reader = new FileReader();
-    reader.onload = this.loadHandler;
+    reader.onload = this.loadHandler(file.type);
     reader.readAsText(file);
   }
 
-  loadHandler(e) {
-    const csv = e.target.result;
-    this.processCSV(csv);
+  loadHandler(type) {
+    return e => {
+      const text = e.target.result;
+      this.processFile(text, type);
+    };
   }
 
-  processCSV(csv) {
-    const allTextLines = csv.split(/\r\n|\n/);
+  processFile(text, type) {
+    const allTextLines = text.split(/\r\n|\n/);
     let lines = [];
+    let delim = "";
 
-    for (let i = 0; i < allTextLines.length; i++) {
-      let data = allTextLines[i].split(',');
-      let tarr = [];
-
-      for (let j = 0; j < data.length; j++) {
-        tarr.push(data[j]);
-      }
-      lines.push(tarr);
+    if (type === "text/csv") {
+      delim = ",";
+    } else if (type === "text/tab-separated-values") {
+      delim = "\t";
     }
+
+    if (delim === "") {
+      // JSON not supported yet...
+      const arr = Object.values(text);
+      console.log(arr);
+    } else {
+      for (let i = 0; i < allTextLines.length; i++) {
+        let data = allTextLines[i].split(delim);
+        let tarr = [];
+
+        for (let j = 0; j < data.length; j++) {
+          tarr.push(data[j]);
+        }
+        lines.push(tarr);
+      }
+    }
+
     this.previewTable(lines);
   }
 
