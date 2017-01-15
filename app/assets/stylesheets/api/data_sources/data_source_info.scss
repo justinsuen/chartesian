@@ -35,6 +35,8 @@
       -ms-flex: 1;
           flex: 1;
 
+  box-sizing: border-box;
+
   .button {
     height: 50px;
     padding: 15px;

@@ -117,7 +117,7 @@ class DataSourceForm extends React.Component {
                 className="data-input">
                 <option value="csv">CSV</option>
                 <option value="tsv">TSV</option>
-                <option value="json">JSON</option>
+                <option value="json" disabled>JSON</option>
               </select>
             </label>
           </div>
