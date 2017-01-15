@@ -7,6 +7,3 @@ export const toTitleCase = str => {
     });
   return upStr.replace(/-/g, " ");
 };
-
-export const parseCSV = (file, row, col) => {
-};

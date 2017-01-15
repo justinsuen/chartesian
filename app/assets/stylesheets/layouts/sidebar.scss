@@ -64,7 +64,7 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-orient: horizontal;
-    -webkit-flex-direction: column;
+    -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
     -webkit-flex-align: center;
@@ -98,7 +98,7 @@
 
     display: flex;
     -webkit-flex-orient: horizontal;
-    -webkit-flex-direction: column;
+    -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
     -webkit-flex-align: center;
