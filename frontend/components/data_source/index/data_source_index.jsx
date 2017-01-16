@@ -7,7 +7,6 @@ class DataSourceIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchDataSources();
-    debugger;
   }
 
   render() {
@@ -15,6 +14,15 @@ class DataSourceIndex extends React.Component {
     return (
       <div className="data-source-index-container">
         <h2>Manage Data Sources</h2>
+        <ul className="data-list">
+          { this.props.dataSources.map((dataSource, idx) =>
+            <DataItem
+              key={idx}
+              dataSource={dataSource}
+              deleteTodo={ this.props.deleteDataSource }
+              />
+          )}
+        </ul>
       </div>
     );
   }
