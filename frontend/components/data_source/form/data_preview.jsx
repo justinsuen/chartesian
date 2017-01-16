@@ -3,14 +3,13 @@ import React from 'react';
 class DataPreview extends React.Component {
   constructor(props) {
     super(props);
-    this.readFile = this.readFile.bind(this);
     this.processFile = this.processFile.bind(this);
+    this.updateCount = 0;
   }
 
-  readFile(file) {
-    if ($('#data-preview').is(':empty')){
-      this.processFile(this.props.reader.result, file.type);
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    this.updateCount++;
+    return this.updateCount === 1;
   }
 
   processFile(text, type) {
@@ -78,7 +77,7 @@ class DataPreview extends React.Component {
       <div className="data-preview-container">
         <h3>Data Preview</h3>
         <div id="data-preview" className="data-preview">
-          {this.readFile(this.props.file)}
+          {this.processFile(this.props.reader.result, this.props.file.type)}
         </div>
       </div>
     );
