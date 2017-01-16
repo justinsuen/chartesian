@@ -38,9 +38,22 @@
 
 .table {
   color: white;
+  min-width: 100%;
+
+  td {
+    padding: 10px;
+  }
 
   thead {
     background-color: $primary-color;
+
+    td {
+      padding: 15px 10px;
+    }
+  }
+
+  tbody > tr:nth-child(odd) {
+    background-color: $primary-color-lighter;
   }
 
   tbody > tr:nth-child(even) {

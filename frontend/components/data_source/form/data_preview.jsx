@@ -38,7 +38,9 @@ class DataPreview extends React.Component {
       const arr = Object.values(text);
       console.log(arr);
     } else {
-      for (let i = 0; i < allTextLines.length; i++) {
+      const maxRow = Math.min(100, allTextLines.length);
+
+      for (let i = 0; i < maxRow; i++) {
         let data = allTextLines[i].split(delim);
         let tarr = [];
 
