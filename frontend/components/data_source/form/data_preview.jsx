@@ -10,7 +10,7 @@ class DataPreview extends React.Component {
   }
 
   readFile(file) {
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = this.loadHandler(file.type);
     reader.readAsText(file);
   }
@@ -23,8 +23,7 @@ class DataPreview extends React.Component {
   }
 
   processFile(text, type) {
-    const allTextLines = text.split(/\r\n|\n/);
-    let lines = [];
+    let table = [];
     let delim = "";
 
     if (type === "text/csv") {
@@ -34,24 +33,36 @@ class DataPreview extends React.Component {
     }
 
     if (delim === "") {
-      // JSON not supported yet...
-      const arr = Object.values(text);
-      console.log(arr);
+      const jsonText = JSON.parse(text);
+      const maxRow = Math.min(100, jsonText.length);
+      const headers = Object.keys(jsonText[0]);
+      table.push(headers);
+
+      for (let i = 0; i < maxRow; i++) {
+        let currLine = jsonText[i];
+        let rowData = [];
+
+        for (let j = 0; j < headers.length; j++) {
+          rowData.push(currLine[headers[j]]);
+        }
+        table.push(rowData);
+      }
     } else {
+      const allTextLines = text.split(/\r\n|\n/);
       const maxRow = Math.min(100, allTextLines.length);
 
       for (let i = 0; i < maxRow; i++) {
-        let data = allTextLines[i].split(delim);
-        let tarr = [];
+        let currLine = allTextLines[i].split(delim);
+        let rowData = [];
 
-        for (let j = 0; j < data.length; j++) {
-          tarr.push(data[j]);
+        for (let j = 0; j < currLine.length; j++) {
+          rowData.push(currLine[j]);
         }
-        lines.push(tarr);
+        table.push(rowData);
       }
     }
 
-    this.previewTable(lines);
+    this.previewTable(table);
   }
 
   previewTable(lines) {

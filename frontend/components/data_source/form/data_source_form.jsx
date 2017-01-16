@@ -17,10 +17,12 @@ class DataSourceForm extends React.Component {
       title: "",
       data_type: "csv",
       owner_id: this.props.currentUser.id,
-      data_source_url: ""
+      data_source_url: "",
+      table: []
     };
 
     this.onDrop = this.onDrop.bind(this);
+    this.processFile = this.processFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,14 +33,53 @@ class DataSourceForm extends React.Component {
         uploadedFile: files[0],
         data_source_url: "file_dropped"
       });
+      this.loadTable(files[0]);
     } else {
       console.log("Not supported!");
       files = [];
     }
   }
 
-  update(field) {
-    return e => this.setState({[field]: e.currentTarget.value});
+  loadTable(file) {
+    let reader = new FileReader();
+    reader.onload = this.loadHandler(file.type);
+    reader.readAsText(file);
+  }
+
+  loadHandler(type) {
+    return e => {
+      const text = e.target.result;
+      this.processFile(text, type);
+    };
+  }
+
+  processFile(text, type) {
+    const allTextLines = text.split(/\r\n|\n/);
+    let table = [];
+    let delim = "";
+
+    if (type === "text/csv") {
+      delim = ",";
+    } else if (type === "text/tab-separated-values") {
+      delim = "\t";
+    }
+
+    if (delim === "") {
+      table.push(JSON.parse(text));
+    } else {
+      const headers = allTextLines[0].split(delim);
+
+      for (let i = 1; i < allTextLines.length; i++) {
+        let currLine = allTextLines[i].split(delim);
+        let rowData = {};
+
+        for (let j = 0; j < currLine.length; j++) {
+          rowData[headers[j]] = currLine[j];
+        }
+        table.push(rowData);
+      }
+    }
+    this.setState({table});
   }
 
   handleUpload(file) {
@@ -56,8 +97,8 @@ class DataSourceForm extends React.Component {
           data_source_url: response.body.secure_url
         });
 
-        const {title, data_type, owner_id, data_source_url} = this.state;
-        this.props.createDataSource({title, data_type, owner_id, data_source_url});
+        const {title, data_type, owner_id, data_source_url, table} = this.state;
+        this.props.createDataSource({title, data_type, owner_id, data_source_url, table});
         hashHistory.push("/data_sources");
       }
     });
@@ -117,7 +158,7 @@ class DataSourceForm extends React.Component {
                 className="data-input">
                 <option value="csv">CSV</option>
                 <option value="tsv">TSV</option>
-                <option value="json" disabled>JSON</option>
+                <option value="json">JSON</option>
               </select>
             </label>
           </div>

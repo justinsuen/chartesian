@@ -9,6 +9,7 @@
 #  data_source_url :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  table           :jsonb            default("\"[]\""), not null
 #
 
 require 'test_helper'

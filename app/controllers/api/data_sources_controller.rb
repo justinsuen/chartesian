@@ -28,6 +28,6 @@ class Api::DataSourcesController < ApplicationController
   def data_params
     params
       .require(:data_source)
-      .permit(:title, :data_type, :owner_id, :data_source_url)
+      .permit!
   end
 end
