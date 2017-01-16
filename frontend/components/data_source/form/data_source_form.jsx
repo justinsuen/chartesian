@@ -40,14 +40,16 @@ class DataSourceForm extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.reader = new FileReader();
+  }
+
   loadTable(file) {
-    let reader = new FileReader();
-    reader.onload = e => {
-      console.log("This fired!");
+    this.reader.onload = e => {
       const text = e.target.result;
       this.processFile(text, file.type);
     };
-    reader.readAsText(file);
+    this.reader.readAsText(file);
   }
 
   processFile(text, type) {
@@ -177,7 +179,7 @@ class DataSourceForm extends React.Component {
     if (this.state.uploadedFile !== undefined) {
       $(".data-dropzone-container").hide();
       return(
-        <DataPreview file={this.state.uploadedFile} />
+        <DataPreview file={this.state.uploadedFile} reader={this.reader} />
       );
     }
   }

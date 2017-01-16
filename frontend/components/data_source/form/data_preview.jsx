@@ -8,14 +8,9 @@ class DataPreview extends React.Component {
   }
 
   readFile(file) {
-    let reader = new FileReader();
-    reader.onload = e => {
-      const text = e.target.result;
-      if ($('#data-preview').is(':empty')){
-        this.processFile(text, file.type);
-      }
-    };
-    reader.readAsText(file);
+    if ($('#data-preview').is(':empty')){
+      this.processFile(this.props.reader.result, file.type);
+    }
   }
 
   processFile(text, type) {
