@@ -44,6 +44,7 @@ class DataSourceForm extends React.Component {
   loadTable(file) {
     let reader = new FileReader();
     reader.onload = e => {
+      console.log("This fired!");
       const text = e.target.result;
       this.processFile(text, file.type);
     };
