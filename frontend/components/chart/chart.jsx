@@ -1,18 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
-class DataSource extends React.Component {
+class Chart extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="data-source-container">
+      <div className="chart-container">
         {this.props.children}
       </div>
     );
   }
 }
 
-export default withRouter(DataSource);
+export default withRouter(Chart);
