@@ -34,11 +34,13 @@ export const fetchDataSource = id => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const fetchDataSources = () => dispatch => (
+export const fetchDataSources = () => dispatch => {
+  return(
   APIUtil.fetchDataSources()
     .then(response => dispatch(receiveDataSources(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
-);
+    );
+};
 
 export const deleteDataSource = id => dispatch => (
   APIUtil.fetchDataSource(id)

@@ -6,8 +6,8 @@ import {
 import merge from 'lodash/merge';
 
 const _nullDataSource = Object.freeze({
-  dataSource: null,
-  dataSources: null,
+  dataSource: {},
+  dataSources: {},
   errors: []
 });
 
@@ -17,11 +17,14 @@ const DataSourceReducer = (state = _nullDataSource, action) => {
   switch(action.type) {
     case RECEIVE_DATA_SOURCES:
       const dataSources = action.dataSources;
+      return merge({}, _nullDataSource, { dataSources });
     case RECEIVE_DATA_SOURCE:
       const dataSource = action.dataSource;
-      return merge({}, _nullDataSource, { dataSource });
+      return merge({}, state, { dataSource });
     case REMOVE_DATA_SOURCE:
-      return merge({}, _nullDataSource);
+      let oldState = merge({}, state);
+      delete oldState.dataSource[action.dataSource.id];
+      return oldState;
     case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, _nullDataSource, { errors });

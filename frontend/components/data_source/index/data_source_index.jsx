@@ -1,4 +1,5 @@
 import React from 'react';
+import DataItem from './data_item';
 
 class DataSourceIndex extends React.Component {
   constructor(props) {
@@ -10,11 +11,10 @@ class DataSourceIndex extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className="data-source-index-container">
         <h2>Manage Data Sources</h2>
-        <ul className="data-list">
+        <ul className="data-item-list">
           { this.props.dataSources.map((dataSource, idx) =>
             <DataItem
               key={idx}

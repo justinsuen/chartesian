@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { deleteDataSource, fetchDataSources } from '../../../actions/data_source_actions';
-import { allDataSources } from '../../reducers/selectors';
+import { allDataSources } from '../../../reducers/selectors';
 import DataSourceIndex from './data_source_index.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
-  dataSources: allDataSources(state),
+  dataSources: allDataSources(state.dataSource),
   errors: state.errors
 });
 
