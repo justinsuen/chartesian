@@ -35,3 +35,44 @@
       -ms-flex: 1;
           flex: 1;
 }
+
+.table-container {
+  margin-top: 30px;
+}
+
+.index-table {
+  cursor: pointer;
+}
+
+.table {
+  color: white;
+  min-width: 100%;
+  font-weight: 300;
+
+  td {
+    padding: 10px;
+  }
+
+  thead {
+    background-color: $primary-color;
+    font-weight: 400;
+    cursor: default;
+
+    td {
+      padding: 15px 10px;
+    }
+  }
+
+  tbody > tr:hover td {
+    background-color: $accent-color-light;
+    color: $secondary-text-color;
+  }
+
+  tbody > tr:nth-child(odd) {
+    background-color: $primary-color-lighter;
+  }
+
+  tbody > tr:nth-child(even) {
+    background-color: $primary-color-light;
+  }
+}

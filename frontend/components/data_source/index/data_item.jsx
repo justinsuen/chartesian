@@ -9,9 +9,11 @@ class DataItem extends React.Component {
     let dataSource = this.props.dataSource;
 
     return (
-      <li className="data-item">
-        <p>Things go here.</p>
-      </li>
+      <tr className="data-item">
+        <td>{dataSource.id}</td>
+        <td>{dataSource.title}</td>
+        <td>{dataSource.data_type}</td>
+      </tr>
     );
   }
 }

@@ -29,7 +29,6 @@ class DataSourceForm extends React.Component {
 
   onDrop(files) {
     if (files[0] !== undefined) {
-      console.log('Drag and drop success');
       this.setState({
         uploadedFile: files[0],
         data_source_url: "file_dropped"
@@ -132,6 +131,7 @@ class DataSourceForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    $('.button').attr('disabled','disabled');
     this.handleUpload(this.state.uploadedFile);
   }
 
@@ -141,7 +141,7 @@ class DataSourceForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} className="data-info-form-container">
         <h3>Data Source Information</h3>
-        <div className="data-info-form">
+        <div id="data-form" className="data-info-form">
           <div className="data-info-fields">
             <label>
               Title{'\u00A0'}
