@@ -57,12 +57,15 @@ class DataSourceForm extends React.Component {
     let delim = "";
 
     if (type === "text/csv") {
+      this.setState({data_type: "csv"});
       delim = ",";
     } else if (type === "text/tab-separated-values") {
+      this.setState({data_type: "tsv"});
       delim = "\t";
     }
 
     if (delim === "") {
+      this.setState({data_type: "json"});
       table.push(JSON.parse(text));
     } else {
       const headers = allTextLines[0].split(delim);
