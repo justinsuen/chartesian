@@ -1,25 +1,19 @@
 import React from 'react';
-import {parseCSV} from '../../../util/util_func';
 
 class DataPreview extends React.Component {
   constructor(props) {
     super(props);
     this.readFile = this.readFile.bind(this);
-    this.loadHandler = this.loadHandler.bind(this);
     this.processFile = this.processFile.bind(this);
   }
 
   readFile(file) {
     let reader = new FileReader();
-    reader.onload = this.loadHandler(file.type);
-    reader.readAsText(file);
-  }
-
-  loadHandler(type) {
-    return e => {
+    reader.onload = e => {
       const text = e.target.result;
-      this.processFile(text, type);
+      this.processFile(text, file.type);
     };
+    reader.readAsText(file);
   }
 
   processFile(text, type) {
@@ -65,15 +59,15 @@ class DataPreview extends React.Component {
     this.previewTable(table);
   }
 
-  previewTable(lines) {
+  previewTable(table) {
     let html = '<table class="table">';
     let count = 0;
-    const totalCols = lines[0].length;
+    const totalCols = table[0].length;
 
-    for (let i = 0; i < lines.length; i++) {
+    for (let i = 0; i < table.length; i++) {
       html += ((i === 0) ? '<thead>' : '<tr>');
       for (let j = 0; j < totalCols; j++) {
-        html += '<td>' + lines[i][j] + '</td>';
+        html += '<td>' + table[i][j] + '</td>';
       }
       html += ((i === 0) ? '</thead>' : '</tr>');
     }

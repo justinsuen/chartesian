@@ -22,6 +22,7 @@ class DataSourceForm extends React.Component {
     };
 
     this.onDrop = this.onDrop.bind(this);
+    this.loadTable = this.loadTable.bind(this);
     this.processFile = this.processFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,15 +43,11 @@ class DataSourceForm extends React.Component {
 
   loadTable(file) {
     let reader = new FileReader();
-    reader.onload = this.loadHandler(file.type);
-    reader.readAsText(file);
-  }
-
-  loadHandler(type) {
-    return e => {
+    reader.onload = e => {
       const text = e.target.result;
-      this.processFile(text, type);
+      this.processFile(text, file.type);
     };
+    reader.readAsText(file);
   }
 
   processFile(text, type) {
