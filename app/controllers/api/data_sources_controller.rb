@@ -1,4 +1,8 @@
 class Api::DataSourcesController < ApplicationController
+  before_action only: [:index, :show, :create, :destroy] do
+    render json: ['Not logged in'], status: 403 unless current_user
+  end
+
   def index
     @data_sources = current_user.data_sources
   end
@@ -7,7 +11,7 @@ class Api::DataSourcesController < ApplicationController
     @data_source = DataSource.new(data_params)
 
     if @data_source.save
-      render "api/data_sources/show"
+      render 'api/data_sources/show'
     else
       render json: @data_source.errors.full_messages, status: 422
     end

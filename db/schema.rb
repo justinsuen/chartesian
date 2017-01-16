@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170116194443) do
   create_table "charts", force: :cascade do |t|
     t.string   "title",          null: false
     t.string   "chart_type",     null: false
+    t.jsonb    "chart_json",     null: false
     t.jsonb    "x_axes",         null: false
     t.jsonb    "y_axes",         null: false
     t.string   "chartable_type", null: false

@@ -3,6 +3,7 @@ class CreateCharts < ActiveRecord::Migration[5.0]
     create_table :charts do |t|
       t.string :title, null: false
       t.string :chart_type, null: false
+      t.jsonb :chart_json, null: false
       t.jsonb :x_axes, null: false
       t.jsonb :y_axes, null: false
       t.references :chartable, null: false, polymorphic: true
