@@ -10,6 +10,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  table           :jsonb            default("\"[]\""), not null
+#  chartable_type  :string
+#  chartable_id    :integer
 #
 
 class DataSource < ApplicationRecord
@@ -17,4 +19,6 @@ class DataSource < ApplicationRecord
 
   belongs_to :user,
     foreign_key: :owner_id
+
+  has_many :charts, as: :chartable
 end

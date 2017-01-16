@@ -10,6 +10,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  table           :jsonb            default("\"[]\""), not null
+#  chartable_type  :string
+#  chartable_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

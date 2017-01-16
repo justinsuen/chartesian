@@ -10,6 +10,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  demo            :boolean          default("false")
+#  chartable_type  :string
+#  chartable_id    :integer
 #
 
 class User < ApplicationRecord
@@ -25,6 +27,8 @@ class User < ApplicationRecord
 
   has_many :data_sources,
     foreign_key: :owner_id
+
+  has_many :charts, as: :chartable
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
