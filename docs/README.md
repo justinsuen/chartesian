@@ -29,11 +29,11 @@ sufficient CSS styling:
 
 - [x] Hosting on Heroku
 - [x] New account creation and login
-- [ ] Guest/demo account
+- [x] Guest/demo account
 - [ ] Upload data and visualize it with a variety of charts
 - [ ] Logged in users can persist their data
 - [ ] Share charts with other users
-- [ ] Supports JSON, TSV, and CSV formats
+- [x] Supports JSON, TSV, and CSV formats
 - [ ] [Production README](docs/production_readme.md)
 
 ## Implementation Timeline
@@ -42,10 +42,10 @@ sufficient CSS styling:
 
 **Objective:** Working authentication for both front and backend. Users created are persisted in database.
 
-- [ ] Functional
+- [x] Functional
   - [x] Sign up
   - [x] Sign In
-  - [ ] Demo
+  - [x] Demo
 - [ ] Visual
   - [ ] Splash page
   - [x] Pick font and color
@@ -54,12 +54,12 @@ sufficient CSS styling:
 
 **Objective:** Data can be uploaded for users and data will be persisted in database.
 
-- [ ] Functional
-  - [ ] Store data with user in database
-  - [ ] Support JSON, TSV, CSV
-  - [ ] Create usable and query-able states
-- [ ] Visual
-  - [ ] Upload form
+- [x] Functional
+  - [x] Store data with user in database
+  - [x] Support JSON, TSV, CSV
+  - [x] Create usable and query-able states
+- [x] Visual
+  - [x] Upload form
 
 ### Phase 3: Charts Model, API, and components (3 days)
 
