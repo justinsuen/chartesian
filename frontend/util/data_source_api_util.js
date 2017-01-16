@@ -1,5 +1,3 @@
-import { receiveDataSource, receiveDataSources, receiveErrors } from '../actions/session_actions';
-
 export const fetchDataSource = id => (
   $.ajax({
     method: "GET",

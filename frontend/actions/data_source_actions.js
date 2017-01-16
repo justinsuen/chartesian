@@ -43,7 +43,7 @@ export const fetchDataSources = () => dispatch => {
 };
 
 export const deleteDataSource = id => dispatch => (
-  APIUtil.fetchDataSource(id)
+  APIUtil.deleteDataSource(id)
     .then(response => dispatch(removeDataSource(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );
