@@ -7,6 +7,7 @@
 
 .chart-source-menu {
   width: 100%;
+  position: relative;
 
   .current-chart-source p {
     padding: 10px;
@@ -14,8 +15,12 @@
   }
 }
 
-.dropdown-content {
+.dropdown-content.chart-source-list-wrap {
   display: none;
+  position: absolute;
+  width: 100%;
+  height: 300%;
+  overflow-y: scroll;
 
   .chart-source-menu-content {
     background-color: $primary-color-light;

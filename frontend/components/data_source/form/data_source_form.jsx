@@ -67,7 +67,7 @@ class DataSourceForm extends React.Component {
 
     if (delim === "") {
       this.setState({data_type: "json"});
-      table.push(JSON.parse(text));
+      table = JSON.parse(text);
     } else {
       const headers = allTextLines[0].split(delim);
 
