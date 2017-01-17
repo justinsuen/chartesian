@@ -36,7 +36,7 @@ class Header extends React.Component {
     return (
       <Dropdown className="user-menu">
         <DropdownTrigger className="user-menu-icon">
-          <i className="fa fa-user-circle-o"></i>
+          <i className="fa fa-user-circle-o trigger"></i>
         </DropdownTrigger>
         <DropdownContent className="user-menu-content-wrap">
           <div className="user-menu-content">

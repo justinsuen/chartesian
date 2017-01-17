@@ -46,7 +46,8 @@ class Dropdown extends React.Component {
 
   handleOutsideClick(e) {
     const dropdown = findDOMNode(this.refs.dropdown);
-    if (e.target !== dropdown && !dropdown.contains(e.target) && this.isActive()) {
+    if ((e.target !== dropdown && !dropdown.contains(e.target) && this.isActive())
+        || !e.target.className.includes("trigger")) {
       this.hide();
     }
   }

@@ -13,12 +13,13 @@
 
 .dropdown-content {
   display: none;
-  position: absolute;
-  right: 15px;
-  min-width: 200px;
-  background-color: $primary-color-dark;
 
   .user-menu-content {
+    position: absolute;
+    right: 15px;
+    min-width: 200px;
+    background-color: $primary-color-dark;
+
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -78,10 +79,9 @@
 
 .dropdown-active .dropdown-content {
   display: block;
-  box-shadow: $mid-shadows;
 }
 
-.dropdown-content:after {
+.user-menu-content:after {
   bottom: 100%;
   right: 0;
   border: solid transparent;

@@ -4,3 +4,44 @@
   width: 40%;
   margin-right: 10px;
 }
+
+.chart-source-menu {
+  width: 100%;
+
+  .current-chart-source p {
+    padding: 10px;
+    border-bottom: solid 1px $divider-color;
+  }
+}
+
+.dropdown-content {
+  display: none;
+
+  .chart-source-menu-content {
+    background-color: $primary-color-light;
+
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .chart-source-menu-list li {
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .chart-source-menu-list li:nth-child(even) {
+    background-color: $primary-color-lighter
+  }
+
+  .chart-source-menu-list li:hover {
+    background-color: $accent-color-light;
+  }
+}
