@@ -65,7 +65,9 @@ class Dropdown extends React.Component {
     const {children, className} = this.props;
     const active = this.isActive();
     let dropdownClasses = cx({dropdown: true, 'dropdown-active': active});
-    dropdownClasses += ' ' + className;
+    if (className !== undefined) {
+      dropdownClasses += ' ' + className;
+    }
 
     const boundChildren = React.Children.map(children, child => {
       if (child.type === DropdownTrigger) {

@@ -4,7 +4,11 @@ import { merge } from 'lodash';
 class DropdownContent extends React.Component {
   render () {
     const { children, className } = this.props;
-    const props = merge({}, this.props, {className: `dropdown-content ${className}`});
+    let dropdownClasses = 'dropdown-content';
+    if (className !== undefined) {
+      dropdownClasses += ' ' + className;
+    }
+    const props = merge({}, this.props, {className: `${dropdownClasses}`});
 
     return (
       <div {...props}>
