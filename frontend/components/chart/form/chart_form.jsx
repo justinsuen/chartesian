@@ -1,9 +1,16 @@
 import React from 'react';
+import {merge} from 'lodash';
 
 // Dropdown menu
 import Dropdown from '../../dropdown/dropdown';
 import DropdownTrigger from '../../dropdown/dropdown_trigger';
 import DropdownContent from '../../dropdown/dropdown_content';
+
+// Drag drop
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import ChartFormAttr from './chart_form_attr';
+import ChartFormDropzone from './chart_form_dropzone';
 
 class ChartForm extends React.Component {
   constructor(props) {
@@ -11,7 +18,10 @@ class ChartForm extends React.Component {
     this.state = {
       currentSource: "Select a source",
       sourceBool: false,
-      sourceIndex: null
+      sourceIndex: null,
+      sourceTable: null,
+      xAxis: [],
+      yAxis: []
     };
 
     this.handleChooseSource = this.handleChooseSource.bind(this);
@@ -28,8 +38,15 @@ class ChartForm extends React.Component {
 
     this.setState({currentSource: e.target.textContent,
       sourceBool: true,
-      sourceIndex: idx
+      sourceIndex: idx,
+      sourceTable: this.props.dataSources[idx].table[0]
     });
+  }
+
+  handleDrop(idx, item) {
+    let newState = merge({}, this.state);
+    (idx === 0) ? newState.xAxis.push(item) : newState.yAxis.push(item);
+    this.setState(newState);
   }
 
   renderDropdown() {
@@ -57,29 +74,32 @@ class ChartForm extends React.Component {
 
   renderAttributes() {
     if (this.state.sourceBool) {
-      let {dataSources} = this.props;
-      let {sourceIndex} = this.state;
-      let dsTableObj = dataSources[sourceIndex].table[0];
-
       return(
-        <ul>
-          {Object.keys(dsTableObj).map((row, idx) => (
-            <li key={idx}>{row}</li>
+        <div>
+          {Object.keys(this.state.sourceTable).map((row, idx) => (
+            <ChartFormAttr key={idx} attr={row}/>
           ))}
-        </ul>
+        </div>
       );
     }
   }
 
   render() {
+    debugger;
     return (
       <div className="chart-form-container">
         {this.renderDropdown()}
         <h3>Attributes</h3>
         {this.renderAttributes()}
+        <ChartFormDropzone zoneId="x"
+          onDrop={item => this.handleDrop(0, item)}
+          items={this.state.xAxis}/>
+        <ChartFormDropzone zoneId="y"
+          onDrop={item => this.handleDrop(1, item)}
+          items={this.state.yAxis}/>
       </div>
     );
   }
 }
 
-export default ChartForm;
+export default DragDropContext(HTML5Backend)(ChartForm);
