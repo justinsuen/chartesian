@@ -1,7 +1,5 @@
 import React from 'react';
-import {LineChart, BarChart, PieChart} from 'react-d3-basic';
-import {Chart} from 'react-d3-core';
-import * as d3 from 'd3';
+import {VictoryScatter} from 'victory';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -22,36 +20,33 @@ class ChartPreview extends React.Component {
     }
   }
 
+  getDesiredData(chartData) {
+    let desiredData = [];
+
+    for (let i = 0; i < chartData.length; i++) {
+      let xAxis = this.props.xAxes[0][1];
+      let yAxis = this.props.yAxes[0][1];
+      let datum = chartData[i];
+      let row = {};
+      row[xAxis] = datum[xAxis];
+      row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
+      desiredData.push(row);
+    }
+
+    return desiredData;
+  }
+
   renderChart() {
     if (this.props.dataSource.table) {
       const chartData = Object.values(this.props.dataSource.table);
-      const chartSeries = [{
-        field: 'Salary',
-        name: 'Salary'
-      }];
-      const title = "Things";
-      const width = 700;
-      const height = 300;
-      const x = d => d.Age;
-      const xDomain = chartData.map(d => Number(d.Age));
-      const y = d => Number(d);
-      const yDomain = chartData.map(d => Number(d.Salary.replace(/[^0-9\.]+/g,"")));
+      const desiredData = this.getDesiredData(chartData);
 
       return(
-        <Chart
-          title={title}
-          width={width}
-          height={height}
-          >
-          <BarChart
-            data={chartData}
-            chartSeries={chartSeries}
-            xScale='linear'
-            x={x}
-            yScale='linear'
-            y={y}
-            />
-        </Chart>
+        <VictoryScatter
+          data={desiredData}
+          x={`${this.props.xAxes[0][1]}`}
+          y={`${this.props.yAxes[0][1]}`}
+        />
       );
     } else {
       return(<h1>Not available!</h1>);
