@@ -3,7 +3,9 @@ import { DragSource } from 'react-dnd';
 
 const attrSource = {
   beginDrag(props) {
-    return {};
+    return {
+      attr: props.attr
+    };
   }
 };
 

@@ -45,7 +45,7 @@ class ChartForm extends React.Component {
 
   handleDrop(idx, item) {
     let newState = merge({}, this.state);
-    (idx === 0) ? newState.xAxis.push(item) : newState.yAxis.push(item);
+    (idx === 0) ? newState.xAxis.push(item.attr) : newState.yAxis.push(item.attr);
     this.setState(newState);
   }
 

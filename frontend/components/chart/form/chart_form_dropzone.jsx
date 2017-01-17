@@ -27,17 +27,18 @@ class ChartFormDropzone extends Component {
     const { connectDropTarget, isOver, items } = this.props;
 
     return connectDropTarget(
-      <div className="chart-form-dropzone">
+      <div className="chart-form-dropzone" style={{position: 'relative'}}>
         {this.buildItems(items)}
         {isOver &&
           <div style={{
+            position: 'absolute',
             top: 0,
             left: 0,
             height: '100%',
             width: '100%',
-            zIndex: 10,
+            zIndex: 1,
             opacity: 0.5,
-            backgroundColor: 'yellow',
+            backgroundColor: 'white',
           }} />
         }
       </div>
