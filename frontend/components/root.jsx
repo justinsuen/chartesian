@@ -12,6 +12,8 @@ import DataSourceContainer from './data_source/data_source_container';
 import DataSourceIndexContainer from './data_source/index/data_source_index_container';
 import DataSourceFormContainer from './data_source/form/data_source_form_container';
 import ChartContainer from './chart/chart_container';
+import ChartIndexContainer from './chart/index/chart_index_container';
+import ChartBuildContainer from './chart/build/chart_build_container';
 
 class Root extends React.Component {
   constructor(props) {
@@ -47,7 +49,10 @@ class Root extends React.Component {
               <IndexRoute component={DataSourceIndexContainer} onEnter={this._ensureLoggedIn}/>
               <Route path="new" component={DataSourceFormContainer} onEnter={this._ensureLoggedIn}/>
             </Route>
-            <Route path="charts" component={ChartContainer}/>
+            <Route path="charts" component={ChartContainer}>
+              <IndexRoute component={ChartIndexContainer} onEnter={this._ensureLoggedIn}/>
+              <Route path="new" component={ChartBuildContainer} onEnter={this._ensureLoggedIn}/>
+            </Route>
           </Route>
         </Router>
       </Provider>

@@ -15,7 +15,6 @@ class Sidebar extends React.Component {
 
   render() {
     const types = ["dashboard", "chart", "data-source", "share"];
-
     if (this.props.currentUser) {
       return (
         <div className="sidebar">

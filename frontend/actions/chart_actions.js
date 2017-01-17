@@ -8,18 +8,18 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 // sync functions
 export const receiveChart = chart => ({
   type: RECEIVE_CHART,
-  dataSource: chart
+  chart
 });
 
 export const receiveCharts = charts => {
   return {
   type: RECEIVE_CHARTS,
-  dataSources: charts
+  charts
 };};
 
 export const removeChart = chart => ({
   type: REMOVE_CHART,
-  dataSource: chart
+  chart
 });
 
 export const receiveErrors = errors => ({
@@ -48,8 +48,8 @@ export const deleteChart = id => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const createChart = dataSource => dispatch => (
-  APIUtil.createChart(dataSource)
+export const createChart = chart => dispatch => (
+  APIUtil.createChart(chart)
     .then(response => dispatch(receiveChart(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );

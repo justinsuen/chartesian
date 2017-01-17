@@ -5,3 +5,11 @@ export const allDataSources = ({ dataSources }) => {
   });
   return dsArray;
 };
+
+export const allCharts = ({ charts }) => {
+  let chart_ids = Object.keys(charts);
+  let chartArray = chart_ids.map((id) => {
+    return charts[id];
+  });
+  return chartArray;
+};
