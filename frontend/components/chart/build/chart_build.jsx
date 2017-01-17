@@ -7,23 +7,25 @@ class ChartBuild extends React.Component {
     super(props);
 
     this.state = {
-      xAxis: [],
-      yAxis: []
+      xAxes: [],
+      yAxes: []
     };
 
     this.updateAxes = this.updateAxes.bind(this);
   }
 
-  updateAxes(xAxis, yAxis) {
-    this.setState({xAxis, yAxis});
+  updateAxes(xAxes, yAxes) {
+    this.setState({xAxes, yAxes});
   }
 
   render() {
     debugger;
+    let {xAxes, yAxes} = this.state;
+
     return (
       <div className="chart-build-container">
-        <ChartFormContainer updateAxes={this.updateAxes}/>
-        <ChartPreview updateAxes={this.updateAxes}/>
+        <ChartFormContainer xAxes={xAxes} yAxes={yAxes} updateAxes={this.updateAxes}/>
+        <ChartPreview xAxes={xAxes} yAxes={yAxes} updateAxes={this.updateAxes}/>
       </div>
     );
   }

@@ -18,7 +18,9 @@ class ChartFormDropzone extends Component {
   buildItems(items) {
     return (
       <ul>
-        {items.map((item, idx) => <li key={idx}>{item}</li>)}
+        {items.map((item, idx) =>
+          <li key={idx}>{`${item[0]} - ${item[1]}`}</li>
+        )}
       </ul>
     );
   }

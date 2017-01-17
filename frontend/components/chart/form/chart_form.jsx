@@ -20,20 +20,16 @@ class ChartForm extends React.Component {
       sourceBool: false,
       sourceIndex: null,
       sourceTable: null,
-      xAxis: [],
-      yAxis: []
+      xAxes: this.props.xAxes,
+      yAxes: this.props.yAxes
     };
 
     this.handleChooseSource = this.handleChooseSource.bind(this);
+    this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchDataSources();
-  }
-
-  componentDidUpdate() {
-    let {xAxis, yAxis} = this.state;
-    this.props.updateAxes(xAxis, yAxis);
   }
 
   handleChooseSource(e) {
@@ -49,8 +45,11 @@ class ChartForm extends React.Component {
   }
 
   handleDrop(idx, item) {
+    let {sourceIndex} = this.state;
     let newState = merge({}, this.state);
-    (idx === 0) ? newState.xAxis.push(item.attr) : newState.yAxis.push(item.attr);
+    (idx === 0) ?
+      newState.xAxes.push([sourceIndex, item.attr]) :
+      newState.yAxes.push([sourceIndex, item.attr]);
     this.setState(newState);
   }
 
@@ -89,6 +88,13 @@ class ChartForm extends React.Component {
     }
   }
 
+  handleSave(e) {
+    e.preventDefault();
+
+    let {xAxes, yAxes} = this.state;
+    this.props.updateAxes(xAxes, yAxes);
+  }
+
   render() {
     return (
       <div className="chart-form-container">
@@ -97,10 +103,11 @@ class ChartForm extends React.Component {
         {this.renderAttributes()}
         <ChartFormDropzone zoneId="x"
           onDrop={item => this.handleDrop(0, item)}
-          items={this.state.xAxis}/>
+          items={this.state.xAxes}/>
         <ChartFormDropzone zoneId="y"
           onDrop={item => this.handleDrop(1, item)}
-          items={this.state.yAxis}/>
+          items={this.state.yAxes}/>
+        <button onClick={this.handleSave}>Preview Chart</button>
       </div>
     );
   }
