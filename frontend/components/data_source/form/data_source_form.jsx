@@ -117,6 +117,8 @@ class DataSourceForm extends React.Component {
           accept={acceptedTypes}
           onDrop={this.onDrop}>
           <p>Drag and drop a file here, or click to select files to upload.</p>
+          <br/>
+          <p>Supported formats: .csv, .tsv, .json</p>
         </Dropzone>
       </div>
     );

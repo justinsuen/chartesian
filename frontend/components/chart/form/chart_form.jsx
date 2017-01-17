@@ -39,7 +39,7 @@ class ChartForm extends React.Component {
 
     this.setState({currentSource: e.target.textContent,
       sourceBool: true,
-      sourceIndex: idx,
+      sourceIndex: idx+1,
       sourceTable: this.props.dataSources[idx].table[0]
     });
   }
@@ -63,7 +63,7 @@ class ChartForm extends React.Component {
           <div className="chart-source-menu-content">
             <ul className="chart-source-menu-list">
               {this.props.dataSources.map((src, idx) => (
-                <li key={idx}
+                <li key={idx+1}
                   className="chart-source-menu-item"
                   onClick={this.handleChooseSource}>
                   <p>{src.title}</p>
@@ -81,7 +81,7 @@ class ChartForm extends React.Component {
       return(
         <div>
           {Object.keys(this.state.sourceTable).map((row, idx) => (
-            <ChartFormAttr key={idx} attr={row}/>
+            <ChartFormAttr key={idx+1} attr={row}/>
           ))}
         </div>
       );

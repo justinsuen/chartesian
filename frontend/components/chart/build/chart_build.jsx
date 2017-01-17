@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartFormContainer from '../form/chart_form_container';
-import ChartPreview from '../preview/chart_preview_container';
+import ChartPreviewContainer from '../preview/chart_preview_container';
 
 class ChartBuild extends React.Component {
   constructor(props) {
