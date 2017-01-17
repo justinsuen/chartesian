@@ -25,15 +25,17 @@ class ChartPreview extends React.Component {
   renderChart() {
     if (this.props.dataSource.table) {
       const chartData = Object.values(this.props.dataSource.table);
+      const chartSeries = [{
+        field: 'Salary',
+        name: 'Salary'
+      }];
       const title = "Things";
       const width = 700;
       const height = 300;
-      debugger;
       const x = d => d.Age;
-      const xDomain = chartData.map(d => d.Age);
+      const xDomain = chartData.map(d => Number(d.Age));
       const y = d => Number(d);
-      const yDomain = [0, Number(d3.max(chartData, d => d.Salary))];
-
+      const yDomain = chartData.map(d => Number(d.Salary.replace(/[^0-9\.]+/g,"")));
 
       return(
         <Chart
@@ -43,7 +45,10 @@ class ChartPreview extends React.Component {
           >
           <BarChart
             data={chartData}
+            chartSeries={chartSeries}
+            xScale='linear'
             x={x}
+            yScale='linear'
             y={y}
             />
         </Chart>
