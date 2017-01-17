@@ -8,9 +8,11 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
+
 import DataSourceContainer from './data_source/data_source_container';
 import DataSourceIndexContainer from './data_source/index/data_source_index_container';
 import DataSourceFormContainer from './data_source/form/data_source_form_container';
+
 import ChartContainer from './chart/chart_container';
 import ChartIndexContainer from './chart/index/chart_index_container';
 import ChartBuildContainer from './chart/build/chart_build_container';

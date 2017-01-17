@@ -8,7 +8,7 @@ class ChartPreview extends React.Component {
   render() {
     return (
       <div className="chart-preview-container">
-        <h1>Preview goes here!</h1>
+        <h2>Preview goes here!</h2>
       </div>
     );
   }

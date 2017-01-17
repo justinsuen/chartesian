@@ -10,7 +10,6 @@ class ChartBuild extends React.Component {
   render() {
     return (
       <div className="chart-build-container">
-        <h1>Build a chart here!</h1>
         <ChartFormContainer />
         <ChartPreview />
       </div>

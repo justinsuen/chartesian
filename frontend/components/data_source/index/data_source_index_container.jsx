@@ -4,7 +4,7 @@ import { allDataSources } from '../../../reducers/selectors';
 import DataSourceIndex from './data_source_index.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
-  dataSources: allDataSources(state.dataSource),
+  dataSources: allDataSources(state.source),
   errors: state.errors
 });
 

@@ -5,10 +5,14 @@ class ChartForm extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchDataSources();
+  }
+
   render() {
     return (
       <div className="chart-form-container">
-        <h1>Form for things!</h1>
+
       </div>
     );
   }

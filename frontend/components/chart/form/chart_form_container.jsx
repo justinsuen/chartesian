@@ -6,7 +6,7 @@ import { fetchDataSources } from '../../../actions/data_source_actions';
 import { allDataSources } from '../../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  dataSources: allDataSources(state.dataSource),
+  dataSources: allDataSources(state.source),
   currentUser: state.session.currentUser
 });
 
