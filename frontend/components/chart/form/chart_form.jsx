@@ -31,6 +31,11 @@ class ChartForm extends React.Component {
     this.props.fetchDataSources();
   }
 
+  componentDidUpdate() {
+    let {xAxis, yAxis} = this.state;
+    this.props.updateAxes(xAxis, yAxis);
+  }
+
   handleChooseSource(e) {
     let idx = this.props.dataSources.findIndex(src =>
       src.title === e.target.textContent
@@ -85,7 +90,6 @@ class ChartForm extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className="chart-form-container">
         {this.renderDropdown()}
