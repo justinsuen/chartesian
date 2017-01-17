@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartFormContainer from '../form/chart_form_container';
-import ChartPreview from './chart_preview';
+import ChartPreview from '../preview/chart_preview_container';
 
 class ChartBuild extends React.Component {
   constructor(props) {
@@ -16,16 +16,22 @@ class ChartBuild extends React.Component {
 
   updateAxes(xAxes, yAxes) {
     this.setState({xAxes, yAxes});
+    console.log("Axes updated!");
   }
 
   render() {
-    debugger;
     let {xAxes, yAxes} = this.state;
 
     return (
       <div className="chart-build-container">
-        <ChartFormContainer xAxes={xAxes} yAxes={yAxes} updateAxes={this.updateAxes}/>
-        <ChartPreview xAxes={xAxes} yAxes={yAxes} updateAxes={this.updateAxes}/>
+        <ChartFormContainer
+          xAxes={xAxes}
+          yAxes={yAxes}
+          updateAxes={this.updateAxes}/>
+        <ChartPreviewContainer
+          xAxes={xAxes}
+          yAxes={yAxes}
+          updateAxes={this.updateAxes}/>
       </div>
     );
   }
