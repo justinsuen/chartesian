@@ -38,7 +38,7 @@ class DataPreview extends React.Component {
         table.push(rowData);
       }
     } else {
-      const allTextLines = text.split(/\r\n|\n/);
+      const allTextLines = text.split(/\r\n|\r|\n/g);
       const maxRow = Math.min(100, allTextLines.length);
 
       for (let i = 0; i < maxRow; i++) {
