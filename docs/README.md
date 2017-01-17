@@ -112,3 +112,13 @@ sufficient CSS styling:
 - [ ] Combine similar plots
 - [ ] Extract data from interacting with graphs
 - [ ] Email updates and invitations to share
+
+## Resources
+
+Here's a list of components and packages I used for this project.
+
+- [React DnD](http://gaearon.github.io/react-dnd/)
+- [React D3](http://www.reactd3.org/)
+- [Superagent](https://visionmedia.github.io/superagent/)
+- [React Collapse](https://github.com/nkbt/react-collapse)
+- [React Dropzone](https://github.com/okonet/react-dropzone)
