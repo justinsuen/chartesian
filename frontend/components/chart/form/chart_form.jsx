@@ -106,9 +106,11 @@ class ChartForm extends React.Component {
           </div>
           <div className="chart-dropzones">
             <h3>Axes Dropzones</h3>
+            <p>x-axis</p>
             <ChartFormDropzone zoneId="x"
               onDrop={item => this.handleDrop(0, item)}
               items={this.state.xAxes}/>
+            <p>y-axes</p>
             <ChartFormDropzone zoneId="y"
               onDrop={item => this.handleDrop(1, item)}
               items={this.state.yAxes}/>

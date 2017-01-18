@@ -33,7 +33,7 @@ class DataItem extends React.Component {
           </thead>
           <tbody>
             {Object.keys(table).map(idx => (
-              <tr>
+              <tr key={idx}>
                 {Object.keys(table[idx]).map((item, itemInd) =>
                   <td key={itemInd}>{table[idx][item]}</td>
                 )}

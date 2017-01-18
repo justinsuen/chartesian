@@ -17,9 +17,11 @@ function collect(connect, monitor) {
 class ChartFormDropzone extends Component {
   buildItems(items) {
     return (
-      <ul>
+      <ul className="chosen-attr-list">
         {items.map((item, idx) =>
-          <li key={idx}>{`${item[0]} - ${item[1]}`}</li>
+          <li key={idx} className="chosen-attr">
+            {`${item[0]} - ${item[1]}`}
+          </li>
         )}
       </ul>
     );
@@ -27,9 +29,12 @@ class ChartFormDropzone extends Component {
 
   render() {
     const { connectDropTarget, isOver, items } = this.props;
+    let text = (this.props.zoneId === "x") ?
+      "Drag and drop an attribute" : "Drag and drop one or more attributes";
 
     return connectDropTarget(
       <div className="chart-form-dropzone" style={{position: 'relative'}}>
+        <p>{text}</p>
         {this.buildItems(items)}
         {isOver &&
           <div style={{
