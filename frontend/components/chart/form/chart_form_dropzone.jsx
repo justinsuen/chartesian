@@ -20,7 +20,7 @@ class ChartFormDropzone extends Component {
       <ul className="chosen-attr-list">
         {items.map((item, idx) =>
           <li key={idx} className="chosen-attr">
-            {`${item[0]} - ${item[1]}`}
+            {`${item[1]}`}
           </li>
         )}
       </ul>
@@ -33,21 +33,10 @@ class ChartFormDropzone extends Component {
       "Drag and drop an attribute" : "Drag and drop one or more attributes";
 
     return connectDropTarget(
-      <div className="chart-form-dropzone" style={{position: 'relative'}}>
+      <div className="chart-form-dropzone">
         <p>{text}</p>
         {this.buildItems(items)}
-        {isOver &&
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '100%',
-            width: '100%',
-            zIndex: 1,
-            opacity: 0.5,
-            backgroundColor: 'white',
-          }} />
-        }
+        {isOver && <div className="overlay"/>}
       </div>
     );
   }

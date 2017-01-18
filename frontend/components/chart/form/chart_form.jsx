@@ -79,7 +79,7 @@ class ChartForm extends React.Component {
   renderAttributes() {
     if (this.state.sourceBool) {
       return(
-        <div>
+        <div className="attr-list">
           {Object.keys(this.state.sourceTable).map((row, idx) => (
             <ChartFormAttr key={idx+1} attr={row}/>
           ))}
@@ -106,17 +106,26 @@ class ChartForm extends React.Component {
           </div>
           <div className="chart-dropzones">
             <h3>Axes Dropzones</h3>
-            <p>x-axis</p>
-            <ChartFormDropzone zoneId="x"
-              onDrop={item => this.handleDrop(0, item)}
-              items={this.state.xAxes}/>
-            <p>y-axes</p>
-            <ChartFormDropzone zoneId="y"
-              onDrop={item => this.handleDrop(1, item)}
-              items={this.state.yAxes}/>
+            <div className="chart-dzone">
+              <p>x-axis</p>
+              <ChartFormDropzone zoneId="x"
+                onDrop={item => this.handleDrop(0, item)}
+                items={this.state.xAxes}/>
+            </div>
+            <div className="chart-dzone">
+              <p>y-axes</p>
+              <ChartFormDropzone zoneId="y"
+                onDrop={item => this.handleDrop(1, item)}
+                items={this.state.yAxes}/>
+            </div>
           </div>
         </div>
-        <button onClick={this.handleSave}>Preview Chart</button>
+        <div className="chart-prev-foot">
+          <button className="chart-preview-btn"
+            nonClick={this.handleSave}>
+            Preview Chart
+          </button>
+        </div>
       </div>
     );
   }
