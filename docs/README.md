@@ -66,10 +66,10 @@ sufficient CSS styling:
 **Objective:** Charts can be created, read, edited and destroyed through the API.
 
 - [ ] Functional
-  - [ ] API Util to get data from database
-  - [ ] Charts using [Victory.js](http://formidable.com/open-source/victory/) or [React D3](http://www.reactd3.org/)
+  - [x] API Util to get data from database
+  - [ ] Charts using [Victory.js](http://formidable.com/open-source/victory/)
   - [ ] Display charts using desired information
-  - [ ] Enable bar, line, and dot charts
+  - [ ] Enable bar, line, bar-line, scatter and pie charts
 - [ ] Visual
   - [ ] Chart styling
   - [ ] Information layout and display
@@ -118,7 +118,7 @@ sufficient CSS styling:
 Here's a list of components and packages I used for this project.
 
 - [React DnD](http://gaearon.github.io/react-dnd/)
-- [React D3](http://www.reactd3.org/)
+- [Victory.js](https://formidable.com/open-source/victory/docs)
 - [Superagent](https://visionmedia.github.io/superagent/)
 - [React Collapse](https://github.com/nkbt/react-collapse)
 - [React Dropzone](https://github.com/okonet/react-dropzone)
