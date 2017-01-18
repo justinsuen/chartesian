@@ -1,0 +1,69 @@
+@import "variables";
+
+.data-index-preview {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.data-index-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.data-index-row.header-row {
+  background-color: $primary-color;
+  color: white;
+  font-weight: 400;
+  cursor: default;
+}
+
+.data-index-wrap:nth-child(even) {
+  background-color: $primary-color-lighter;
+}
+
+.data-index-wrap:nth-child(odd) {
+  background-color: $primary-color-light;
+}
+
+.data-index-row:hover {
+  background-color: $accent-color-light;
+}
+
+.data-index-row.header-row:hover {
+  background-color: $primary-color;
+}
+
+.data-row-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.data-row-cell.cell1 {
+  width: 6%;
+  padding-left: 15px;
+}
+
+.data-row-cell.cell2 {
+  width: 70%;
+}
+
+.data-row-cell.cell3 {
+  width: 20%;
+}
+
+.data-row-cell.cell4 {
+  width: 4%;
+  padding-right: 15px;
+
+  button {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
