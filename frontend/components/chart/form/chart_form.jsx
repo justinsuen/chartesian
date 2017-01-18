@@ -124,7 +124,7 @@ class ChartForm extends React.Component {
         </div>
         <div className="chart-prev-foot">
           <button className="chart-preview-btn"
-            nonClick={this.handleSave}>
+            onClick={this.handleSave}>
             Preview Chart
           </button>
         </div>
