@@ -39,7 +39,7 @@ class ChartForm extends React.Component {
 
     this.setState({currentSource: e.target.textContent,
       sourceBool: true,
-      sourceIndex: idx+1,
+      sourceIndex: this.props.dataSources[idx].id,
       sourceTable: this.props.dataSources[idx].table[0]
     });
   }
@@ -62,8 +62,8 @@ class ChartForm extends React.Component {
         <DropdownContent className="chart-source-list-wrap">
           <div className="chart-source-menu-content">
             <ul className="chart-source-menu-list">
-              {this.props.dataSources.map((src, idx) => (
-                <li key={idx+1}
+              {this.props.dataSources.map(src => (
+                <li key={src.id}
                   className="chart-source-menu-item"
                   onClick={this.handleChooseSource}>
                   <p>{src.title}</p>
@@ -99,15 +99,21 @@ class ChartForm extends React.Component {
     return (
       <div className="chart-form-container">
         {this.renderDropdown()}
-        <h3>Attributes</h3>
-        {this.renderAttributes()}
-        <ChartFormDropzone zoneId="x"
-          onDrop={item => this.handleDrop(0, item)}
-          items={this.state.xAxes}/>
-        <ChartFormDropzone zoneId="y"
-          onDrop={item => this.handleDrop(1, item)}
-          items={this.state.yAxes}/>
-        <button onClick={this.handleSave}>Preview Chart</button>
+        <div className="chart-form">
+          <div className="chart-attrs">
+            <h3>Attributes</h3>
+            {this.renderAttributes()}
+          </div>
+          <div className="chart-dropzones">
+            <ChartFormDropzone zoneId="x"
+              onDrop={item => this.handleDrop(0, item)}
+              items={this.state.xAxes}/>
+            <ChartFormDropzone zoneId="y"
+              onDrop={item => this.handleDrop(1, item)}
+              items={this.state.yAxes}/>
+          </div>
+          <button onClick={this.handleSave}>Preview Chart</button>
+        </div>
       </div>
     );
   }

@@ -5,6 +5,13 @@
   margin-right: 10px;
 }
 
+.chart-form {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: scroll;
+}
+
 .chart-source-menu {
   width: 100%;
   position: relative;

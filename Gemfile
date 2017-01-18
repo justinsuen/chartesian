@@ -36,6 +36,7 @@ gem 'email_validator'
 gem 'faker'
 gem 'cloudinary'
 gem 'figaro'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
