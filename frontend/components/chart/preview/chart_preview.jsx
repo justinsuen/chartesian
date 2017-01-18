@@ -14,8 +14,11 @@ class ChartPreview extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    if (this.props.xAxes.length > 0) {
+  componentDidUpdate(prevProps) {
+    if (this.props.xAxes.length > 0 &&
+      (!(_.isEqual(this.props.xAxes, prevProps.xAxes)) ||
+      !(_.isEqual(this.props.yAxes, prevProps.yAxes))
+    )) {
       this.props.fetchDataSource(this.props.xAxes[0][0]);
     }
   }
