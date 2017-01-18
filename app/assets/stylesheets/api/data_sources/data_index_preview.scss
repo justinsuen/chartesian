@@ -67,3 +67,13 @@
     padding: 0;
   }
 }
+
+.data-item-preview {
+  padding-right: 15px;
+
+  .table-wrap {
+    box-sizing: border-box;
+    overflow-x: scroll;
+    padding: 15px;
+  }
+}

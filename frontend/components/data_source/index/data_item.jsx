@@ -16,19 +16,26 @@ class DataItem extends React.Component {
   renderDataPreview() {
     const {table, id} = this.props.dataSource;
     const totalCols = table[0].length;
-    // debugger;
 
     return(
-      <table class="table">
-        <thead>
-          {Object.keys(table[0]).map(item => <td>{item}</td>)}
-        </thead>
-        {Object.keys(table).map(idx => (
-          <tr>
-            {Object.keys(table[idx]).map(item =><td>{table[idx][item]}</td>)}
-          </tr>
-        ))}
-      </table>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              {Object.keys(table[0]).map((item, idx) => <td key={idx}>{item}</td>)}
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(table).map(idx => (
+              <tr>
+                {Object.keys(table[idx]).map((item, itemInd) =>
+                  <td key={itemInd}>{table[idx][item]}</td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
   }
 
