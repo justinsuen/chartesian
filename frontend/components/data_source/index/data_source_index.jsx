@@ -32,8 +32,9 @@ class DataSourceIndex extends React.Component {
           { this.props.dataSources.map((dataSource, idx) =>
             <DataItem
               key={idx}
+              id={dataSource.id}
               dataSource={dataSource}
-              deleteTodo={this.props.deleteDataSource}
+              deleteDataSource={this.props.deleteDataSource}
               />
           )}
         </div>

@@ -6,11 +6,17 @@ class DataItem extends React.Component {
     super(props);
     this.state = {isOpened: false};
     this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
     this.setState({isOpened: !this.state.isOpened});
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteDataSource(this.props.id);
   }
 
   renderDataPreview() {
@@ -48,7 +54,9 @@ class DataItem extends React.Component {
           <div className="data-row-cell cell1"><p>{dataSource.id}</p></div>
           <div className="data-row-cell cell2"><p>{dataSource.title}</p></div>
           <div className="data-row-cell cell3"><p>{dataSource.data_type}</p></div>
-          <div className="data-row-cell cell4"><button><i className="fa fa-trash"></i></button></div>
+          <div className="data-row-cell cell4" onClick={this.handleDelete}>
+            <i className="fa fa-trash"></i>
+          </div>
         </div>
         <Collapse isOpened={this.state.isOpened}
           className="data-item-preview">
