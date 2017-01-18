@@ -29,7 +29,7 @@
   height: 40%;
   margin-bottom: 10px;
   box-sizing: border-box;
-  background-color: $primary-color;
+  background-color: $primary-color-lightest;
 }
 
 .chart-source-menu {
@@ -39,6 +39,7 @@
   .current-chart-source p {
     padding: 10px;
     border-bottom: solid 1px $divider-color;
+    font-weight: 600;
   }
 }
 

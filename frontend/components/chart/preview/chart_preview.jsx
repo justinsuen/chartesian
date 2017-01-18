@@ -34,7 +34,7 @@ class ChartPreview extends React.Component {
       if (datum[xAxis] === undefined || datum[yAxis] === undefined) {
         continue;
       }
-      
+
       let row = {};
       row[xAxis] = datum[xAxis];
       row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
@@ -57,15 +57,17 @@ class ChartPreview extends React.Component {
         />
       );
     } else {
-      return(<h1>Not available!</h1>);
+      return(<h3>Preview not available!</h3>);
     }
   }
 
   render() {
     return (
       <div className="chart-preview-container">
-        <h2>Preview goes here!</h2>
-        {this.renderChart()}
+        <h2>Chart Preview</h2>
+        <div className="chart-preview">
+          {this.renderChart()}
+        </div>
       </div>
     );
   }
