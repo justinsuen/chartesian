@@ -30,6 +30,11 @@ class ChartPreview extends React.Component {
       let xAxis = this.props.xAxes[0][1];
       let yAxis = this.props.yAxes[0][1];
       let datum = chartData[i];
+
+      if (datum[xAxis] === undefined || datum[yAxis] === undefined) {
+        continue;
+      }
+      
       let row = {};
       row[xAxis] = datum[xAxis];
       row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
