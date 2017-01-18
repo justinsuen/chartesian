@@ -76,4 +76,8 @@
     overflow-x: scroll;
     padding: 15px;
   }
+
+  .table {
+    border: 2px dotted $divider-color;
+  }
 }
