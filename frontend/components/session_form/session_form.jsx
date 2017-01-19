@@ -26,7 +26,6 @@ class SessionForm extends React.Component {
     clearTimeout(this.t1);
     clearTimeout(this.t2);
     clearTimeout(this.t3);
-    clearTimeout(this.t4);
   }
 
   redirectIfLoggedIn() {
@@ -98,7 +97,7 @@ class SessionForm extends React.Component {
   }
 
   fillInput(input, str, n = 1) {
-		this.t4 = setTimeout(()=>{
+		this.t3 = setTimeout(()=>{
 			if (n < str.length) {
         this.fillInput(input, str, n + 1);
       }
