@@ -4,7 +4,7 @@ class Api::DataSourcesController < ApplicationController
   end
 
   def index
-    @data_sources = current_user.data_sources
+    @data_sources = current_user.data_sources.sort_by {|src| src.id}
   end
 
   def create

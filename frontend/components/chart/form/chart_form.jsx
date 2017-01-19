@@ -56,6 +56,20 @@ class ChartForm extends React.Component {
       newState.yAxes.push([sourceIndex, item.attr]);
     this.setState(newState);
   }
+  handleSave(e) {
+    e.preventDefault();
+
+    let {xAxes, yAxes} = this.state;
+    this.props.updateAxes(xAxes, yAxes);
+  }
+
+  clearX() {
+    this.setState({xAxes: []});
+  }
+
+  clearY() {
+    this.setState({yAxes: []});
+  }
 
   renderDropdown() {
     return(
@@ -90,21 +104,6 @@ class ChartForm extends React.Component {
         </div>
       );
     }
-  }
-
-  handleSave(e) {
-    e.preventDefault();
-
-    let {xAxes, yAxes} = this.state;
-    this.props.updateAxes(xAxes, yAxes);
-  }
-
-  clearX() {
-    this.setState({xAxes: []});
-  }
-
-  clearY() {
-    this.setState({yAxes: []});
   }
 
   render() {

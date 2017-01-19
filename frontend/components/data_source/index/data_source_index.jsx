@@ -14,10 +14,6 @@ class DataSourceIndex extends React.Component {
     return (this.props.dataSources.length === 0) || (nextProps.dataSources.length !== this.props.dataSources.length);
   }
 
-  componentDidUpdate() {
-    this.props.fetchDataSources();
-  }
-
   render() {
     return (
       <div className="data-source-index-container">
