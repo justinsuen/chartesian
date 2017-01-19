@@ -33,6 +33,7 @@ class DataSourceIndex extends React.Component {
             <DataItem
               key={idx}
               id={dataSource.id}
+              index={idx}
               dataSource={dataSource}
               deleteDataSource={this.props.deleteDataSource}
               />
