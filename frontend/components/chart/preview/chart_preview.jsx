@@ -12,6 +12,8 @@ class ChartPreview extends React.Component {
       xAxes: [],
       yAxes: []
     };
+
+    this.handleChangeType = this.handleChangeType.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -21,6 +23,11 @@ class ChartPreview extends React.Component {
     )) {
       this.props.fetchDataSource(this.props.xAxes[0][0]);
     }
+  }
+
+  handleChangeType(e){
+    e.preventDefault();
+    this.setState({chartType: e.currentTarget.id});
   }
 
   getDesiredData(chartData) {
@@ -49,6 +56,9 @@ class ChartPreview extends React.Component {
       const chartData = Object.values(this.props.dataSource.table);
       const desiredData = this.getDesiredData(chartData);
 
+      switch(this.state.chartType) {
+
+      }
       return(
         <V.VictoryLine
           data={desiredData}
@@ -64,11 +74,11 @@ class ChartPreview extends React.Component {
   renderChartBtns() {
     return(
       <div className="chart-buttons">
-        <button><i className="flaticon-business"></i></button>
-        <button><i className="flaticon-business-1"></i></button>
-        <button><i className="flaticon-connection"></i></button>
-        <button><i className="flaticon-dotted-chart"></i></button>
-        <button><i className="flaticon-pie-chart"></i></button>
+        <button id="scatter" onClick={this.handleChangeType}><i className="flaticon-dotted-chart"></i></button>
+        <button id="line" onClick={this.handleChangeType}><i className="flaticon-connection"></i></button>
+        <button id="bar" onClick={this.handleChangeType}><i className="flaticon-business-1"></i></button>
+        <button id="barline" onClick={this.handleChangeType}><i className="flaticon-business"></i></button>
+        <button id="pie" onClick={this.handleChangeType}><i className="flaticon-pie-chart"></i></button>
       </div>
     )
   }

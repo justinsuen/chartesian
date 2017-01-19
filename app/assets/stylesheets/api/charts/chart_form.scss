@@ -50,6 +50,12 @@
 
   background-color: $primary-color-lightest;
 
+  p:first-of-type {
+    font-weight: 300;
+    line-height: 1.25;
+    margin: 5px 0 0 5px;
+  }
+
   .overlay {
     position: absolute;
     top: 0;
