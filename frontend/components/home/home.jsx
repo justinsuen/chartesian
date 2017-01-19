@@ -7,8 +7,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello from logged in!</h1>
+      <div className="home-container">
+        <h2>Welcome back, {`${this.props.currentUser.username}`}</h2>
       </div>
     );
   }

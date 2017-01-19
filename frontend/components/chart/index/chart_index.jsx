@@ -8,7 +8,7 @@ class ChartIndex extends React.Component {
   render() {
     return (
       <div className="chart-index-container">
-        <h1>Manage Charts</h1>
+        <h2>Manage Charts</h2>
       </div>
     );
   }
