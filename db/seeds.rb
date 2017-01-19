@@ -25,10 +25,10 @@ end
 def dsv_to_json(data)
   headers = data[0]
   json = {}
-  (0...data.length).each do |row|
+  (0...data.length-1).each do |row|
     json[row] = {}
     headers.each_with_index do |header, col|
-      json[row][header] = data[row][col]
+      json[row][header] = data[row+1][col]
     end
   end
   json

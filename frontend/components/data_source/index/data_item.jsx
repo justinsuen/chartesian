@@ -20,7 +20,6 @@ class DataItem extends React.Component {
   }
 
   renderDataPreview() {
-    debugger;
     const {table, id} = this.props.dataSource;
     const totalCols = table[0].length;
 
@@ -52,7 +51,7 @@ class DataItem extends React.Component {
     return (
       <div className="data-index-wrap">
         <div className="data-index-row" onClick={this.handleClick}>
-          <div className="data-row-cell cell1"><p>{this.props.idx}</p></div>
+          <div className="data-row-cell cell1"><p>{this.props.index+1}</p></div>
           <div className="data-row-cell cell2"><p>{dataSource.title}</p></div>
           <div className="data-row-cell cell3"><p>{dataSource.data_type}</p></div>
           <div className="data-row-cell cell4" onClick={this.handleDelete}>
