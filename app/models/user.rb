@@ -28,7 +28,7 @@ class User < ApplicationRecord
   has_many :data_sources,
     foreign_key: :owner_id
 
-  has_many :charts, as: :chartable
+  has_many :charts, as: :chartable, dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

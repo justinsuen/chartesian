@@ -200,6 +200,8 @@ class ChartPreview extends React.Component {
           chart_data={this.state.chart_data}
           x_axes={this.props.x_axes}
           y_axes={this.props.y_axes}
+          chartable_type={"User"}
+          chartable_id={this.props.currentUser.id}
           createChart={this.props.createChart}/>
         <div className="chart-preview">
           {this.renderChart()}

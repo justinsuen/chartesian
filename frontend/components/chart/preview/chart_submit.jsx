@@ -1,5 +1,6 @@
 import React from 'react';
 import {merge} from 'lodash';
+import {withRouter, hashHistory} from 'react-router';
 
 class ChartSubmit extends React.Component {
   constructor(props) {
@@ -18,12 +19,14 @@ class ChartSubmit extends React.Component {
       chart_type: this.props.chart_type,
       chart_data: this.props.chart_data,
       x_axes: this.props.x_axes,
-      y_axes: this.props.y_axes
+      y_axes: this.props.y_axes,
+      chartable_type: this.props.chartable_type,
+      chartable_id: this.props.chartable_id
     };
 
-    debugger;
     const chart = merge({}, newChart);
     this.props.createChart(chart);
+    hashHistory.push("/charts");
   }
 
   update(field) {
@@ -45,4 +48,4 @@ class ChartSubmit extends React.Component {
   }
 }
 
-export default ChartSubmit;
+export default withRouter(ChartSubmit);

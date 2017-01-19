@@ -1,1 +1,1 @@
-json.extract! data_source, :id, :title, :data_type, :owner_id, :data_source_url, :table
+json.extract! chart, :id, :title, :chart_type, :chart_data, :x_axes, :y_axes

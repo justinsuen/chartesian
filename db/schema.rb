@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119224350) do
+ActiveRecord::Schema.define(version: 20170119231729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20170119224350) do
     t.string   "chart_type",                  null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.text     "x_axes",         default: [],              array: true
-    t.text     "y_axes",         default: [],              array: true
-    t.text     "chart_data",     default: [],              array: true
+    t.jsonb    "x_axes",         default: []
+    t.jsonb    "y_axes",         default: []
     t.string   "chartable_type"
     t.integer  "chartable_id"
+    t.jsonb    "chart_data",     default: []
     t.index ["title"], name: "index_charts_on_title", using: :btree
   end
 
