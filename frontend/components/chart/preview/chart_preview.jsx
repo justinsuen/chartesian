@@ -2,6 +2,7 @@ import React from 'react';
 import { PieChart, Pie, AreaChart, Area, BarChart, Bar, LineChart, Line,
         ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
         Legend, ResponsiveContainer } from 'recharts';
+import { merge } from 'lodash';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class ChartPreview extends React.Component {
     };
 
     this.handleChangeType = this.handleChangeType.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -174,10 +176,35 @@ class ChartPreview extends React.Component {
     );
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const chart = merge({}, this.state);
+    this.props.createChart(chart);
+  }
+
+  update(field) {
+    return e => this.setState({[field]: e.currentTarget.value});
+  }
+
+  renderChartSubmit() {
+    return(
+      <form onSubmit={this.handleSubmit} className="chart-submit-container">
+        <input type="text"
+          placeholder="Title"
+          value={this.state.title}
+          onChange={this.update("title")}
+          className="chart-title"/>
+
+        <input type="submit" className="button"/>
+      </form>
+    );
+  }
+
   render() {
     return (
       <div className="chart-preview-container">
         <h2>Chart Preview</h2>
+        {this.renderChartSubmit()}
         <div className="chart-preview">
           {this.renderChart()}
         </div>

@@ -78,3 +78,47 @@
     color: $primary-color-lighter;
   }
 }
+
+.chart-submit-container {
+  margin-top: 15px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  input {
+    outline: none;
+    border: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .chart-title {
+    width: 40%;
+    appearance: none;
+    padding: 0 5px;
+    border-bottom: 3px solid $divider-color;
+
+    font-size: 120%;
+    line-height: 1;
+  }
+
+  .chart-title:focus {
+    border-bottom: 3px solid $accent-color;
+  }
+
+  .button {
+    padding: 10px 15px;
+    background-color: $primary-color;
+    border-radius: 5px;
+    cursor: pointer;
+
+    text-transform: uppercase;
+    font-size: 100%;
+    color: white;
+  }
+
+  .button:hover {
+    background-color: $accent-color;
+  }
+}
