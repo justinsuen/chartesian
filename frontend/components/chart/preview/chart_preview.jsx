@@ -48,11 +48,18 @@ class ChartPreview extends React.Component {
 
       let row = {};
 
-      let matches = datum[xAxis].match(/\d+/g);
-      row[xAxis] = (matches !== null) ?
+      if (typeof datum[xAxis] !== "number") {
+        let matches = datum[xAxis].match(/\d+/g);
+        row[xAxis] = (matches !== null) ?
         Number(datum[xAxis].replace(/[^0-9\.]+/g,"")) :
         datum[xAxis];
-      row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
+      } else {
+        row[xAxis] = datum[xAxis];
+      }
+
+      row[yAxis] = (typeof datum[yAxis] === "number") ?
+        datum[yAxis] : Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
+
       desiredData.push(row);
     }
 
