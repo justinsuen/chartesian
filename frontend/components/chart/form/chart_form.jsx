@@ -42,7 +42,9 @@ class ChartForm extends React.Component {
     this.setState({currentSource: e.target.textContent,
       sourceBool: true,
       sourceIndex: this.props.dataSources[idx].id,
-      sourceTable: this.props.dataSources[idx].table[0]
+      sourceTable: this.props.dataSources[idx].table[0],
+      xAxes: [],
+      yAxes: []
     });
   }
 
