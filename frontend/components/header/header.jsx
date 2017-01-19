@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, hashHistory} from 'react-router';
+import {Link, hashHistory, withRouter} from 'react-router';
 
 // Dropdown menu
 import Dropdown from '../dropdown/dropdown';
@@ -77,4 +77,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

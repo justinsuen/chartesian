@@ -71,19 +71,18 @@ class SessionForm extends React.Component {
 
   // demo account functions
   renderDemoButton() {
-    if (this.props.formType === "signup") {
-      return (
-        <button className="button demo" onClick={this.createDemoUser} >
-          Demo
-        </button>
-      );
-    }
+    return (
+      <button className="button demo" onClick={this.createDemoUser} >
+        Demo
+      </button>
+    );
   }
 
   createDemoUser(e) {
     e.preventDefault();
     const randNum = `${genRandNum(1000)}`;
-    const username = `chartesian${randNum}`;
+    // const username = `chartesian${randNum}`;
+    const username = "chartesian267";
     const password = "c0g17o-Erg0-$uM";
 
     this.fillInput('username', username);
@@ -91,7 +90,7 @@ class SessionForm extends React.Component {
       this.fillInput('password', password);
       this.t2 = setTimeout(() => {
         const user = this.state;
-        this.props.processForm(user);
+        this.props.login(user);
       }, 850);
     }, 700);
   }
