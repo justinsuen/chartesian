@@ -67,7 +67,7 @@ class Header extends React.Component {
     return (
       <div className="app-header" ref="header">
         <div className="logo">
-          <h1>Chartesian</h1>
+          <Link to="/"><h1>Chartesian</h1></Link>
         </div>
         {currentUser
           ? this.headerGroup(currentUser, logout)

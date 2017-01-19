@@ -65,11 +65,11 @@
   color: $secondary-text-color;
   font-size: 80%;
 
-  a:hover {
-    color: $primary-color-lighter !important;
-  }
-
   a, a:visited {
     color: $primary-color-light;
+  }
+
+  a:hover {
+    color: $primary-color-lighter;
   }
 }
