@@ -1,5 +1,7 @@
 import React from 'react';
-import * as V from 'victory';
+import { PieChart, Pie, AreaChart, Area, BarChart, Bar, LineChart, Line,
+        ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
+        Legend } from 'recharts';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -32,10 +34,10 @@ class ChartPreview extends React.Component {
 
   getDesiredData(chartData) {
     let desiredData = [];
+    let xAxis = this.props.xAxes[0][1];
+    let yAxis = this.props.yAxes[0][1];
 
     for (let i = 0; i < chartData.length; i++) {
-      let xAxis = this.props.xAxes[0][1];
-      let yAxis = this.props.yAxes[0][1];
       let datum = chartData[i];
 
       if (datum[xAxis] === undefined || datum[yAxis] === undefined) {
@@ -43,12 +45,84 @@ class ChartPreview extends React.Component {
       }
 
       let row = {};
-      row[xAxis] = datum[xAxis];
+      row[xAxis] = Number(datum[xAxis].replace(/[^0-9\.]+/g,""));
       row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
       desiredData.push(row);
     }
 
+    desiredData.sort((a, b) => {
+      if (a[xAxis] < b[xAxis]) {
+        return -1;
+      } else if (a[xAxis] > b[xAxis]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
     return desiredData;
+  }
+
+  scatterChart(desiredData, x, y){
+    return (
+      <ScatterChart className="chart-show" width={600} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+        <XAxis dataKey={x} name='stature' unit='cm'/>
+        <YAxis dataKey={y} name='weight' unit='kg'/>
+        <Scatter name='A school' data={desiredData} fill='#8884d8'/>
+        <CartesianGrid />
+        <Tooltip cursor={{strokeDasharray: '3 3'}}/>
+      </ScatterChart>
+    );
+  }
+
+  lineChart(desiredData, x, y){
+    return (
+      <LineChart className="chart-show" width={600} height={400} data={desiredData}
+              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+       <XAxis dataKey={x}/>
+       <YAxis/>
+       <CartesianGrid strokeDasharray="3 3"/>
+       <Tooltip/>
+       <Legend />
+       <Line type="monotone" dataKey={y} stroke="#8884d8" activeDot={{r: 8}}/>
+      </LineChart>
+    );
+  }
+
+  barChart(desiredData, x, y){
+    return (
+      <BarChart className="chart-show" width={600} height={400} data={desiredData}
+              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+        <XAxis dataKey={x}/>
+        <YAxis/>
+        <CartesianGrid strokeDasharray="3 3"/>
+        <Tooltip/>
+        <Legend />
+        <Bar dataKey={y} fill="#8884d8" />
+      </BarChart>
+    );
+  }
+
+  areaChart(desiredData, x, y){
+    return (
+      <AreaChart className="chart-show" width={600} height={400} data={desiredData}
+              margin={{top: 10, right: 30, left: 0, bottom: 0}}>
+        <XAxis dataKey={x}/>
+        <YAxis/>
+        <CartesianGrid strokeDasharray="3 3"/>
+        <Tooltip/>
+        <Area type='monotone' dataKey={y} stroke='#8884d8' fill='#8884d8' />
+      </AreaChart>
+    );
+  }
+
+  pieChart(desiredData, x, y){
+    return (
+      <PieChart className="chart-show" width={600} height={400}>
+        <Pie data={desiredData} nameKey={x} valueKey={y} fill="#8884d8" label/>
+        <Tooltip/>
+      </PieChart>
+    );
   }
 
   renderChart() {
@@ -60,15 +134,15 @@ class ChartPreview extends React.Component {
 
       switch(this.state.chartType) {
         case "line":
-          return(<V.VictoryLine data={desiredData} x={x} y={y}/>);
+          return(this.lineChart(desiredData, x, y));
         case "bar":
-          return(<V.VictoryBar data={desiredData} x={x} y={y}/>);
+          return(this.barChart(desiredData, x, y));
         case "area":
-          return(<V.VictoryArea data={desiredData} x={x} y={y}/>);
+          return(this.areaChart(desiredData, x, y));
         case "pie":
-          return(<V.VictoryPie data={desiredData} x={x} y={y}/>);
+          return(this.pieChart(desiredData, x, y));
         default:
-          return(<V.VictoryScatter data={desiredData} x={x} y={y}/>);
+          return(this.scatterChart(desiredData, x, y));
       }
     } else {
       return(<h3>Preview not available</h3>);
