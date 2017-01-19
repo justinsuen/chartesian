@@ -24,7 +24,7 @@ class Api::DataSourcesController < ApplicationController
   def destroy
     @data_source = DataSource.find_by_id(params[:id])
     DataSource.destroy(@data_source)
-    render :index
+    render :show
   end
 
   private

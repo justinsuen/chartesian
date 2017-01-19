@@ -8,8 +8,8 @@ class Api::ChartsController < ApplicationController
   end
 
   def create
-    @chart = Charts.new(chart_params)
-
+    @chart = Chart.new(chart_params)
+    debugger
     if @chart.save
       render 'api/charts/show'
     else
@@ -22,7 +22,7 @@ class Api::ChartsController < ApplicationController
   end
 
   def destroy
-    @chart = Charts.find_by_id(params[:id])
+    @chart = Chart.find_by_id(params[:id])
     Chart.destroy(@chart)
     render :index
   end
