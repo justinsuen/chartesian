@@ -26,6 +26,8 @@ class ChartForm extends React.Component {
 
     this.handleChooseSource = this.handleChooseSource.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.clearX = this.clearX.bind(this);
+    this.clearY = this.clearY.bind(this);
   }
 
   componentDidMount() {
@@ -95,6 +97,14 @@ class ChartForm extends React.Component {
     this.props.updateAxes(xAxes, yAxes);
   }
 
+  clearX() {
+    this.setState({xAxes: []});
+  }
+
+  clearY() {
+    this.setState({yAxes: []});
+  }
+
   render() {
     return (
       <div className="chart-form-container">
@@ -108,13 +118,19 @@ class ChartForm extends React.Component {
             <h3>Axes Dropzones</h3>
             <div className="zone-wrap">
               <div className="chart-dzone">
-                <p>x-axis</p>
+                <div className="dzone-menu">
+                  <p>x-axis</p>
+                  <button onClick={this.clearX}>Clear</button>
+                </div>
                 <ChartFormDropzone zoneId="x"
                   onDrop={item => this.handleDrop(0, item)}
                   items={this.state.xAxes}/>
               </div>
               <div className="chart-dzone">
-                <p>y-axes</p>
+                <div className="dzone-menu">
+                  <p>y-axes</p>
+                  <button onClick={this.clearY}>Clear</button>
+                </div>
                 <ChartFormDropzone zoneId="y"
                   onDrop={item => this.handleDrop(1, item)}
                   items={this.state.yAxes}/>
