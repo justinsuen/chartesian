@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from './home.jsx';
+import Splash from './splash.jsx';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
@@ -9,4 +9,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(Home);
+)(Splash);

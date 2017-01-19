@@ -6,10 +6,16 @@ class Home extends React.Component {
     super(props);
   }
 
+  greeting() {
+    if (this.props.currentUser) {
+      return `, ${this.props.currentUser.username}`;
+    }
+  }
+
   render() {
     return (
       <div className="home-container">
-        <h2>Welcome back, {`${this.props.currentUser.username}`}</h2>
+        <h2>Welcome back{this.greeting()}</h2>
       </div>
     );
   }

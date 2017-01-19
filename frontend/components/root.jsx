@@ -7,6 +7,7 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 // react components
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
+import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
 
 import DataSourceContainer from './data_source/data_source_container';
@@ -35,7 +36,7 @@ class Root extends React.Component {
   _redirectIfLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/home');
     }
   }
 
@@ -44,7 +45,8 @@ class Root extends React.Component {
       <Provider store={this.props.store}>
         <Router history={hashHistory}>
           <Route path="/" component={App}>
-            <IndexRoute component={HomeContainer} onEnter={this._ensureLoggedIn}/>
+            <IndexRoute component={SplashContainer} onEnter={this._redirectIfLoggedIn}/>
+            <Route path="home" component={HomeContainer} onEnter={this._ensureLoggedIn}/>
             <Route path="login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="signup" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}/>
             <Route path="data_sources" component={DataSourceContainer}>
