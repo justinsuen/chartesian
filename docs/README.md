@@ -118,7 +118,7 @@ sufficient CSS styling:
 Here's a list of components and packages I used for this project.
 
 - [React DnD](http://gaearon.github.io/react-dnd/)
-- [Victory.js](https://formidable.com/open-source/victory/docs)
+- [Recharts.js](http://recharts.org/#/en-US)
 - [Superagent](https://visionmedia.github.io/superagent/)
 - [React Collapse](https://github.com/nkbt/react-collapse)
 - [React Dropzone](https://github.com/okonet/react-dropzone)
