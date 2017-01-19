@@ -86,17 +86,13 @@ class SessionForm extends React.Component {
     const randNum = `${genRandNum(1000)}`;
     const username = `chartesian${randNum}`;
     const password = "c0g17o-Erg0-$uM";
-    const email = `demo${randNum}@chartesian.com`;
 
     this.fillInput('username', username);
-      this.t1 = setTimeout(() => {
+    this.t1 = setTimeout(() => {
       this.fillInput('password', password);
-        this.t2 = setTimeout(() => {
-        this.fillInput('email', email);
-          this.t3 = setTimeout(() => {
-          const user = this.state;
-          this.props.processForm(user);
-        }, 1200);
+      this.t2 = setTimeout(() => {
+        const user = this.state;
+        this.props.processForm(user);
       }, 850);
     }, 700);
   }
