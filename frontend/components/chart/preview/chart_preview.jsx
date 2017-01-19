@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, AreaChart, Area, BarChart, Bar, LineChart, Line,
         ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
-        Legend } from 'recharts';
+        Legend, ResponsiveContainer } from 'recharts';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -65,47 +65,53 @@ class ChartPreview extends React.Component {
 
   scatterChart(desiredData, x, y){
     return (
-      <ScatterChart className="chart-show" width={600} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
-        <XAxis dataKey={x} name='stature' unit='cm'/>
-        <YAxis dataKey={y} name='weight' unit='kg'/>
-        <Scatter name='A school' data={desiredData} fill='#8884d8'/>
-        <CartesianGrid />
-        <Tooltip cursor={{strokeDasharray: '3 3'}}/>
-      </ScatterChart>
+      <ResponsiveContainer width="80%" height="80%">
+        <ScatterChart className="chart-el" margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+          <XAxis dataKey={x} name={x} unit='cm'/>
+          <YAxis dataKey={y} name={y} unit='kg'/>
+          <Scatter name='A school' data={desiredData} fill='#8884d8'/>
+          <CartesianGrid />
+          <Tooltip cursor={{strokeDasharray: '3 3'}}/>
+        </ScatterChart>
+      </ResponsiveContainer>
     );
   }
 
   lineChart(desiredData, x, y){
     return (
-      <LineChart className="chart-show" width={600} height={400} data={desiredData}
-              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-       <XAxis dataKey={x}/>
-       <YAxis/>
-       <CartesianGrid strokeDasharray="3 3"/>
-       <Tooltip/>
-       <Legend />
-       <Line type="monotone" dataKey={y} stroke="#8884d8" activeDot={{r: 8}}/>
-      </LineChart>
+      <ResponsiveContainer width="80%" height="80%">
+        <LineChart className="chart-el" data={desiredData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+         <XAxis dataKey={x}/>
+         <YAxis/>
+         <CartesianGrid strokeDasharray="3 3"/>
+         <Tooltip/>
+         <Legend />
+         <Line type="monotone" dataKey={y} stroke="#8884d8" activeDot={{r: 8}}/>
+        </LineChart>
+      </ResponsiveContainer>
     );
   }
 
   barChart(desiredData, x, y){
     return (
-      <BarChart className="chart-show" width={600} height={400} data={desiredData}
-              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-        <XAxis dataKey={x}/>
-        <YAxis/>
-        <CartesianGrid strokeDasharray="3 3"/>
-        <Tooltip/>
-        <Legend />
-        <Bar dataKey={y} fill="#8884d8" />
-      </BarChart>
+      <ResponsiveContainer width="80%" height="80%">
+        <BarChart className="chart-el" data={desiredData}
+                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+          <XAxis dataKey={x}/>
+          <YAxis/>
+          <CartesianGrid strokeDasharray="3 3"/>
+          <Tooltip/>
+          <Legend />
+          <Bar dataKey={y} fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 
   areaChart(desiredData, x, y){
     return (
-      <AreaChart className="chart-show" width={600} height={400} data={desiredData}
+      <ResponsiveContainer width="80%" height="80%">
+      <AreaChart className="chart-el" data={desiredData}
               margin={{top: 10, right: 30, left: 0, bottom: 0}}>
         <XAxis dataKey={x}/>
         <YAxis/>
@@ -113,15 +119,18 @@ class ChartPreview extends React.Component {
         <Tooltip/>
         <Area type='monotone' dataKey={y} stroke='#8884d8' fill='#8884d8' />
       </AreaChart>
+    </ResponsiveContainer>
     );
   }
 
   pieChart(desiredData, x, y){
     return (
-      <PieChart className="chart-show" width={600} height={400}>
-        <Pie data={desiredData} nameKey={x} valueKey={y} fill="#8884d8" label/>
-        <Tooltip/>
-      </PieChart>
+      <ResponsiveContainer width="80%" height="80%">
+        <PieChart className="chart-el">
+          <Pie data={desiredData} nameKey={x} valueKey={y} fill="#8884d8" label/>
+          <Tooltip/>
+        </PieChart>
+      </ResponsiveContainer>
     );
   }
 
