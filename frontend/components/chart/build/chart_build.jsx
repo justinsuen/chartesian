@@ -28,8 +28,8 @@ class ChartBuild extends React.Component {
           yAxes={yAxes}
           updateAxes={this.updateAxes}/>
         <ChartPreviewContainer
-          xAxes={xAxes}
-          yAxes={yAxes}
+          x_axes={xAxes}
+          y_axes={yAxes}
           updateAxes={this.updateAxes}/>
       </div>
     );

@@ -10,10 +10,10 @@ class ChartPreview extends React.Component {
 
     this.state = {
       title: "",
-      chartType: "",
-      chartJson: {},
-      xAxes: [],
-      yAxes: []
+      chart_type: "",
+      chart_data: [],
+      x_axes: [],
+      y_axes: []
     };
 
     this.handleChangeType = this.handleChangeType.bind(this);
@@ -21,23 +21,30 @@ class ChartPreview extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.xAxes.length > 0 &&
-      (!(_.isEqual(this.props.xAxes, prevProps.xAxes)) ||
-      !(_.isEqual(this.props.yAxes, prevProps.yAxes))
+    if (this.props.x_axes.length > 0 &&
+      (!(_.isEqual(this.props.x_axes, prevProps.x_axes)) ||
+      !(_.isEqual(this.props.y_axes, prevProps.y_axes))
     )) {
-      this.props.fetchDataSource(this.props.xAxes[0][0]);
+      this.props.fetchDataSource(this.props.x_axes[0][0]);
     }
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      x_axes: this.props.x_axes,
+      y_axes: this.props.y_axes
+    });
   }
 
   handleChangeType(e){
     e.preventDefault();
-    this.setState({chartType: e.currentTarget.id});
+    this.setState({chart_type: e.currentTarget.id});
   }
 
   getDesiredData(chartData) {
     let desiredData = [];
-    let xAxis = this.props.xAxes[0][1];
-    let yAxis = this.props.yAxes[0][1];
+    let xAxis = this.state.x_axes[0][1];
+    let yAxis = this.state.y_axes[0][1];
 
     for (let i = 0; i < chartData.length; i++) {
       let datum = chartData[i];
@@ -151,10 +158,10 @@ class ChartPreview extends React.Component {
     if (this.props.dataSource.table) {
       const chartData = Object.values(this.props.dataSource.table);
       const desiredData = this.getDesiredData(chartData);
-      const x = `${this.props.xAxes[0][1]}`;
-      const y = `${this.props.yAxes[0][1]}`;
+      const x = `${this.state.x_axes[0][1]}`;
+      const y = `${this.state.y_axes[0][1]}`;
 
-      switch(this.state.chartType) {
+      switch(this.state.chart_type) {
         case "line":
           return(this.lineChart(desiredData, x, y));
         case "bar":
@@ -208,6 +215,7 @@ class ChartPreview extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div className="chart-preview-container">
         <h2>Chart Preview</h2>

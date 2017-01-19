@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119203933) do
+ActiveRecord::Schema.define(version: 20170119211315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20170119203933) do
   create_table "charts", force: :cascade do |t|
     t.string   "title",                       null: false
     t.string   "chart_type",                  null: false
-    t.jsonb    "chart_json",                  null: false
     t.string   "chartable_type",              null: false
     t.integer  "chartable_id",                null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.text     "x_axes",         default: [],              array: true
     t.text     "y_axes",         default: [],              array: true
+    t.text     "chart_data",     default: [],              array: true
     t.index ["chartable_id"], name: "index_charts_on_chartable_id", using: :btree
     t.index ["chartable_type", "chartable_id"], name: "index_charts_on_chartable_type_and_chartable_id", using: :btree
     t.index ["title"], name: "index_charts_on_title", using: :btree
