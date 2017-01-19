@@ -202,7 +202,7 @@ class ChartPreview extends React.Component {
           onChange={this.update("title")}
           className="chart-title"/>
 
-        <input type="submit" className="button"/>
+        <input type="submit" className="button" value="save"/>
       </form>
     );
   }

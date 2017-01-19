@@ -37,6 +37,30 @@
   }
 }
 
+.dzone-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+
+  .button {
+    padding: 5px;
+    font-size: 60%;
+    border-radius: 5px;
+    background-color: $divider-color;
+    color: white;
+  }
+
+  .button:hover {
+    background-color: $secondary-text-color;
+  }
+
+  .button:active {
+    background-color: $primary-text-color;
+  }
+}
+
 // Actual zone classes from DnD
 .chart-form-dropzone {
   width: 100%;
@@ -168,9 +192,15 @@
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .chart-preview-btn:hover{
+  background-color: $accent-color-light;
+  color: $secondary-text-color;
+}
+
+.chart-preview-btn:active{
   background-color: $accent-color;
-  cursor: pointer;
+  color: $secondary-text-color;
 }

@@ -120,7 +120,7 @@ class ChartForm extends React.Component {
               <div className="chart-dzone">
                 <div className="dzone-menu">
                   <p>x-axis</p>
-                  <button onClick={this.clearX}>Clear</button>
+                  <button className="button" onClick={this.clearX}>Clear</button>
                 </div>
                 <ChartFormDropzone zoneId="x"
                   onDrop={item => this.handleDrop(0, item)}
@@ -129,7 +129,7 @@ class ChartForm extends React.Component {
               <div className="chart-dzone">
                 <div className="dzone-menu">
                   <p>y-axes</p>
-                  <button onClick={this.clearY}>Clear</button>
+                  <button className="button" onClick={this.clearY}>Clear</button>
                 </div>
                 <ChartFormDropzone zoneId="y"
                   onDrop={item => this.handleDrop(1, item)}

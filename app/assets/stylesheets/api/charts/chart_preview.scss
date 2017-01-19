@@ -59,6 +59,10 @@
     background-color: $accent-color-light;
   }
 
+  button:active {
+    background-color: $accent-color;
+  }
+
   i {
     font-size: 40px;
     color: black;
@@ -119,6 +123,12 @@
   }
 
   .button:hover {
+    background-color: $accent-color-light;
+    color: $secondary-text-color;
+  }
+
+  .button:active {
     background-color: $accent-color;
+    color: $secondary-text-color;
   }
 }
