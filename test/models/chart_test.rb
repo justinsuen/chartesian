@@ -6,12 +6,12 @@
 #  title          :string           not null
 #  chart_type     :string           not null
 #  chart_json     :jsonb            not null
-#  x_axes         :jsonb            not null
-#  y_axes         :jsonb            not null
 #  chartable_type :string           not null
 #  chartable_id   :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  x_axes         :text             default("{}"), is an Array
+#  y_axes         :text             default("{}"), is an Array
 #
 
 require 'test_helper'

@@ -4,11 +4,11 @@ class Api::ChartsController < ApplicationController
   end
 
   def index
-    @charts = current_user.charts
+    @charts = current_user.charts.sort_by { |chart| chart.id }
   end
 
   def create
-    @chart = DataSource.new(chart_params)
+    @chart = Charts.new(chart_params)
 
     if @chart.save
       render 'api/charts/show'
@@ -22,8 +22,8 @@ class Api::ChartsController < ApplicationController
   end
 
   def destroy
-    @chart = DataSource.find_by_id(params[:id])
-    DataSource.destroy(@chart)
+    @chart = Charts.find_by_id(params[:id])
+    Chart.destroy(@chart)
     render :index
   end
 
