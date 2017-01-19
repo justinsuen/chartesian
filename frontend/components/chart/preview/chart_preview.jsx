@@ -55,17 +55,23 @@ class ChartPreview extends React.Component {
     if (this.props.dataSource.table) {
       const chartData = Object.values(this.props.dataSource.table);
       const desiredData = this.getDesiredData(chartData);
+      const x = `${this.props.xAxes[0][1]}`;
+      const y =`${this.props.yAxes[0][1]}`;
 
       switch(this.state.chartType) {
-
+        case "scatter":
+          return(<V.VictoryScatter data={desiredData} x={x} y={y}/>);
+        case "line":
+          return(<V.VictoryLine data={desiredData} x={x} y={y}/>);
+        case "bar":
+          return(<V.VictoryBar data={desiredData} x={x} y={y}/>);
+        case "area":
+          return(<V.VictoryArea data={desiredData} x={x} y={y}/>);
+        case "pie":
+          return(<V.VictoryPie data={desiredData} x={x} y={y}/>);
+        default:
+          return(<h3>Preview not available</h3>);
       }
-      return(
-        <V.VictoryLine
-          data={desiredData}
-          x={`${this.props.xAxes[0][1]}`}
-          y={`${this.props.yAxes[0][1]}`}
-        />
-      );
     } else {
       return(<h3>Preview not available</h3>);
     }
@@ -74,11 +80,11 @@ class ChartPreview extends React.Component {
   renderChartBtns() {
     return(
       <div className="chart-buttons">
-        <button id="scatter" onClick={this.handleChangeType}><i className="flaticon-dotted-chart"></i></button>
-        <button id="line" onClick={this.handleChangeType}><i className="flaticon-connection"></i></button>
-        <button id="bar" onClick={this.handleChangeType}><i className="flaticon-business-1"></i></button>
-        <button id="barline" onClick={this.handleChangeType}><i className="flaticon-business"></i></button>
-        <button id="pie" onClick={this.handleChangeType}><i className="flaticon-pie-chart"></i></button>
+        <button id="scatter" onClick={this.handleChangeType}><i className="flaticon-scatter"></i></button>
+        <button id="line" onClick={this.handleChangeType}><i className="flaticon-line"></i></button>
+        <button id="area" onClick={this.handleChangeType}><i className="flaticon-area"></i></button>
+        <button id="bar" onClick={this.handleChangeType}><i className="flaticon-bar"></i></button>
+        <button id="pie" onClick={this.handleChangeType}><i className="flaticon-pie"></i></button>
       </div>
     )
   }

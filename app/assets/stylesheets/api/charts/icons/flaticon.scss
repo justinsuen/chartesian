@@ -36,28 +36,28 @@
   font-style: normal;
 }
 
-.flaticon-business:before {
+.flaticon-area:before {
   content: "\f100";
 }
 
-.flaticon-business-1:before {
+.flaticon-line:before {
   content: "\f101";
 }
 
-.flaticon-connection:before {
+.flaticon-scatter:before {
   content: "\f102";
 }
 
-.flaticon-dotted-chart:before {
+.flaticon-bar:before {
   content: "\f103";
 }
 
-.flaticon-pie-chart:before {
+.flaticon-pie:before {
   content: "\f104";
 }
 
-$font-Flaticon-business: "\f100";
-$font-Flaticon-business-1: "\f101";
-$font-Flaticon-connection: "\f102";
-$font-Flaticon-dotted-chart: "\f103";
-$font-Flaticon-pie-chart: "\f104";
+$font-Flaticon-area: "\f100";
+$font-Flaticon-line: "\f101";
+$font-Flaticon-scatter: "\f102";
+$font-Flaticon-bar: "\f103";
+$font-Flaticon-pie: "\f104";
