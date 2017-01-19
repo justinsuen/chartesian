@@ -3,21 +3,18 @@ import { PieChart, Pie, AreaChart, Area, BarChart, Bar, LineChart, Line,
         ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
         Legend, ResponsiveContainer } from 'recharts';
 import { merge } from 'lodash';
+import ChartSubmit from './chart_submit';
 
 class ChartPreview extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: "",
-      chart_type: "",
+      chart_type: "scatter",
       chart_data: [],
-      x_axes: [],
-      y_axes: []
     };
 
     this.handleChangeType = this.handleChangeType.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -29,10 +26,16 @@ class ChartPreview extends React.Component {
     }
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    let desiredData;
+
+    if (nextProps.dataSource.table) {
+      const chartData = Object.values(nextProps.dataSource.table);
+      desiredData = this.getDesiredData(chartData);
+    }
+
     this.setState({
-      x_axes: this.props.x_axes,
-      y_axes: this.props.y_axes
+      chart_data: desiredData
     });
   }
 
@@ -43,8 +46,8 @@ class ChartPreview extends React.Component {
 
   getDesiredData(chartData) {
     let desiredData = [];
-    let xAxis = this.state.x_axes[0][1];
-    let yAxis = this.state.y_axes[0][1];
+    let xAxis = this.props.x_axes[0][1];
+    let yAxis = this.props.y_axes[0][1];
 
     for (let i = 0; i < chartData.length; i++) {
       let datum = chartData[i];
@@ -156,22 +159,20 @@ class ChartPreview extends React.Component {
 
   renderChart() {
     if (this.props.dataSource.table) {
-      const chartData = Object.values(this.props.dataSource.table);
-      const desiredData = this.getDesiredData(chartData);
-      const x = `${this.state.x_axes[0][1]}`;
-      const y = `${this.state.y_axes[0][1]}`;
+      const x = `${this.props.x_axes[0][1]}`;
+      const y = `${this.props.y_axes[0][1]}`;
 
       switch(this.state.chart_type) {
         case "line":
-          return(this.lineChart(desiredData, x, y));
+          return(this.lineChart(this.state.chart_data, x, y));
         case "bar":
-          return(this.barChart(desiredData, x, y));
+          return(this.barChart(this.state.chart_data, x, y));
         case "area":
-          return(this.areaChart(desiredData, x, y));
+          return(this.areaChart(this.state.chart_data, x, y));
         case "pie":
-          return(this.pieChart(desiredData, x, y));
+          return(this.pieChart(this.state.chart_data, x, y));
         default:
-          return(this.scatterChart(desiredData, x, y));
+          return(this.scatterChart(this.state.chart_data, x, y));
       }
     } else {
       return(<h3>Preview not available</h3>);
@@ -190,36 +191,16 @@ class ChartPreview extends React.Component {
     );
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const chart = merge({}, this.state);
-    this.props.createChart(chart);
-  }
-
-  update(field) {
-    return e => this.setState({[field]: e.currentTarget.value});
-  }
-
-  renderChartSubmit() {
-    return(
-      <form onSubmit={this.handleSubmit} className="chart-submit-container">
-        <input type="text"
-          placeholder="Title"
-          value={this.state.title}
-          onChange={this.update("title")}
-          className="chart-title"/>
-
-        <input type="submit" className="button" value="save"/>
-      </form>
-    );
-  }
-
   render() {
-    debugger;
     return (
       <div className="chart-preview-container">
         <h2>Chart Preview</h2>
-        {this.renderChartSubmit()}
+        <ChartSubmit
+          chart_type={this.state.chart_type}
+          chart_data={this.state.chart_data}
+          x_axes={this.props.x_axes}
+          y_axes={this.props.y_axes}
+          createChart={this.props.createChart}/>
         <div className="chart-preview">
           {this.renderChart()}
         </div>

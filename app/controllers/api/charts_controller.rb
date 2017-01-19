@@ -9,7 +9,6 @@ class Api::ChartsController < ApplicationController
 
   def create
     @chart = Chart.new(chart_params)
-    debugger
     if @chart.save
       render 'api/charts/show'
     else
