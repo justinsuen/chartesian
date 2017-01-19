@@ -45,7 +45,11 @@ class ChartPreview extends React.Component {
       }
 
       let row = {};
-      row[xAxis] = Number(datum[xAxis].replace(/[^0-9\.]+/g,""));
+
+      let matches = datum[xAxis].match(/\d+/g);
+      row[xAxis] = (matches !== null) ?
+        Number(datum[xAxis].replace(/[^0-9\.]+/g,"")) :
+        datum[xAxis];
       row[yAxis] = Number(datum[yAxis].replace(/[^0-9\.]+/g,""));
       desiredData.push(row);
     }
@@ -65,12 +69,12 @@ class ChartPreview extends React.Component {
 
   scatterChart(desiredData, x, y){
     return (
-      <ResponsiveContainer width="80%" height="80%">
-        <ScatterChart className="chart-el" margin={{top: 20, right: 20, bottom: 20, left: 20}}>
-          <XAxis dataKey={x} name={x} unit='cm'/>
-          <YAxis dataKey={y} name={y} unit='kg'/>
-          <Scatter name='A school' data={desiredData} fill='#8884d8'/>
-          <CartesianGrid />
+      <ResponsiveContainer width="90%" height="90%">
+        <ScatterChart className="chart-el" margin={{top: 50, right: 50, bottom: 50, left: 50}}>
+          <XAxis dataKey={x} name={x} label={x}/>
+          <YAxis dataKey={y} name={y} label={y}/>
+          <Scatter data={desiredData} fill="#FF9100"/>
+          <CartesianGrid/>
           <Tooltip cursor={{strokeDasharray: '3 3'}}/>
         </ScatterChart>
       </ResponsiveContainer>
@@ -79,14 +83,14 @@ class ChartPreview extends React.Component {
 
   lineChart(desiredData, x, y){
     return (
-      <ResponsiveContainer width="80%" height="80%">
-        <LineChart className="chart-el" data={desiredData} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-         <XAxis dataKey={x}/>
-         <YAxis/>
+      <ResponsiveContainer width="90%" height="90%">
+        <LineChart className="chart-el" data={desiredData} margin={{top: 50, right: 50, bottom: 50, left: 50}}>
+         <XAxis dataKey={x} label={x}/>
+         <YAxis label={y}/>
          <CartesianGrid strokeDasharray="3 3"/>
          <Tooltip/>
-         <Legend />
-         <Line type="monotone" dataKey={y} stroke="#8884d8" activeDot={{r: 8}}/>
+         <Legend/>
+         <Line type="monotone" dataKey={y} stroke="#FF9100" activeDot={{r: 8}}/>
         </LineChart>
       </ResponsiveContainer>
     );
@@ -94,15 +98,15 @@ class ChartPreview extends React.Component {
 
   barChart(desiredData, x, y){
     return (
-      <ResponsiveContainer width="80%" height="80%">
+      <ResponsiveContainer width="90%" height="90%">
         <BarChart className="chart-el" data={desiredData}
-                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-          <XAxis dataKey={x}/>
-          <YAxis/>
+                margin={{top: 50, right: 50, bottom: 50, left: 50}}>
+          <XAxis dataKey={x} label={x}/>
+          <YAxis label={y}/>
           <CartesianGrid strokeDasharray="3 3"/>
           <Tooltip/>
-          <Legend />
-          <Bar dataKey={y} fill="#8884d8" />
+          <Legend/>
+          <Bar dataKey={y} fill="#FF9100"/>
         </BarChart>
       </ResponsiveContainer>
     );
@@ -110,24 +114,24 @@ class ChartPreview extends React.Component {
 
   areaChart(desiredData, x, y){
     return (
-      <ResponsiveContainer width="80%" height="80%">
-      <AreaChart className="chart-el" data={desiredData}
-              margin={{top: 10, right: 30, left: 0, bottom: 0}}>
-        <XAxis dataKey={x}/>
-        <YAxis/>
-        <CartesianGrid strokeDasharray="3 3"/>
-        <Tooltip/>
-        <Area type='monotone' dataKey={y} stroke='#8884d8' fill='#8884d8' />
-      </AreaChart>
-    </ResponsiveContainer>
+      <ResponsiveContainer width="90%" height="90%">
+        <AreaChart className="chart-el" data={desiredData}
+                margin={{top: 50, right: 50, bottom: 50, left: 50}}>
+          <XAxis dataKey={x} label={x}/>
+          <YAxis label={y}/>
+          <CartesianGrid strokeDasharray="3 3"/>
+          <Tooltip/>
+          <Area type='monotone' dataKey={y} stroke="#FF9100" fill="#FF9100"/>
+        </AreaChart>
+      </ResponsiveContainer>
     );
   }
 
   pieChart(desiredData, x, y){
     return (
-      <ResponsiveContainer width="80%" height="80%">
+      <ResponsiveContainer width="90%" height="90%">
         <PieChart className="chart-el">
-          <Pie data={desiredData} nameKey={x} valueKey={y} fill="#8884d8" label/>
+          <Pie data={desiredData} nameKey={x} valueKey={y} fill="#FF9100"/>
           <Tooltip/>
         </PieChart>
       </ResponsiveContainer>
