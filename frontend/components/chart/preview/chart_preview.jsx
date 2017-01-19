@@ -1,5 +1,5 @@
 import React from 'react';
-import {VictoryScatter} from 'victory';
+import * as V from 'victory';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -50,15 +50,27 @@ class ChartPreview extends React.Component {
       const desiredData = this.getDesiredData(chartData);
 
       return(
-        <VictoryScatter
+        <V.VictoryLine
           data={desiredData}
           x={`${this.props.xAxes[0][1]}`}
           y={`${this.props.yAxes[0][1]}`}
         />
       );
     } else {
-      return(<h3>Preview not available!</h3>);
+      return(<h3>Preview not available</h3>);
     }
+  }
+
+  renderChartBtns() {
+    return(
+      <div className="chart-buttons">
+        <button><i className="flaticon-business"></i></button>
+        <button><i className="flaticon-business-1"></i></button>
+        <button><i className="flaticon-connection"></i></button>
+        <button><i className="flaticon-dotted-chart"></i></button>
+        <button><i className="flaticon-pie-chart"></i></button>
+      </div>
+    )
   }
 
   render() {
@@ -67,6 +79,12 @@ class ChartPreview extends React.Component {
         <h2>Chart Preview</h2>
         <div className="chart-preview">
           {this.renderChart()}
+        </div>
+        <div className="chart-options">
+          {this.renderChartBtns()}
+        </div>
+        <div className="chart-footer">
+          <p>Chart button icons designed by <a href="http://www.freepik.com/">Freepik</a></p>
         </div>
       </div>
     );

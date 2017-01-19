@@ -35,7 +35,6 @@ class DataSourceForm extends React.Component {
       });
       this.loadTable(files[0]);
     } else {
-      console.log("Not supported!");
       files = [];
     }
   }
@@ -197,19 +196,5 @@ class DataSourceForm extends React.Component {
     );
   }
 }
-
-// Handle URL submitting - bonus
-// <form onSubmit={this.handleURLSubmit} className="login-form-container">
-//   <div className="data-url-form">
-//     <input type="text"
-//       placeholder="Enter url to data source here"
-//       value={this.state.data_source_url}
-//       onChange={this.update("data_source_url")}
-//       className="data-url-input"/>
-//
-//     <input type="submit"
-//       className="button"/>
-//   </div>
-// </form>
 
 export default DataSourceForm;

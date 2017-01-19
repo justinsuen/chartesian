@@ -4,8 +4,71 @@
   width: 60%;
   margin-left: 10px;
   padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .chart-preview {
   margin-top: 30px;
+  margin-bottom: 30px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background-color: $primary-color-lightest;
+
+  h3 {
+    font-size: 300%;
+    color: $secondary-text-color;
+  }
+}
+
+.chart-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  button {
+    border: 1px solid white;
+    padding: 10px 15px;
+    background-color: $primary-color-light;
+  }
+
+  button:first-of-type {
+    border-radius: 10px 0 0 10px;
+  }
+
+  button:last-of-type {
+    border-radius: 0 10px 10px 0;
+  }
+
+  button:hover {
+    background-color: $accent-color-light;
+  }
+
+  i {
+    font-size: 40px;
+    color: black;
+  }
+}
+
+.chart-footer {
+  text-align: right;
+  color: $secondary-text-color;
+  font-size: 80%;
+
+  a:hover {
+    color: $primary-color-lighter !important;
+  }
+
+  a, a:visited {
+    color: $primary-color-light;
+  }
 }

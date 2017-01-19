@@ -16,7 +16,6 @@ class ChartBuild extends React.Component {
 
   updateAxes(xAxes, yAxes) {
     this.setState({xAxes, yAxes});
-    console.log("Axes updated!");
   }
 
   render() {
