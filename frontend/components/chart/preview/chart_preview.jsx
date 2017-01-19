@@ -56,11 +56,9 @@ class ChartPreview extends React.Component {
       const chartData = Object.values(this.props.dataSource.table);
       const desiredData = this.getDesiredData(chartData);
       const x = `${this.props.xAxes[0][1]}`;
-      const y =`${this.props.yAxes[0][1]}`;
+      const y = `${this.props.yAxes[0][1]}`;
 
       switch(this.state.chartType) {
-        case "scatter":
-          return(<V.VictoryScatter data={desiredData} x={x} y={y}/>);
         case "line":
           return(<V.VictoryLine data={desiredData} x={x} y={y}/>);
         case "bar":
@@ -70,7 +68,7 @@ class ChartPreview extends React.Component {
         case "pie":
           return(<V.VictoryPie data={desiredData} x={x} y={y}/>);
         default:
-          return(<h3>Preview not available</h3>);
+          return(<V.VictoryScatter data={desiredData} x={x} y={y}/>);
       }
     } else {
       return(<h3>Preview not available</h3>);
@@ -86,7 +84,7 @@ class ChartPreview extends React.Component {
         <button id="bar" onClick={this.handleChangeType}><i className="flaticon-bar"></i></button>
         <button id="pie" onClick={this.handleChangeType}><i className="flaticon-pie"></i></button>
       </div>
-    )
+    );
   }
 
   render() {
