@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 import ChartItem from './chart_item';
 
 class ChartIndex extends React.Component {
@@ -33,4 +34,4 @@ class ChartIndex extends React.Component {
   }
 }
 
-export default ChartIndex;
+export default withRouter(ChartIndex);

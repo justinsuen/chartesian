@@ -37,6 +37,7 @@ gem 'faker'
 gem 'cloudinary'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'seed_dump'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

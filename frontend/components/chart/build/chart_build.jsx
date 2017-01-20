@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 import ChartFormContainer from '../form/chart_form_container';
 import ChartPreviewContainer from '../preview/chart_preview_container';
 
@@ -36,4 +37,4 @@ class ChartBuild extends React.Component {
   }
 }
 
-export default ChartBuild;
+export default withRouter(ChartBuild);

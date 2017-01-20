@@ -1,6 +1,6 @@
 import React from 'react';
 import {merge} from 'lodash';
-import {hashHistory} from 'react-router';
+import {hashHistory, withRouter} from 'react-router';
 
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
@@ -197,4 +197,4 @@ class DataSourceForm extends React.Component {
   }
 }
 
-export default DataSourceForm;
+export default withRouter(DataSourceForm);

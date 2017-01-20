@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 import DataItemContainer from './data_item_container';
 
 class DataSourceIndex extends React.Component {
@@ -40,4 +41,4 @@ class DataSourceIndex extends React.Component {
   }
 }
 
-export default DataSourceIndex;
+export default withRouter(DataSourceIndex);
