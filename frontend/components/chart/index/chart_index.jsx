@@ -1,4 +1,5 @@
 import React from 'react';
+import ChartItem from './chart_item';
 
 class ChartIndex extends React.Component {
   constructor(props) {
@@ -7,14 +8,18 @@ class ChartIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchCharts();
-    debugger;
   }
 
   render() {
     return (
       <div className="chart-index-container">
         <h2>Manage Charts</h2>
-        { this.props.charts.map((chart, idx) => <p>{chart.title}</p>) }
+        <div className="chart-items-container">
+          {this.props.charts.map((chart, idx) =>
+            <ChartItem key={idx} chart={chart}/>
+          )}
+        </div>
+        <p>Chart sprites created by <a href="http://www.flaticon.com/authors/maxim-basinski">Maxim Basinski</a></p>
       </div>
     );
   }
