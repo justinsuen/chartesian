@@ -21,12 +21,14 @@ class Footer extends React.Component {
           </div>
           <div className="app-footer-attr">
             <p>Created and maintained by <a href="http://justinsuen.com">Justin Suen</a></p>
-            <p>Graph icons designed by <a href="https://roundicons.com/">Roundicons</a></p>
           </div>
         </div>
       );
     }
   }
 }
+
+// Not using at the moment
+// <p>Graph icons designed by <a href="https://roundicons.com/">Roundicons</a></p>
 
 export default Footer;
