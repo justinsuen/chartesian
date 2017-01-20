@@ -9,6 +9,7 @@ class ChartSubmit extends React.Component {
     this.state = {title: ""};
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkAttrs = this.checkAttrs.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,6 +27,7 @@ class ChartSubmit extends React.Component {
 
     const chart = merge({}, newChart);
     this.props.createChart(chart);
+
     if (!this.props.errors) {
       this.props.router.push("/charts");
     }
@@ -47,6 +49,10 @@ class ChartSubmit extends React.Component {
     );
   }
 
+  checkAttrs() {
+    return (this.state.title === "") || (this.props.chart_data === undefined);
+  }
+
   render() {
     return(
       <div className="chart-submit-form-wrap">
@@ -58,7 +64,7 @@ class ChartSubmit extends React.Component {
             onChange={this.update("title")}
             className="chart-title"/>
 
-          <input type="submit" className="button" value="save"/>
+          <input type="submit" className="button" value="save" disabled={this.checkAttrs()}/>
         </form>
       </div>
     );
