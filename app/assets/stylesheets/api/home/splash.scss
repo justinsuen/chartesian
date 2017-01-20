@@ -6,6 +6,7 @@
   display: -ms-flexbox;
   display: flex;
 
+  position: relative;
   overflow: hidden;
 
   -webkit-flex-direction: row;
@@ -18,22 +19,53 @@
   padding: 40px;
 
   font-family: $font-stack;
+  box-sizing: border-box;
 }
 
 .splash-text {
   position: absolute;
+  width: 40%;
+  height: 100%;
+
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+
+  justify-content: center;
+
+  h2, p {
+    font-weight: 300;
+    margin: 0 0 20px 20px;
+  }
+
+  h2 {
+    font-size: 300%;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 150%;
+  }
 }
 
 .splash-chart {
   position: absolute;
-  z-index: 1;
-  left: 30%;
-  height: 100%;
-  overflow: hidden;
+  left: 35%;
+  height: 120%;
+
+  .sample-chart {
+    position: absolute;
+    z-index: 2;
+    top: 13%;
+    left: 160%;
+  }
+
   img {
-    height: 100%;
+    height: 80%;
+    z-index: 1;
   }
 }

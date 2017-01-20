@@ -15,7 +15,7 @@ class ChartModalPreview extends React.Component {
           <XAxis dataKey={x} name={x} label={x}/>
           <YAxis dataKey={y} name={y} label={y}/>
           <Scatter data={desiredData} fill="#FF9100"/>
-          <CartesianGrid/>
+          <CartesianGrid strokeDasharray="5 5"/>
           <Tooltip cursor={{strokeDasharray: '5 5'}}/>
         </ScatterChart>
       </ResponsiveContainer>

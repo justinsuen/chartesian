@@ -16,10 +16,6 @@ class ChartIndex extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return (this.props.charts.length === 0) || (nextProps.charts.length !== this.props.charts.length);
-  // }
-
   render() {
     return (
       <div className="chart-index-container">

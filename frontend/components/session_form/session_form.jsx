@@ -105,7 +105,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="main-login-splash">
+      <div className="user-container">
         <div className="login-form-box">
           <h3>{this.props.formType === "login" ? "Log in" : "Sign up"}</h3>
           {this.renderErrors()}
