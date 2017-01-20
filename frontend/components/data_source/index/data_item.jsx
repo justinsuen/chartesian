@@ -9,10 +9,6 @@ class DataItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchDataSource(this.props.id);
-  }
-
   handleClick(e) {
     e.preventDefault();
     this.setState({isOpened: !this.state.isOpened});

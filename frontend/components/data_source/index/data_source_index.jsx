@@ -31,6 +31,7 @@ class DataSourceIndex extends React.Component {
             <DataItemContainer
               key={idx}
               id={dataSource.id}
+              dataSource={dataSource}
               index={idx}/>
           )}
         </div>
