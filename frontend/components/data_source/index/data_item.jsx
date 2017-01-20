@@ -21,7 +21,7 @@ class DataItem extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteDataSource(this.props.id);
-    $(`#data-${this.props.dataSource.id}`).hide();
+    $(`#data-${this.props.dataSource.id}`).remove();
   }
 
   renderDataPreview() {
@@ -54,8 +54,8 @@ class DataItem extends React.Component {
     let {dataSource} = this.props;
 
     return (
-      <div className="data-index-wrap">
-        <div id={`data-${dataSource.id}`} className="data-index-row">
+      <div id={`data-${dataSource.id}`} className="data-index-wrap">
+        <div className="data-index-row">
           <div className="data-row-cell cell1" onClick={this.handleClick}><p>{this.props.index+1}</p></div>
           <div className="data-row-cell cell2" onClick={this.handleClick}><p>{dataSource.title}</p></div>
           <div className="data-row-cell cell3" onClick={this.handleClick}><p>{dataSource.data_type}</p></div>
