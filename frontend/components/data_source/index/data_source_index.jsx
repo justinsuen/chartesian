@@ -10,8 +10,10 @@ class DataSourceIndex extends React.Component {
     this.props.fetchDataSources();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (this.props.dataSources.length === 0) || (nextProps.dataSources.length !== this.props.dataSources.length);
+  componentWillReceiveProps(nextProps) {
+    if ((this.props.dataSources.length === 0) || (nextProps.dataSources.length !== this.props.dataSources.length)) {
+      this.props.fetchDataSources();
+    }
   }
 
   render() {

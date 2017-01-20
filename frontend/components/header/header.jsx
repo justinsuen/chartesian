@@ -24,7 +24,6 @@ class Header extends React.Component {
   headerGroup(currentUser) {
     return (
       <div className="header-group">
-        <Link to="/dashboards">Dashboards</Link>
         <Link to="/charts">Charts</Link>
         <Link to="/data_sources">Data Sources</Link>
         {this.userOptions(currentUser)}

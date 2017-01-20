@@ -10,9 +10,15 @@ class ChartIndex extends React.Component {
     this.props.fetchCharts();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (this.props.charts.length === 0) || (nextProps.charts.length !== this.props.charts.length);
+  componentWillReceiveProps(nextProps) {
+    if ((this.props.charts.length === 0) || (nextProps.charts.length !== this.props.charts.length)) {
+      this.props.fetchCharts();
+    }
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return (this.props.charts.length === 0) || (nextProps.charts.length !== this.props.charts.length);
+  // }
 
   render() {
     return (
