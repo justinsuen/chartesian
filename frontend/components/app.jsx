@@ -11,7 +11,7 @@ class App extends React.Component {
       return(<SidebarContainer />);
     }
   }
-  
+
   render() {
     return(
       <div className="app-container">
