@@ -25,10 +25,10 @@ end
 def dsv_to_json(data)
   headers = data[0]
   json = {}
-  (0...data.length-1).each do |row|
+  (0...data.length - 1).each do |row|
     json[row] = {}
     headers.each_with_index do |header, col|
-      json[row][header] = data[row+1][col]
+      json[row][header] = data[row + 1][col]
     end
   end
   json
@@ -45,8 +45,8 @@ end
 employees_raw = dsv_to_json(parse_tsv(File.read('./app/assets/seed_data_source/employees.tsv')))
 bad_drivers = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/bad_drivers.csv')))
 recent_grads = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/recent_grads.csv')))
-2010_us_population = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/2010_us_population.json')))
-2015_sweden_population = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/2015_sweden_population.json')))
+us_pop_2010 = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/us_pop_2010.json')))
+swe_pop_2015 = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/swe_pop_2015.json')))
 china_gdp = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/china_gdp.json')))
 usd_xrate = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/20170119_usd.json')))
 
@@ -60,42 +60,42 @@ usd_xrate = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/20
     table: recent_grads
   )
   DataSource.create!(
-    title: 'Employees',
+    title: 'ABC Company Employees',
     data_type: 'tsv',
     owner_id: num,
     data_source_url: 'chartesian_demo_employees_url',
     table: employees_raw
   )
   DataSource.create!(
-    title: 'Bad Driver',
+    title: 'US Driving Statistics',
     data_type: 'csv',
     owner_id: num,
     data_source_url: 'chartesian_demo_drivers_url',
     table: bad_drivers
   )
   DataSource.create!(
-    title: '2010 US Population',
-    data_type: 'json',
-    owner_id: num,
-    data_source_url: 'chartesian_demo_2010_us_pop_url',
-    table: 2010_us_population
-  )
-  DataSource.create!(
-    title: 'China GDP',
-    data_type: 'json',
+    title: 'China GDP 1960-2015',
+    data_type: 'tsv',
     owner_id: num,
     data_source_url: 'chartesian_demo_china_gdp_url',
     table: china_gdp
+  )
+  DataSource.create!(
+    title: '2010 US Population',
+    data_type: 'tsv',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_2010_us_pop_url',
+    table: us_pop_2010
   )
   DataSource.create!(
     title: '2015 Sweden Population',
     data_type: 'json',
     owner_id: num,
     data_source_url: 'chartesian_demo_2015_sweden_pop_url',
-    table: 2015_sweden_population
+    table: swe_pop_2015
   )
   DataSource.create!(
-    title: '2017-01-19 USD Exchange Rate',
+    title: 'USD Exchange Rate (2017/01/19)',
     data_type: 'json',
     owner_id: num,
     data_source_url: 'chartesian_demo_20170119_usd_url',
