@@ -54,11 +54,11 @@ bad_drivers = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/bad
 # Create data sources
 (1..99).each do |num|
   DataSource.create!(
-  title: 'Kobe Bryant Career Statistics',
-  data_type: 'csv',
-  owner_id: num,
-  data_source_url: 'chartesian_demo_kobe_url',
-  table: kobe_stats
+    title: 'Kobe Bryant Career Statistics',
+    data_type: 'csv',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_kobe_url',
+    table: kobe_stats
   )
   DataSource.create!(
     title: '2010 US Population',
@@ -75,18 +75,18 @@ bad_drivers = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/bad
     table: swe_pop_2015
   )
   DataSource.create!(
-  title: 'Recent Grads',
-  data_type: 'csv',
-  owner_id: num,
-  data_source_url: 'chartesian_demo_grads_url',
-  table: recent_grads
+    title: 'Recent Grads',
+    data_type: 'csv',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_grads_url',
+    table: recent_grads
   )
   DataSource.create!(
-  title: 'China GDP 1960-2015',
-  data_type: 'tsv',
-  owner_id: num,
-  data_source_url: 'chartesian_demo_china_gdp_url',
-  table: china_gdp
+    title: 'China GDP 1960-2015',
+    data_type: 'tsv',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_china_gdp_url',
+    table: china_gdp
   )
   DataSource.create!(
     title: 'USD Exchange Rate (2017/01/19)',
@@ -96,11 +96,11 @@ bad_drivers = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/bad
     table: usd_xrate
   )
   DataSource.create!(
-  title: 'ABC Company Employees',
-  data_type: 'tsv',
-  owner_id: num,
-  data_source_url: 'chartesian_demo_employees_url',
-  table: employees_raw
+    title: 'ABC Company Employees',
+    data_type: 'tsv',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_employees_url',
+    table: employees_raw
   )
   DataSource.create!(
     title: 'US Driving Statistics',
