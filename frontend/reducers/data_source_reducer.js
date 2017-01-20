@@ -3,6 +3,7 @@ import {
   RECEIVE_DATA_SOURCES,
   REMOVE_DATA_SOURCE,
   RECEIVE_ERRORS } from '../actions/data_source_actions';
+import { CLEAR_SOURCE } from '../actions/chart_actions';
 import merge from 'lodash/merge';
 
 const _nullDataSource = Object.freeze({
@@ -25,6 +26,8 @@ const DataSourceReducer = (state = _nullDataSource, action) => {
       let newState = merge({}, state);
       delete newState.dataSource[action.dataSource.id];
       return newState;
+    case CLEAR_SOURCE:
+      return _nullDataSource;
     case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, _nullDataSource, { errors });

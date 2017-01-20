@@ -4,6 +4,7 @@ export const RECEIVE_CHART = "RECEIVE_CHART";
 export const RECEIVE_CHARTS = "RECEIVE_CHARTS";
 export const REMOVE_CHART = "REMOVE_CHART";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_SOURCE = "CLEAR_SOURCE";
 
 // sync functions
 export const receiveChart = chart => ({
@@ -25,6 +26,10 @@ export const removeChart = chart => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearSource = () => ({
+  type: CLEAR_SOURCE
 });
 
 // async functions
@@ -50,4 +55,5 @@ export const createChart = chart => dispatch => (
   APIUtil.createChart(chart)
     .then(response => dispatch(receiveChart(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
+    .then(() => dispatch(clearSource()))
 );

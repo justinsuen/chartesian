@@ -161,6 +161,7 @@ class ChartPreview extends React.Component {
 
   renderChart() {
     if (this.props.dataSource.table) {
+      debugger;
       const x = `${this.props.x_axes[0][1]}`;
       const y = `${this.props.y_axes[0][1]}`;
 

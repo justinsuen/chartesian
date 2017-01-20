@@ -26,7 +26,7 @@ class ChartSubmit extends React.Component {
 
     const chart = merge({}, newChart);
     this.props.createChart(chart);
-    hashHistory.push("/charts");
+    this.props.router.push("/charts");
   }
 
   update(field) {
