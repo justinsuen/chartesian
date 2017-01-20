@@ -5,7 +5,13 @@ import {
   RECEIVE_ERRORS } from '../actions/chart_actions';
 import merge from 'lodash/merge';
 
-const ChartReducer = (state = {}, action) => {
+const _nullChart = Object.freeze({
+  chart: {},
+  charts: {},
+  errors: []
+});
+
+const ChartReducer = (state = _nullChart, action) => {
   Object.freeze(state);
 
   switch(action.type) {

@@ -34,13 +34,11 @@ export const fetchChart = id => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const fetchCharts = () => dispatch => {
-  return(
+export const fetchCharts = () => dispatch => (
   APIUtil.fetchCharts()
     .then(response => dispatch(receiveCharts(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
-    );
-};
+);
 
 export const deleteChart = id => dispatch => (
   APIUtil.deleteChart(id)
