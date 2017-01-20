@@ -30,7 +30,9 @@ class ChartPreview extends React.Component {
     let desiredData;
 
     if (nextProps.dataSource.table) {
-      const chartData = Object.values(nextProps.dataSource.table);
+      const chartData = Object.keys(nextProps.dataSource.table).map(key =>
+        nextProps.dataSource.table[key]
+      );
       desiredData = this.getDesiredData(chartData);
     }
 
