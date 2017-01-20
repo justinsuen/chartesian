@@ -26,24 +26,41 @@ class ChartSubmit extends React.Component {
 
     const chart = merge({}, newChart);
     this.props.createChart(chart);
-    this.props.router.push("/charts");
+    if (!this.props.errors) {
+      this.props.router.push("/charts");
+    }
   }
 
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
 
+  renderErrors() {
+    return (
+      <div className="error-list">
+        {this.props.errors.map((error, i) => (
+          <div key={`error-${i}`} className="error-list-item">
+            {error}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   render() {
     return(
-      <form onSubmit={this.handleSubmit} className="chart-submit-container">
-        <input type="text"
-          placeholder="Title"
-          value={this.state.title}
-          onChange={this.update("title")}
-          className="chart-title"/>
+      <div className="chart-submit-form-wrap">
+        {this.renderErrors()}
+        <form onSubmit={this.handleSubmit} className="chart-submit-container">
+          <input type="text"
+            placeholder="Title"
+            value={this.state.title}
+            onChange={this.update("title")}
+            className="chart-title"/>
 
-        <input type="submit" className="button" value="save"/>
-      </form>
+          <input type="submit" className="button" value="save"/>
+        </form>
+      </div>
     );
   }
 }

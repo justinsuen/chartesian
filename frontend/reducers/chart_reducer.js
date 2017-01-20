@@ -2,7 +2,7 @@ import {
   RECEIVE_CHART,
   RECEIVE_CHARTS,
   REMOVE_CHART,
-  RECEIVE_ERRORS } from '../actions/chart_actions';
+  RECEIVE_CHART_ERRORS } from '../actions/chart_actions';
 import merge from 'lodash/merge';
 
 const _nullChart = Object.freeze({
@@ -25,7 +25,7 @@ const ChartReducer = (state = _nullChart, action) => {
       let oldState = merge({}, state);
       delete oldState.chart[action.chart.id];
       return oldState;
-    case RECEIVE_ERRORS:
+    case RECEIVE_CHART_ERRORS:
       const errors = action.errors;
       return merge({}, { errors });
     default:

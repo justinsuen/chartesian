@@ -3,7 +3,7 @@ import * as APIUtil from '../util/chart_api_util';
 export const RECEIVE_CHART = "RECEIVE_CHART";
 export const RECEIVE_CHARTS = "RECEIVE_CHARTS";
 export const REMOVE_CHART = "REMOVE_CHART";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_CHART_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_SOURCE = "CLEAR_SOURCE";
 
 // sync functions
@@ -23,8 +23,8 @@ export const removeChart = chart => ({
   chart
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+export const receiveChartErrors = errors => ({
+  type: RECEIVE_CHART_ERRORS,
   errors
 });
 
@@ -54,6 +54,6 @@ export const deleteChart = id => dispatch => (
 export const createChart = chart => dispatch => (
   APIUtil.createChart(chart)
     .then(response => dispatch(receiveChart(response)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receiveChartErrors(err.responseJSON)))
     .then(() => dispatch(clearSource()))
 );

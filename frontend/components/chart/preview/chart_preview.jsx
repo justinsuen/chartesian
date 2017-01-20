@@ -3,7 +3,7 @@ import { PieChart, Pie, AreaChart, Area, BarChart, Bar, LineChart, Line,
         ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
         Legend, ResponsiveContainer } from 'recharts';
 import { merge } from 'lodash';
-import ChartSubmit from './chart_submit';
+import ChartSubmitContainer from './chart_submit_container';
 
 class ChartPreview extends React.Component {
   constructor(props) {
@@ -197,14 +197,13 @@ class ChartPreview extends React.Component {
     return (
       <div className="chart-preview-container">
         <h2>Chart Preview</h2>
-        <ChartSubmit
+        <ChartSubmitContainer
           chart_type={this.state.chart_type}
           chart_data={this.state.chart_data}
           x_axes={this.props.x_axes}
           y_axes={this.props.y_axes}
           chartable_type={"User"}
-          chartable_id={this.props.currentUser.id}
-          createChart={this.props.createChart}/>
+          chartable_id={this.props.currentUser.id}/>
         <div className="chart-preview">
           {this.renderChart()}
         </div>

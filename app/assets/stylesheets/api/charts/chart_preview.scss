@@ -83,6 +83,25 @@
   }
 }
 
+.chart-submit-form-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .error-list {
+    border: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.chart-submit-form-wrap > .error-list > .error-list-item {
+  padding: 20px 30px 20px 30px;
+}
+
 .chart-submit-container {
   margin-top: 15px;
   padding: 0 10px;
