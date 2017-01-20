@@ -1,0 +1,58 @@
+// index view for charts
+@import "variables";
+
+.chart-index-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .footer {
+    position: relative;
+    text-align: right;
+    font-size: 80%;
+    color: $secondary-text-color;
+
+    a, a:visited {
+      color: $primary-color-light;
+    }
+
+    a:hover {
+      color: $primary-color-lighter;
+    }
+  }
+}
+
+.chart-items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: 1;
+
+  overflow-y: scroll;
+  margin: 30px 0 10px 0;
+  padding: 30px 0 0 30px;
+  background-color: $primary-color-lighter;
+  border-radius: 5px;
+}
+
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  margin: 0 30px 30px 0;
+  width: 300px;
+  height: 300px;
+  background-color: $primary-color;
+
+  cursor: pointer;
+}
+
+.chart-item:hover {
+  box-shadow: $mid-shadows;
+  transition: $shadows-transition;
+}

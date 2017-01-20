@@ -19,7 +19,9 @@ class ChartIndex extends React.Component {
             <ChartItem key={idx} chart={chart}/>
           )}
         </div>
-        <p>Chart sprites created by <a href="http://www.flaticon.com/authors/maxim-basinski">Maxim Basinski</a></p>
+        <div className="footer">
+          <p>Chart sprites created by <a href="http://www.flaticon.com/authors/maxim-basinski">Maxim Basinski</a></p>
+        </div>
       </div>
     );
   }
