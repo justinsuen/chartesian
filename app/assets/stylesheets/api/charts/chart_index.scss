@@ -71,7 +71,7 @@
   left: 100px;
   right: 100px;
   bottom: 100px;
-  padding: 20px;
+  padding: 30px;
 
   z-index: 11;
   background-color: white;
@@ -84,9 +84,39 @@
 .chart-modal-preview-container {
   width: 100%;
   height: 100%;
+  font-family: $font-stack;
+
+  h2 {
+    font-weight: 400;
+    color: $divider-color;
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+}
+
+.chart-modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  i {
+    font-size: 300%;
+    color: $divider-color;
+  }
+
+  i:hover {
+    color: $primary-text-color;
+  }
 }
 
 .chart-modal-preview {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

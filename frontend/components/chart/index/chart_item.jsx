@@ -39,8 +39,8 @@ class ChartItem extends React.Component {
            shouldCloseOnOverlayClick={true}
            className="modal-content"
            overlayClassName="modal-overlay">
-          <ChartModalPreviewContainer chart={this.props.chart}/>
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <ChartModalPreviewContainer chart={this.props.chart}
+            handleClose={this.handleCloseModal}/>
         </Modal>
       </div>
     );

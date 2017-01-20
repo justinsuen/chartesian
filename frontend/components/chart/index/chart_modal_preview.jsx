@@ -16,7 +16,7 @@ class ChartModalPreview extends React.Component {
           <YAxis dataKey={y} name={y} label={y}/>
           <Scatter data={desiredData} fill="#FF9100"/>
           <CartesianGrid/>
-          <Tooltip cursor={{strokeDasharray: '3 3'}}/>
+          <Tooltip cursor={{strokeDasharray: '5 5'}}/>
         </ScatterChart>
       </ResponsiveContainer>
     );
@@ -28,7 +28,7 @@ class ChartModalPreview extends React.Component {
         <LineChart className="chart-el" data={desiredData} margin={{top: 50, right: 50, bottom: 50, left: 50}}>
          <XAxis dataKey={x} label={x}/>
          <YAxis label={y}/>
-         <CartesianGrid strokeDasharray="3 3"/>
+         <CartesianGrid strokeDasharray="5 5"/>
          <Tooltip/>
          <Legend/>
          <Line type="monotone" dataKey={y} stroke="#FF9100" activeDot={{r: 8}}/>
@@ -44,7 +44,7 @@ class ChartModalPreview extends React.Component {
                 margin={{top: 50, right: 50, bottom: 50, left: 50}}>
           <XAxis dataKey={x} label={x}/>
           <YAxis label={y}/>
-          <CartesianGrid strokeDasharray="3 3"/>
+          <CartesianGrid strokeDasharray="5 5"/>
           <Tooltip/>
           <Legend/>
           <Bar dataKey={y} fill="#FF9100"/>
@@ -60,7 +60,7 @@ class ChartModalPreview extends React.Component {
                 margin={{top: 50, right: 50, bottom: 50, left: 50}}>
           <XAxis dataKey={x} label={x}/>
           <YAxis label={y}/>
-          <CartesianGrid strokeDasharray="3 3"/>
+          <CartesianGrid strokeDasharray="5 5"/>
           <Tooltip/>
           <Area type='monotone' dataKey={y} stroke="#FF9100" fill="#FF9100"/>
         </AreaChart>
@@ -133,8 +133,14 @@ class ChartModalPreview extends React.Component {
   render() {
     return (
       <div className="chart-modal-preview-container">
-        <h2>Chart Preview</h2>
+        <div className="chart-modal-header">
+          <h2>Chart Preview</h2>
+          <button onClick={this.props.handleClose}>
+            <i className="fa fa-times"></i>
+          </button>
+        </div>
         <div className="chart-modal-preview">
+          <h1>{this.props.chart.title}</h1>
           {this.renderChart()}
         </div>
       </div>
