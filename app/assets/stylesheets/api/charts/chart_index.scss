@@ -42,15 +42,31 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
   margin: 0 30px 30px 0;
-  width: 300px;
-  height: 300px;
+  padding: 20px;
+  width: 290px;
+  height: 290px;
+
   background-color: $primary-color;
   cursor: pointer;
   text-align: center;
+  color: white;
+  border-radius: 10px;
+
+  h3 {
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
 }
 
 .chart-item:hover {
+  background-color: $accent-color-light;
+  color: $secondary-text-color;
   box-shadow: $mid-shadows;
   transition: $shadows-transition;
 }

@@ -29,8 +29,8 @@ class ChartItem extends React.Component {
     return(
       <div className="chart-item-preview">
         <div className="chart-item" onClick={this.handleOpenModal}>
-          <p>{this.props.chart.title}</p>
-          <p>{this.props.chart.chart_type}</p>
+          <h3>{this.props.chart.title}</h3>
+          <p>{this.props.chart.chart_type} Chart</p>
         </div>
         <Modal
            isOpen={this.state.showModal}
