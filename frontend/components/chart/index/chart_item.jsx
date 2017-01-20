@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-modal';
-import {style} from './chart_modal_style';
 
 class ChartItem extends React.Component {
   constructor(props) {
@@ -37,7 +36,8 @@ class ChartItem extends React.Component {
            contentLabel="onRequestClose Example"
            onRequestClose={this.handleCloseModal}
            shouldCloseOnOverlayClick={true}
-           style={style}>
+           className="modal-content"
+           overlayClassName="modal-overlay">
           <p>Modal text!</p>
           <button onClick={this.handleCloseModal}>Close Modal</button>
         </Modal>
