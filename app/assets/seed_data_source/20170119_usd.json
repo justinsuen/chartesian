@@ -1,0 +1,126 @@
+[{
+    {
+        "Currency": "AUD",
+        "Rate": 1.3229
+    },
+    {
+        "Currency": "BGN",
+        "Rate": 1.8333
+    },
+    {
+        "Currency": "BRL",
+        "Rate": 3.208
+    },
+    {
+        "Currency": "CAD",
+        "Rate": 1.3282
+    },
+    {
+        "Currency": "CHF",
+        "Rate": 1.0057
+    },
+    {
+        "Currency": "CNY",
+        "Rate": 6.8655
+    },
+    {
+        "Currency": "CZK",
+        "Rate": 25.329
+    },
+    {
+        "Currency": "DKK",
+        "Rate": 6.9704
+    },
+    {
+        "Currency": "GBP",
+        "Rate": 0.81135
+    },
+    {
+        "Currency": "HKD",
+        "Rate": 7.758
+    },
+    {
+        "Currency": "HRK",
+        "Rate": 7.0501
+    },
+    {
+        "Currency": "HUF",
+        "Rate": 289.09
+    },
+    {
+        "Currency": "IDR",
+        "Rate": 13373.0
+    },
+    {
+        "Currency": "ILS",
+        "Rate": 3.8122
+    },
+    {
+        "Currency": "INR",
+        "Rate": 68.136
+    },
+    {
+        "Currency": "JPY",
+        "Rate": 114.58
+    },
+    {
+        "Currency": "KRW",
+        "Rate": 1177.3
+    },
+    {
+        "Currency": "MXN",
+        "Rate": 21.976
+    },
+    {
+        "Currency": "MYR",
+        "Rate": 4.449
+    },
+    {
+        "Currency": "NOK",
+        "Rate": 8.4545
+    },
+    {
+        "Currency": "NZD",
+        "Rate": 1.3927
+    },
+    {
+        "Currency": "PHP",
+        "Rate": 50.061
+    },
+    {
+        "Currency": "PLN",
+        "Rate": 4.099
+    },
+    {
+        "Currency": "RON",
+        "Rate": 4.2115
+    },
+    {
+        "Currency": "RUB",
+        "Rate": 59.599
+    },
+    {
+        "Currency": "SEK",
+        "Rate": 8.9499
+    },
+    {
+        "Currency": "SGD",
+        "Rate": 1.4263
+    },
+    {
+        "Currency": "THB",
+        "Rate": 35.395
+    },
+    {
+        "Currency": "TRY",
+        "Rate": 3.8196
+    },
+    {
+        "Currency": "ZAR",
+        "Rate": 13.598
+    },
+    {
+        "Currency": "EUR",
+        "Rate": 0.93738
+    }
+}]

@@ -45,8 +45,10 @@ end
 employees_raw = dsv_to_json(parse_tsv(File.read('./app/assets/seed_data_source/employees.tsv')))
 bad_drivers = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/bad_drivers.csv')))
 recent_grads = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/recent_grads.csv')))
-us_population = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/us_population.json')))
+2010_us_population = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/2010_us_population.json')))
+2015_sweden_population = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/2015_sweden_population.json')))
 china_gdp = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/china_gdp.json')))
+usd_xrate = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/20170119_usd.json')))
 
 # Create data sources
 (1..99).each do |num|
@@ -72,11 +74,11 @@ china_gdp = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/ch
     table: bad_drivers
   )
   DataSource.create!(
-    title: 'US Population',
+    title: '2010 US Population',
     data_type: 'json',
     owner_id: num,
-    data_source_url: 'chartesian_demo_us_pop_url',
-    table: us_population
+    data_source_url: 'chartesian_demo_2010_us_pop_url',
+    table: 2010_us_population
   )
   DataSource.create!(
     title: 'China GDP',
@@ -84,5 +86,19 @@ china_gdp = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/ch
     owner_id: num,
     data_source_url: 'chartesian_demo_china_gdp_url',
     table: china_gdp
+  )
+  DataSource.create!(
+    title: '2015 Sweden Population',
+    data_type: 'json',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_2015_sweden_pop_url',
+    table: 2015_sweden_population
+  )
+  DataSource.create!(
+    title: '2017-01-19 USD Exchange Rate',
+    data_type: 'json',
+    owner_id: num,
+    data_source_url: 'chartesian_demo_20170119_usd_url',
+    table: usd_xrate
   )
 end
