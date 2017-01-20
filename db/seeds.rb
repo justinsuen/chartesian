@@ -42,7 +42,7 @@ def json_beautify(data)
   json
 end
 
-kobe_stats = dsv_to_json(parse_tsv(File.read('./app/assets/seed_data_source/kobe_stats.csv')))
+kobe_stats = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/kobe_stats.csv')))
 us_pop_2010 = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/us_pop_2010.json')))
 swe_pop_2015 = json_beautify(JSON.parse(File.read('./app/assets/seed_data_source/swe_pop_2015.json')))
 recent_grads = dsv_to_json(CSV.parse(File.read('./app/assets/seed_data_source/recent_grads.csv')))
