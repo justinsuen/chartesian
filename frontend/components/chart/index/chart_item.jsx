@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import ChartModalPreviewContainer from './chart_modal_preview_container';
 
 class ChartItem extends React.Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class ChartItem extends React.Component {
            shouldCloseOnOverlayClick={true}
            className="modal-content"
            overlayClassName="modal-overlay">
-          <p>Modal text!</p>
+          <ChartModalPreviewContainer chart={this.props.chart}/>
           <button onClick={this.handleCloseModal}>Close Modal</button>
         </Modal>
       </div>
