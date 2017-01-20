@@ -80,7 +80,7 @@ class SessionForm extends React.Component {
 
   createDemoUser(e) {
     e.preventDefault();
-    const randNum = `${genRandNum(100)}`;
+    const randNum = `${genRandNum(99)}`;
     const username = `chartesian${randNum}`;
     const password = "c0g17o-Erg0-$uM";
 
