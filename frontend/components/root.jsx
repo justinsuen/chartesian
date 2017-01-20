@@ -36,7 +36,7 @@ class Root extends React.Component {
   _redirectIfLoggedIn(nextState, replace) {
     const currentUser = this.props.store.getState().session.currentUser;
     if (currentUser) {
-      replace('/home');
+      replace('/data_sources');
     }
   }
 

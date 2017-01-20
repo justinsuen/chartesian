@@ -1,5 +1,10 @@
 @import "variables";
 
+.app-content {
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
 .data-index-preview {
   display: flex;
   flex-direction: column;
