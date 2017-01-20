@@ -1,5 +1,5 @@
 import React from 'react';
-import DataItem from './data_item';
+import DataItemContainer from './data_item_container';
 
 class DataSourceIndex extends React.Component {
   constructor(props) {
@@ -26,13 +26,10 @@ class DataSourceIndex extends React.Component {
             <div className="data-row-cell cell4"><i className="fa fa-trash-o"></i></div>
           </div>
           { this.props.dataSources.map((dataSource, idx) =>
-            <DataItem
+            <DataItemContainer
               key={idx}
               id={dataSource.id}
-              index={idx}
-              dataSource={dataSource}
-              deleteDataSource={this.props.deleteDataSource}
-              />
+              index={idx}/>
           )}
         </div>
       </div>

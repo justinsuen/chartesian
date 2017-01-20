@@ -9,6 +9,10 @@ class DataItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchDataSource(this.props.id);
+  }
+
   handleClick(e) {
     e.preventDefault();
     this.setState({isOpened: !this.state.isOpened});
@@ -17,6 +21,7 @@ class DataItem extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteDataSource(this.props.id);
+    $(`#data-${this.props.dataSource.id}`).hide();
   }
 
   renderDataPreview() {
@@ -46,14 +51,14 @@ class DataItem extends React.Component {
   }
 
   render() {
-    let dataSource = this.props.dataSource;
+    let {dataSource} = this.props;
 
     return (
       <div className="data-index-wrap">
-        <div className="data-index-row" onClick={this.handleClick}>
-          <div className="data-row-cell cell1"><p>{this.props.index+1}</p></div>
-          <div className="data-row-cell cell2"><p>{dataSource.title}</p></div>
-          <div className="data-row-cell cell3"><p>{dataSource.data_type}</p></div>
+        <div id={`data-${dataSource.id}`} className="data-index-row">
+          <div className="data-row-cell cell1" onClick={this.handleClick}><p>{this.props.index+1}</p></div>
+          <div className="data-row-cell cell2" onClick={this.handleClick}><p>{dataSource.title}</p></div>
+          <div className="data-row-cell cell3" onClick={this.handleClick}><p>{dataSource.data_type}</p></div>
           <div className="data-row-cell cell4" onClick={this.handleDelete}>
             <i className="fa fa-trash"></i>
           </div>

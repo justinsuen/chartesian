@@ -22,9 +22,9 @@ const DataSourceReducer = (state = _nullDataSource, action) => {
       const dataSource = action.dataSource;
       return merge({}, state, { dataSource });
     case REMOVE_DATA_SOURCE:
-      let oldState = merge({}, state);
-      delete oldState.dataSource[action.dataSource.id];
-      return oldState;
+      let newState = merge({}, state);
+      delete newState.dataSource[action.dataSource.id];
+      return newState;
     case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, _nullDataSource, { errors });

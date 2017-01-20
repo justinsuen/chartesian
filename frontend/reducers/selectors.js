@@ -6,6 +6,10 @@ export const allDataSources = ({ dataSources }) => {
   return dsArray;
 };
 
+export const sourceById = ({dataSources}, myId) => {
+  return dataSources.find(obj => obj.id === myId);
+};
+
 export const allCharts = ({ charts }) => {
   let chart_ids = Object.keys(charts);
   let chartArray = chart_ids.map((id) => {
