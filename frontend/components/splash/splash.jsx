@@ -36,8 +36,9 @@ class Splash extends React.Component {
     return (
       <div className="home-container">
         <div className="splash-text">
-          <h2>When Descartes makes Charts... they're Chartesian.</h2>
-          <p>Chartesian provides a simple solution for all charting purposes.</p>
+          <h2>When Descartes makes Charts... they're <strong>Chartesian</strong></h2>
+          <p>Chartesian provides a simple charting solution.</p>
+          <a href="https://www.github.com/justinsuen/chartesian">Learn More.</a>
         </div>
         <div className="splash-chart">
           {this.renderChart()}

@@ -37,18 +37,33 @@
 
   justify-content: center;
 
-  h2, p {
+  h2, p, a {
     font-weight: 300;
-    margin: 0 0 20px 20px;
   }
 
   h2 {
     font-size: 300%;
     line-height: 1.2;
+    margin: 0 0 40px 20px;
   }
 
-  p {
-    font-size: 150%;
+  strong {
+    color: $accent-color;
+    font-weight: 500;
+  }
+
+  a, p {
+    font-size: 180%;
+    line-height: 1.1;
+    margin: 0 0 20px 25px;
+  }
+
+  a, a:visited {
+    color: $primary-color;
+  }
+
+  a:hover {
+    color: $primary-color-light;
   }
 }
 
