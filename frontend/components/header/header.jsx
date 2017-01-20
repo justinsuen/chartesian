@@ -57,7 +57,7 @@ class Header extends React.Component {
   }
 
   handleLogout() {
-    this.props.logout().then(() => hashHistory.push('/'));
+    this.props.logout().then(() => this.props.router.push('/'));
   }
 
   render() {

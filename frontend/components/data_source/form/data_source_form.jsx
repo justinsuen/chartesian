@@ -100,7 +100,7 @@ class DataSourceForm extends React.Component {
 
         const {title, data_type, owner_id, data_source_url, table} = this.state;
         this.props.createDataSource({title, data_type, owner_id, data_source_url, table});
-        hashHistory.push("/data_sources");
+        this.props.router.push("/data_sources");
       }
     });
   }
