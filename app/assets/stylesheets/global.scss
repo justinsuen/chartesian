@@ -44,7 +44,7 @@ html, body {
             justify-content: space-between;
     background-color: $primary-color;
     box-shadow: $mid-shadows;
-    z-index: 10;
+    z-index: 5;
   }
 
   .app-body {
@@ -68,8 +68,6 @@ html, body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-
-    overflow: scroll;
 
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
@@ -99,6 +97,7 @@ html, body {
             align-items: center;
     background-color: $primary-color;
     padding: 10px 0px;
+    z-index: 5;
   }
 
   .app-footer-tags {

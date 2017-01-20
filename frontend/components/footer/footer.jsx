@@ -20,7 +20,7 @@ class Footer extends React.Component {
             </a>
           </div>
           <div className="app-footer-attr">
-            <p>Created by and maintained by <a href="http://justinsuen.com">Justin Suen</a></p>
+            <p>Created and maintained by <a href="http://justinsuen.com">Justin Suen</a></p>
             <p>Graph icons designed by <a href="https://roundicons.com/">Roundicons</a></p>
           </div>
         </div>
