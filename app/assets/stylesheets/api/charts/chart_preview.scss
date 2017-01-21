@@ -150,4 +150,10 @@
     background-color: $accent-color;
     color: $secondary-text-color;
   }
+
+  .button:disabled {
+    box-shadow: none;
+    background-color: $primary-color;
+    color: $divider-color;
+  }
 }
