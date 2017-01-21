@@ -194,6 +194,11 @@ class ChartPreview extends React.Component {
   }
 
   render() {
+    let chartable_id = "";
+    if (this.props.currentUser) {
+      chartable_id = this.props.currentUser.id;
+    }
+
     return (
       <div className="chart-preview-container">
         <h2>Chart Preview</h2>
@@ -203,7 +208,7 @@ class ChartPreview extends React.Component {
           x_axes={this.props.x_axes}
           y_axes={this.props.y_axes}
           chartable_type={"User"}
-          chartable_id={this.props.currentUser.id}/>
+          chartable_id={chartable_id}/>
         <div className="chart-preview">
           {this.renderChart()}
         </div>
