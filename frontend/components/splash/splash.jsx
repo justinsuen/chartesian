@@ -18,7 +18,7 @@ class Splash extends React.Component {
   	return (
       <div className="sample-chart">
         <h2>Stephen Curry Over the Years</h2>
-        <ComposedChart width={980} height={520} data={data}
+        <ComposedChart width={980} height={510} data={data}
             margin={{top: 20, right: 25, bottom: 20, left: 10}}>
           <XAxis dataKey="name"/>
           <YAxis yAxisId="left" orientation="left" dataKey="FT%" />
