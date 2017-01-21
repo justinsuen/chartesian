@@ -1,5 +1,6 @@
 import React from 'react';
-import {ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { ResponsiveContainer, ComposedChart, Line, Area, Bar, XAxis,
+         YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import { withRouter } from 'react-router';
 
 class Splash extends React.Component {
@@ -18,18 +19,19 @@ class Splash extends React.Component {
   	return (
       <div className="sample-chart">
         <h2>Stephen Curry Over the Years</h2>
-        <ComposedChart width={980} height={510} data={data}
-            margin={{top: 20, right: 25, bottom: 20, left: 10}}>
-          <XAxis dataKey="name"/>
-          <YAxis yAxisId="left" orientation="left" dataKey="FT%" />
-          <YAxis yAxisId="right" orientation="right" dataKey="3PM" />
-          <Tooltip/>
-          <Legend/>
-          <CartesianGrid stroke='#F5F5F5' strokeDasharray="5 5"/>
-          <Area yAxisId="right" type='monotone' dataKey='3PM' fill='#31C864' stroke='#31C864'/>
-          <Line yAxisId="left" type='monotone' dataKey='FT%' stroke='#FF8A00' strokeWidth='2'/>
-          <Bar yAxisId="left" dataKey='3P%' barSize={30} fill='#1CA600'/>
-       </ComposedChart>
+        <ResponsiveContainer width="80%" height="90%">
+          <ComposedChart className="chart-el" data={data} margin={{top: 20, right: 25, bottom: 20, left: 10}}>
+            <XAxis dataKey="name"/>
+            <YAxis yAxisId="left" orientation="left" dataKey="FT%" />
+            <YAxis yAxisId="right" orientation="right" dataKey="3PM" />
+            <Tooltip/>
+            <Legend/>
+            <CartesianGrid stroke='#F5F5F5' strokeDasharray="5 5"/>
+            <Area yAxisId="right" type='monotone' dataKey='3PM' fill='#31C864' stroke='#31C864'/>
+            <Line yAxisId="left" type='monotone' dataKey='FT%' stroke='#FF8A00' strokeWidth='2'/>
+            <Bar yAxisId="left" dataKey='3P%' barSize={30} fill='#1CA600'/>
+         </ComposedChart>
+       </ResponsiveContainer>
       </div>
     );
   }

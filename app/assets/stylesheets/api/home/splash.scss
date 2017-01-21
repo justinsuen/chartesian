@@ -17,6 +17,7 @@
           flex: 1;
 
   padding: 40px;
+  max-height: 924px;
 
   font-family: $font-stack;
   box-sizing: border-box;
@@ -76,7 +77,9 @@
     position: absolute;
     z-index: 2;
     top: 13%;
-    left: 180%;
+    left: 125%;
+    width: 900%;
+    height: 55%;
 
     display: flex;
     flex-direction: column;
