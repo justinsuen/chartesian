@@ -27,6 +27,7 @@
   position: absolute;
   width: 40%;
   height: 100%;
+  z-index: 2;
 
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -105,6 +106,7 @@
   }
 
   img {
+    width: 120%;
     height: 80%;
     z-index: 1;
   }
