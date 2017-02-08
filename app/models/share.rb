@@ -10,4 +10,9 @@
 #
 
 class Share < ApplicationRecord
+  belongs_to :sharee, class_name: "User"
+  belongs_to :sharer, class_name: "User"
+
+  validates :sharee, :sharer, presence: true
+  validates :sharer, uniqueness: { scope: :sharee }
 end
