@@ -29,6 +29,11 @@ class User < ApplicationRecord
 
   has_many :charts, as: :chartable, dependent: :destroy
 
+  has_many :in_share, class_name: "Share", foreign_key: "sharee_id"
+  has_many :out_share, class_name: "Share", foreign_key: "sharer_id"
+  has_many :sharers, through: :in_share, source: :sharer
+  has_many :sharees, through: :out_share, source: :sharee
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return user if user && user.password_is?(password)
