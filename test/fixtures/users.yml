@@ -9,7 +9,6 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  demo            :boolean          default("false")
 #  chartable_type  :string
 #  chartable_id    :integer
 #
