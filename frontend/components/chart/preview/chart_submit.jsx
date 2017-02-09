@@ -21,8 +21,7 @@ class ChartSubmit extends React.Component {
       chart_data: this.props.chart_data,
       x_axes: this.props.x_axes,
       y_axes: this.props.y_axes,
-      chartable_type: this.props.chartable_type,
-      chartable_id: this.props.chartable_id
+      owner_id: this.props.owner_id
     };
 
     const chart = merge({}, newChart);
