@@ -27,7 +27,7 @@ class ChartSubmit extends React.Component {
     const chart = merge({}, newChart);
     this.props.createChart(chart);
 
-    if (!this.props.errors) {
+    if (this.props.errors.length === 0) {
       this.props.router.push("/charts");
     }
   }
