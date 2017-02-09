@@ -24,8 +24,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
-  has_many :data_sources,
-    foreign_key: :owner_id
+  has_many :data_sources, foreign_key: :owner_id
 
   has_many :charts, as: :chartable, dependent: :destroy
 
@@ -58,6 +57,10 @@ class User < ApplicationRecord
     ensure_session_token_uniqueness
     save
     session_token
+  end
+
+  def shared?(user)
+    out_share.exists?(sharee_id: user.id)
   end
 
   private
