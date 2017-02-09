@@ -9,8 +9,6 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  chartable_type  :string
-#  chartable_id    :integer
 #
 
 require 'test_helper'

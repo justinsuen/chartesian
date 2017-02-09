@@ -9,8 +9,6 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  chartable_type  :string
-#  chartable_id    :integer
 #
 
 class User < ApplicationRecord
@@ -25,8 +23,7 @@ class User < ApplicationRecord
   before_validation :ensure_session_token_uniqueness
 
   has_many :data_sources, foreign_key: :owner_id
-
-  has_many :charts, as: :chartable, dependent: :destroy
+  has_many :charts, foreign_key: :owner_id
 
   has_many :in_share, class_name: "Share", foreign_key: "sharee_id"
   has_many :out_share, class_name: "Share", foreign_key: "sharer_id"

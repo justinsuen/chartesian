@@ -10,8 +10,6 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  table           :jsonb            default("\"[]\""), not null
-#  chartable_type  :string
-#  chartable_id    :integer
 #
 
 require 'test_helper'
