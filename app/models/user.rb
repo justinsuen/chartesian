@@ -25,10 +25,8 @@ class User < ApplicationRecord
   has_many :data_sources, foreign_key: :owner_id
   has_many :charts, foreign_key: :owner_id
 
-  has_many :in_share, class_name: "Share", foreign_key: "sharee_id"
-  has_many :out_share, class_name: "Share", foreign_key: "sharer_id"
-  has_many :sharers, through: :in_share, source: :sharer
-  has_many :sharees, through: :out_share, source: :sharee
+  has_many :in_share, class_name: "Share", foreign_key: "sharer_id"
+  has_many :in_shared_charts, through: :in_share, source: :shared_chart
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
@@ -54,10 +52,6 @@ class User < ApplicationRecord
     ensure_session_token_uniqueness
     save
     session_token
-  end
-
-  def shared?(user)
-    out_share.exists?(sharee_id: user.id)
   end
 
   private

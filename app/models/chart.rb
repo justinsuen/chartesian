@@ -17,4 +17,7 @@ class Chart < ApplicationRecord
   validates :title, :chart_type, :chart_data, :x_axes, :y_axes, presence: true
 
   belongs_to :user, foreign_key: :owner_id
+
+  has_many :out_shares, class_name: "Share", foreign_key: "sharee_id"
+  has_many :shared_users, through: :out_share, source: :shared_user
 end
