@@ -25,8 +25,8 @@ class User < ApplicationRecord
   has_many :data_sources, foreign_key: :owner_id
   has_many :charts, foreign_key: :owner_id
 
-  has_many :in_share, class_name: "Share", foreign_key: "sharer_id"
-  has_many :in_shared_charts, through: :in_share, source: :shared_chart
+  has_many :in_shares, class_name: "Share", foreign_key: "sharee_id"
+  has_many :in_shared_charts, through: :in_shares, source: :shared_chart
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -18,6 +18,6 @@ class Chart < ApplicationRecord
 
   belongs_to :user, foreign_key: :owner_id
 
-  has_many :out_shares, class_name: "Share", foreign_key: "sharee_id"
-  has_many :shared_users, through: :out_share, source: :shared_user
+  has_many :out_shares, class_name: "Share", foreign_key: "sharer_id"
+  has_many :shared_users, through: :out_shares, source: :shared_user
 end
