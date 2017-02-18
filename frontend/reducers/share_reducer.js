@@ -2,7 +2,7 @@ import {
   RECEIVE_SHARE,
   RECEIVE_SHARES,
   REMOVE_SHARE,
-  RECEIVE_CHART_ERRORS } from '../action/share_actions';
+  RECEIVE_CHART_ERRORS } from '../actions/share_actions';
 import merge from 'lodash/merge';
 
 const _nullShare = Object.freeze({

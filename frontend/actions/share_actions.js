@@ -40,13 +40,13 @@ export const fetchInShares = () => dispatch => (
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
-export const deleteChart = id => dispatch => (
+export const deleteShare = id => dispatch => (
   APIUtil.deleteShare(id)
     .then(response => dispatch(removeShare(response)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const createChart = sharee_id => dispatch => (
+export const createShare = sharee_id => dispatch => (
   APIUtil.createShare(sharee_id)
     .then(response => dispatch(receiveShare(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
