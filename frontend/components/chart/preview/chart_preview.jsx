@@ -11,7 +11,7 @@ class ChartPreview extends React.Component {
 
     this.state = {
       chart_type: "scatter",
-      chart_data: [],
+      chart_data: []
     };
 
     this.handleChangeType = this.handleChangeType.bind(this);
@@ -27,18 +27,16 @@ class ChartPreview extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let desiredData;
-
     if (nextProps.dataSource.table) {
       const chartData = Object.keys(nextProps.dataSource.table).map(key =>
         nextProps.dataSource.table[key]
       );
-      desiredData = this.getDesiredData(chartData);
-    }
+      let desiredData = this.getDesiredData(chartData);
 
-    this.setState({
-      chart_data: desiredData
-    });
+      this.setState({
+        chart_data: desiredData
+      });
+    }
   }
 
   handleChangeType(e){
@@ -160,7 +158,7 @@ class ChartPreview extends React.Component {
   }
 
   renderChart() {
-    if (this.props.dataSource.table) {
+    if (this.state.chart_data.length > 0) {
       const x = `${this.props.x_axes[0][1]}`;
       const y = `${this.props.y_axes[0][1]}`;
 
