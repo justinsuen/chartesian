@@ -15,14 +15,30 @@ import ChartFormDropzone from './chart_form_dropzone';
 class ChartAttrs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentSource: "Select a source",
-      sourceBool: false,
-      sourceIndex: null,
-      sourceTable: null,
-      xAxes: this.props.xAxes,
-      yAxes: this.props.yAxes
-    };
+
+    if (this.props.currentSource === "Select a source") {
+      this.state = {
+        currentSource: this.props.currentSource,
+        sourceBool: false,
+        sourceIndex: null,
+        sourceTable: null,
+        xAxes: this.props.xAxes,
+        yAxes: this.props.yAxes
+      };
+    } else {
+      let idx = this.props.dataSources.findIndex(src =>
+        src.title === this.props.currentSource
+      );
+
+      this.state = {
+        currentSource: this.props.currentSource,
+        sourceBool: true,
+        sourceIndex: this.props.dataSources[idx].id,
+        sourceTable: this.props.dataSources[idx].table[0],
+        xAxes: this.props.xAxes,
+        yAxes: this.props.yAxes
+      };
+    }
 
     this.handleChooseSource = this.handleChooseSource.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -38,6 +54,8 @@ class ChartAttrs extends React.Component {
     let idx = this.props.dataSources.findIndex(src =>
       src.title === e.target.textContent
     );
+
+    this.props.updateCurrSource(e.target.textContent);
 
     this.setState({currentSource: e.target.textContent,
       sourceBool: true,

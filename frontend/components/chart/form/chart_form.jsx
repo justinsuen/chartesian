@@ -8,15 +8,26 @@ class ChartForm extends React.Component {
     super(props);
 
     this.state = {
-      view: "Axes"
+      view: "Axes",
+      currentSource: "Select a source"
     }
 
     this.handleChangeView = this.handleChangeView.bind(this);
+    this.updateCurrSource = this.updateCurrSource.bind(this);
   }
 
   handleChangeView(e) {
+    $(".chart-form-view-btn.active").toggleClass("active");
+    $(e.target).toggleClass("active");
+
     this.setState({
       view: e.target.name
+    });
+  }
+
+  updateCurrSource(currentSource) {
+    this.setState({
+      currentSource
     });
   }
 
@@ -24,8 +35,10 @@ class ChartForm extends React.Component {
     if (this.state.view === "Axes") {
       return(
         <ChartAttrsContainer
+          currentSource={this.state.currentSource}
           xAxes={this.props.xAxes}
           yAxes={this.props.yAxes}
+          updateCurrSource={this.updateCurrSource}
           updateAxes={this.props.updateAxes}/>
       );
     } else {
@@ -43,7 +56,7 @@ class ChartForm extends React.Component {
             <button
               key={idx}
               name={viewBtn}
-              className="chart-form-view-btn"
+              className={`chart-form-view-btn ${idx === 0 ? "active" : ""}`}
               onClick={this.handleChangeView}>
               {viewBtn}
             </button>
