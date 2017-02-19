@@ -5,7 +5,7 @@ export const fetchInShare = id => (
   })
 );
 
-export const fetchInShares = () => (
+export const fetchInCharts = () => (
   $.ajax({
     method: "GET",
     url: "api/user/shares"

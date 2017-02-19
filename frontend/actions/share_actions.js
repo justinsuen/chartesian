@@ -1,9 +1,10 @@
 import * as APIUtil from '../util/share_api_util';
 
 export const RECEIVE_SHARE = "RECEIVE_SHARE";
-export const RECEIVE_SHARES = "RECEIVE_SHARES";
+export const RECEIVE_IN_CHARTS = "RECEIVE_IN_CHARTS";
+export const RECEIVE_SHARED_USERS = "RECEIVE_SHARED_USERS";
 export const REMOVE_SHARE = "REMOVE_SHARE";
-export const RECEIVE_SHARE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_SHARE_ERRORS = "RECEIVE_SHARE_ERRORS";
 
 // sync functions
 export const receiveShare = share => ({
@@ -11,11 +12,19 @@ export const receiveShare = share => ({
   share
 });
 
-export const receiveShares = shares => {
+export const receiveInCharts = charts => {
   return {
-  type: RECEIVE_SHARES,
-  shares
-};};
+    type: RECEIVE_IN_CHARTS,
+    charts
+  };
+};
+
+export const receiveSharedUsers = users => {
+  return {
+    type: RECEIVE_SHARED_USERS,
+    users
+  };
+};
 
 export const removeShare = share => ({
   type: REMOVE_SHARE,
@@ -36,13 +45,13 @@ export const fetchInShare = id => dispatch => (
 
 export const fetchInShares = () => dispatch => (
   APIUtil.fetchInShares()
-    .then(response => dispatch(receiveShares(response)),
+    .then(response => dispatch(receiveInCharts(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
 export const fetchSharedUsers = chart_id => dispatch => (
   APIUtil.fetchSharedUsers(chart_id)
-    .then(response => dispatch(receiveShares(response)),
+    .then(response => dispatch(receiveSharedUsers(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
