@@ -9,7 +9,7 @@ import merge from 'lodash/merge';
 const _nullShare = Object.freeze({
   share: {},
   shared_charts: {},
-  shared_users: {}.
+  shared_users: {},
   errors: []
 });
 
