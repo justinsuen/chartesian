@@ -6,7 +6,8 @@ class Api::SharesController < ApplicationController
   def create
     @share = current_user.in_share.create!(
       sharee_id: params[:user_id],
-      sharer_id: params[:chart_id])
+      sharer_id: params[:chart_id]
+    )
 
     render json: @share
   end

@@ -109,6 +109,7 @@ class ChartForm extends React.Component {
   render() {
     return (
       <div className="chart-form-container">
+        <div className="chart-form-options">Hello!</div>
         {this.renderDropdown()}
         <div className="chart-form">
           <div className="chart-attrs">

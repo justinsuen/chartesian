@@ -8,7 +8,8 @@ import merge from 'lodash/merge';
 
 const _nullShare = Object.freeze({
   share: {},
-  shares: {},
+  shared_charts: {},
+  shared_users: {}.
   errors: []
 });
 
@@ -20,11 +21,11 @@ const ShareReducer = (state = _nullShare, action) => {
       const share = action.share;
       return merge({}, state, { share });
     case RECEIVE_IN_CHARTS:
-      const shares = action.charts;
-      return merge({}, state, { shares });
+      const shared_charts = action.charts;
+      return merge({}, state, { shared_charts });
     case RECEIVE_SHARED_USERS:
-      const shares = action.users;
-      return merge({}, state, { shares });
+      const shared_users = action.users;
+      return merge({}, state, { shared_users });
     case REMOVE_SHARE:
       let oldState = merge({}, state);
       delete oldState.share[action.share.id];
