@@ -1,6 +1,14 @@
 class Api::SharesController < ApplicationController
-  def index
-    @shares = current_user.in_shared_charts
+  def shared_charts
+    @shared_charts = current_user.in_shared_charts
+
+    render 'api/shares/shared_assets'
+  end
+
+  def shared_users
+    @shared_users = Chart.find_by(id: params[:id]).shared_users
+
+    render 'api/shares/shared_assets'
   end
 
   def create
@@ -12,7 +20,7 @@ class Api::SharesController < ApplicationController
   end
 
   def destroy
-    @share = Share.find_by(sharee_id: params[:user_id]).where(sharer_id: params[:chart_id])
+    @share = Share.find_by(id: params[:id])
     @share.destroy!
 
     render json: @share

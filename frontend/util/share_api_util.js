@@ -12,17 +12,24 @@ export const fetchInShares = () => (
   })
 );
 
-export const deleteShare = id => (
+export const fetchSharedUsers = id => (
   $.ajax({
-    method: "DELETE",
-    url: `api/charts/${id}`
+    method: "GET",
+    url: `api/charts/${id}/shares`
   })
 );
 
-export const createShare = sharee_id => (
+export const deleteShare = id => (
+  $.ajax({
+    method: "DELETE",
+    url: `api/shares/${id}`
+  })
+);
+
+export const createShare = (sharee_id, sharer_id) => (
   $.ajax({
     method: "POST",
-    url: `api/user/shares`,
-    data: { sharee_id }
+    url: `api/shares`,
+    data: { sharee_id, sharer_id }
   })
 );
