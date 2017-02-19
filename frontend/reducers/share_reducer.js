@@ -1,5 +1,5 @@
 import {
-  RECEIVE_SHARE,
+  // RECEIVE_SHARE,
   RECEIVE_SHARES,
   REMOVE_SHARE,
   RECEIVE_SHARE_ERRORS } from '../actions/share_actions';

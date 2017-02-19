@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :user, only: [:create] do
       resources :data_sources, only: [:index, :show, :create]
       resources :charts, only: [:index, :show, :create]
+      resources :shares, only: [:show]
       get 'shares', to: 'shares#shared_charts'
     end
 

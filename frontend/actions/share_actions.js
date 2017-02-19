@@ -28,20 +28,20 @@ export const receiveShareErrors = errors => ({
 });
 
 // async functions
-export const fetchInShare = user_id => dispatch => (
-  APIUtil.fetchInShare(user_id)
+export const fetchInShare = id => dispatch => (
+  APIUtil.fetchInShare(id)
     .then(response => dispatch(receiveShare(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
-export const fetchInShares = user_id => dispatch => (
-  APIUtil.fetchInShares(user_id)
+export const fetchInShares = () => dispatch => (
+  APIUtil.fetchInShares()
     .then(response => dispatch(receiveShares(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
-export const fetchUsers = chart_id => dispatch => (
-  APIUtil.fetchUsers(chart_id)
+export const fetchSharedUsers = chart_id => dispatch => (
+  APIUtil.fetchSharedUsers(chart_id)
     .then(response => dispatch(receiveShares(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
