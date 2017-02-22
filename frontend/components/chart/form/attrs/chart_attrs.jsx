@@ -129,7 +129,7 @@ class ChartAttrs extends React.Component {
     return (
       <div className="chart-form-view">
         {this.renderDropdown()}
-        <div className="chart-form">
+        <div className="chart-attrs-form">
           <div className="chart-attrs">
             <h3>Attributes</h3>
             {this.renderAttributes()}

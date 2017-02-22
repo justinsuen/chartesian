@@ -1,18 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ChartSubmit from './chart_submit.jsx';
-import { createChart } from '../../../actions/chart_actions';
+import ChartShare from './chart_share.jsx';
 
 const mapStateToProps = state => ({
-  errors: state.chart.errors
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  createChart: chart => dispatch(createChart(chart))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChartSubmit);
+)(ChartShare);

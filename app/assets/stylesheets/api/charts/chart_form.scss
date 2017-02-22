@@ -23,7 +23,7 @@
 .chart-form-view-btn {
   width: 25%;
 
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px 5px 0 0;
 
   font-family: $font-stack;
@@ -46,7 +46,9 @@
   flex-direction: column;
 }
 
-.chart-form {
+// Chart Attrs
+
+.chart-attrs-form {
   display: flex;
   flex-direction: row;
   height: 70%;

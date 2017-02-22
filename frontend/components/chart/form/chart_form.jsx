@@ -2,13 +2,14 @@ import React from 'react';
 import {merge} from 'lodash';
 
 import ChartAttrsContainer from './attrs/chart_attrs_container.jsx';
+import ChartShareContainer from './share/chart_share_container.jsx';
 
 class ChartForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      view: "Axes",
+      view: "Source",
       currentSource: "Select a source"
     }
 
@@ -32,7 +33,7 @@ class ChartForm extends React.Component {
   }
 
   renderView() {
-    if (this.state.view === "Axes") {
+    if (this.state.view === "Source") {
       return(
         <ChartAttrsContainer
           currentSource={this.state.currentSource}
@@ -41,13 +42,19 @@ class ChartForm extends React.Component {
           updateCurrSource={this.updateCurrSource}
           updateAxes={this.props.updateAxes}/>
       );
+    } else if (this.state.view === "Share") {
+      return(
+        <ChartShareContainer
+          sharedUsers={this.props.sharedUsers}
+          updateSharedUsers={this.props.updateSharedUsers}/>
+      );
     } else {
       return null;
     }
   }
 
   render() {
-    const options = ["Axes", "Labels", "Colors", "Share"];
+    const options = ["Source", "Labels", "Style", "Share"];
 
     return (
       <div className="chart-form-container">
