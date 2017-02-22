@@ -11,34 +11,32 @@ class ChartPreview extends React.Component {
 
     this.state = {
       chart_type: "scatter",
-      chart_data: [],
+      chart_data: []
     };
 
     this.handleChangeType = this.handleChangeType.bind(this);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.x_axes.length > 0 &&
-      (!(_.isEqual(this.props.x_axes, prevProps.x_axes)) ||
-      !(_.isEqual(this.props.y_axes, prevProps.y_axes))
+    if (this.props.xAxes.length > 0 &&
+      (!(_.isEqual(this.props.xAxes, prevProps.xAxes)) ||
+      !(_.isEqual(this.props.yAxes, prevProps.yAxes))
     )) {
-      this.props.fetchDataSource(this.props.x_axes[0][0]);
+      this.props.fetchDataSource(this.props.xAxes[0][0]);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    let desiredData;
-
     if (nextProps.dataSource.table) {
       const chartData = Object.keys(nextProps.dataSource.table).map(key =>
         nextProps.dataSource.table[key]
       );
-      desiredData = this.getDesiredData(chartData);
-    }
+      let desiredData = this.getDesiredData(chartData);
 
-    this.setState({
-      chart_data: desiredData
-    });
+      this.setState({
+        chart_data: desiredData
+      });
+    }
   }
 
   handleChangeType(e){
@@ -48,8 +46,8 @@ class ChartPreview extends React.Component {
 
   getDesiredData(chartData) {
     let desiredData = [];
-    let xAxis = this.props.x_axes[0][1];
-    let yAxis = this.props.y_axes[0][1];
+    let xAxis = this.props.xAxes[0][1];
+    let yAxis = this.props.yAxes[0][1];
 
     for (let i = 0; i < chartData.length; i++) {
       let datum = chartData[i];
@@ -160,9 +158,9 @@ class ChartPreview extends React.Component {
   }
 
   renderChart() {
-    if (this.props.dataSource.table) {
-      const x = `${this.props.x_axes[0][1]}`;
-      const y = `${this.props.y_axes[0][1]}`;
+    if (this.state.chart_data.length > 0) {
+      const x = `${this.props.xAxes[0][1]}`;
+      const y = `${this.props.yAxes[0][1]}`;
 
       switch(this.state.chart_type) {
         case "line":
@@ -194,9 +192,9 @@ class ChartPreview extends React.Component {
   }
 
   render() {
-    let chartable_id = "";
+    let owner_id = "";
     if (this.props.currentUser) {
-      chartable_id = this.props.currentUser.id;
+      owner_id = this.props.currentUser.id;
     }
 
     return (
@@ -205,10 +203,10 @@ class ChartPreview extends React.Component {
         <ChartSubmitContainer
           chart_type={this.state.chart_type}
           chart_data={this.state.chart_data}
-          x_axes={this.props.x_axes}
-          y_axes={this.props.y_axes}
-          chartable_type={"User"}
-          chartable_id={chartable_id}/>
+          xAxes={this.props.xAxes}
+          yAxes={this.props.yAxes}
+          owner_id={owner_id}
+          sharedUsers={this.props.sharedUsers}/>
         <div className="chart-preview">
           {this.renderChart()}
         </div>

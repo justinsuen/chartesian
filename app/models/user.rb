@@ -9,9 +9,6 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  demo            :boolean          default("false")
-#  chartable_type  :string
-#  chartable_id    :integer
 #
 
 class User < ApplicationRecord
@@ -25,10 +22,11 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
-  has_many :data_sources,
-    foreign_key: :owner_id
+  has_many :data_sources, foreign_key: :owner_id
+  has_many :charts, foreign_key: :owner_id
 
-  has_many :charts, as: :chartable, dependent: :destroy
+  has_many :in_shares, class_name: "Share", foreign_key: "sharee_id"
+  has_many :in_shared_charts, through: :in_shares, source: :shared_chart
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

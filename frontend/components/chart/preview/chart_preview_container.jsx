@@ -14,7 +14,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchDataSource: id => dispatch(fetchDataSource(id)),
-  createChart: chart => dispatch(createChart(chart))
 });
 
 export default connect(

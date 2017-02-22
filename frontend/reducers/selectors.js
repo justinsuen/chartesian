@@ -17,3 +17,11 @@ export const allCharts = ({ charts }) => {
   });
   return chartArray;
 };
+
+export const allSharedUsers = ({ shares }) => {
+  let share_ids = Object.keys(shares);
+  let shareArray = share_ids.map((id) => {
+    return shares[id];
+  });
+  return shareArray;
+};

@@ -10,15 +10,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  table           :jsonb            default("\"[]\""), not null
-#  chartable_type  :string
-#  chartable_id    :integer
 #
 
 class DataSource < ApplicationRecord
   validates :title, :data_type, :owner_id, :data_source_url, :table, presence: true
 
-  belongs_to :user,
-    foreign_key: :owner_id
-
-  has_many :charts, as: :chartable
+  belongs_to :user, foreign_key: :owner_id
 end

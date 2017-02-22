@@ -19,16 +19,27 @@ class ChartSubmit extends React.Component {
       title: this.state.title,
       chart_type: this.props.chart_type,
       chart_data: this.props.chart_data,
-      x_axes: this.props.x_axes,
-      y_axes: this.props.y_axes,
-      chartable_type: this.props.chartable_type,
-      chartable_id: this.props.chartable_id
+      x_axes: this.props.xAxes,
+      y_axes: this.props.yAxes,
+      owner_id: this.props.owner_id
     };
 
     const chart = merge({}, newChart);
     this.props.createChart(chart);
 
-    if (!this.props.errors) {
+    // Create shares using ajax success callback
+    $.ajax({
+      method: "GET",
+      url: "api/user/charts",
+      success: (res) => {
+        let chartId = res[res.length-1].id;
+        this.props.sharedUsers.forEach(username => {
+          this.props.createShare(username, chartId);
+        });
+      }
+    });
+
+    if (this.props.errors.length === 0) {
       this.props.router.push("/charts");
     }
   }

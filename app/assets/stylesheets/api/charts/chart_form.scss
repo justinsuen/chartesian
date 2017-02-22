@@ -3,12 +3,54 @@
 .chart-form-container {
   width: 40%;
   margin-right: 10px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.chart-form {
+.chart-form-options {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  box-sizing: border-box;
+
+  background-color: $primary-color;
+}
+
+.chart-form-view-btn {
+  width: 25%;
+
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+
+  font-family: $font-stack;
+  font-size: 120%;
+  color: white;
+
+  text-transform: uppercase;
+}
+
+.chart-form-view-btn:hover, .chart-form-view-btn.active {
+  background-color: white;
+  font-family: $font-stack;
+  color: black;
+}
+
+
+.chart-form-view {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// Chart Attrs
+
+.chart-attrs-form {
+  display: flex;
+  flex-direction: row;
   height: 70%;
   padding: 15px;
 }
@@ -136,7 +178,8 @@
   cursor: pointer;
 
   .current-chart-source p {
-    padding: 10px;
+    padding: 15px;
+    font-size: 130%;
     border-bottom: solid 1px $divider-color;
     font-weight: 600;
   }
@@ -175,6 +218,48 @@
 
   .chart-source-menu-list li:hover {
     background-color: $accent-color-light;
+  }
+}
+
+// Chart share
+
+.chart-share-form {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  padding: 15px;
+}
+
+.chart-share-input-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.chart-share-input {
+  font-size: 1.2em;
+  font-family: $font-stack;
+  border-bottom: 3px solid $divider-color;
+  padding: 5px;
+}
+
+.chart-share-input:focus {
+  border-bottom: 3px solid $accent-color;
+}
+
+.shared-user-list {
+  margin-top: 10px;
+  overflow: scroll;
+
+  .sul-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: $primary-color-lighter;
   }
 }
 

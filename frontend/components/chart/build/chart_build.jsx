@@ -9,29 +9,39 @@ class ChartBuild extends React.Component {
 
     this.state = {
       xAxes: [],
-      yAxes: []
+      yAxes: [],
+      sharedUsers: []
     };
 
     this.updateAxes = this.updateAxes.bind(this);
+    this.updateSharedUsers = this.updateSharedUsers.bind(this);
   }
 
   updateAxes(xAxes, yAxes) {
     this.setState({xAxes, yAxes});
   }
 
+  updateSharedUsers(usernames) {
+    let sharedUsers = this.state.sharedUsers;
+    sharedUsers.concat(usernames);
+    this.setState({sharedUsers});
+  }
+
   render() {
-    let {xAxes, yAxes} = this.state;
+    let {xAxes, yAxes, sharedUsers} = this.state;
 
     return (
       <div className="chart-build-container">
         <ChartFormContainer
           xAxes={xAxes}
           yAxes={yAxes}
-          updateAxes={this.updateAxes}/>
+          sharedUsers={sharedUsers}
+          updateAxes={this.updateAxes}
+          updateSharedUsers={this.updateSharedUsers}/>
         <ChartPreviewContainer
-          x_axes={xAxes}
-          y_axes={yAxes}
-          updateAxes={this.updateAxes}/>
+          xAxes={xAxes}
+          yAxes={yAxes}
+          sharedUsers={sharedUsers}/>
       </div>
     );
   }

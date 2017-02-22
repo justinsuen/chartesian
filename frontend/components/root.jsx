@@ -18,6 +18,9 @@ import ChartContainer from './chart/chart_container';
 import ChartIndexContainer from './chart/index/chart_index_container';
 import ChartBuildContainer from './chart/build/chart_build_container';
 
+import ShareContainer from './share/share_container';
+import ShareIndexContainer from './share/index/share_index_container';
+
 class Root extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +59,9 @@ class Root extends React.Component {
             <Route path="charts" component={ChartContainer}>
               <IndexRoute component={ChartIndexContainer} onEnter={this._ensureLoggedIn}/>
               <Route path="new" component={ChartBuildContainer} onEnter={this._ensureLoggedIn}/>
+            </Route>
+            <Route path="share" component={ShareContainer}>
+              <IndexRoute component={ShareIndexContainer} onEnter={this._ensureLoggedIn}/>
             </Route>
           </Route>
         </Router>
