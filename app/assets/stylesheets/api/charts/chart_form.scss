@@ -226,7 +226,7 @@
 .chart-share-form {
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 80%;
   padding: 15px;
 }
 
@@ -235,7 +235,7 @@
   flex-direction: column;
   flex: 1;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 5px 10px;
   box-sizing: border-box;
 }
@@ -244,6 +244,7 @@
   font-size: 1.2em;
   font-family: $font-stack;
   border-bottom: 3px solid $divider-color;
+  padding: 5px;
 }
 
 .chart-share-input:focus {

@@ -9,7 +9,7 @@ class ChartForm extends React.Component {
     super(props);
 
     this.state = {
-      view: "Share",
+      view: "Source",
       currentSource: "Select a source"
     }
 
