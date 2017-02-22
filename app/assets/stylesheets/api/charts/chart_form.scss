@@ -221,6 +221,47 @@
   }
 }
 
+// Chart share
+
+.chart-share-form {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  padding: 15px;
+}
+
+.chart-share-input-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.chart-share-input {
+  font-size: 1.2em;
+  font-family: $font-stack;
+  border-bottom: 3px solid $divider-color;
+}
+
+.chart-share-input:focus {
+  border-bottom: 3px solid $accent-color;
+}
+
+.shared-user-list {
+  margin-top: 10px;
+  overflow: scroll;
+
+  .sul-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: $primary-color-lighter;
+  }
+}
+
 .chart-prev-foot {
   padding: 15px;
 }
