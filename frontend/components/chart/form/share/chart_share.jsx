@@ -32,6 +32,7 @@ class ChartShare extends React.Component {
     this.props.updateSharedUsers(usernames);
   }
 
+  // TODO: Need to allow user to delete shares
   renderSharedUsers() {
     return (
       <div className="shared-user-list">

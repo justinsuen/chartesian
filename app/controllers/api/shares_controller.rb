@@ -3,9 +3,12 @@ class Api::SharesController < ApplicationController
     @share = current_user.in_shares.where(id: params[:id])
   end
 
+  # TODO: Need to test controller; currently creating a share by
+  # using usernames inputted from frontend
   def create
-    @share = current_user.in_share.create!(
-      sharee_id: params[:user_id],
+    @share_to_user = User.find_by(username: params[:username])
+    @share = @share_to_user.in_share.create!(
+      sharee_id: current_user.id,
       sharer_id: params[:chart_id]
     )
 
