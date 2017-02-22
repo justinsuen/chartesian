@@ -205,7 +205,8 @@ class ChartPreview extends React.Component {
           chart_data={this.state.chart_data}
           xAxes={this.props.xAxes}
           yAxes={this.props.yAxes}
-          owner_id={owner_id}/>
+          owner_id={owner_id}
+          sharedUsers={this.props.sharedUsers}/>
         <div className="chart-preview">
           {this.renderChart()}
         </div>

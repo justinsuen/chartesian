@@ -27,6 +27,18 @@ class ChartSubmit extends React.Component {
     const chart = merge({}, newChart);
     this.props.createChart(chart);
 
+    // Create shares using ajax success callback
+    $.ajax({
+      method: "GET",
+      url: "api/user/charts",
+      success: (res) => {
+        let chartId = res[res.length-1].id;
+        this.props.sharedUsers.forEach(username => {
+          this.props.createShare(username, chartId);
+        });
+      }
+    });
+
     if (this.props.errors.length === 0) {
       this.props.router.push("/charts");
     }

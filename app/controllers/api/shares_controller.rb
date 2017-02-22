@@ -7,9 +7,9 @@ class Api::SharesController < ApplicationController
   # using usernames inputted from frontend
   def create
     @share_to_user = User.find_by(username: params[:username])
-    @share = @share_to_user.in_share.create!(
+    @share = @share_to_user.in_shares.create!(
       sharee_id: current_user.id,
-      sharer_id: params[:chart_id]
+      sharer_id: params[:sharer_id]
     )
 
     render json: @share

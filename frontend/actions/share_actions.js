@@ -61,8 +61,8 @@ export const deleteShare = id => dispatch => (
       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const createShare = (sharee_id, sharer_id) => dispatch => (
-  APIUtil.createShare(sharee_id, sharer_id)
+export const createShare = (username, sharer_id) => dispatch => (
+  APIUtil.createShare(username, sharer_id)
     .then(response => dispatch(receiveShare(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );

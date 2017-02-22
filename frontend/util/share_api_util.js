@@ -26,10 +26,10 @@ export const deleteShare = id => (
   })
 );
 
-export const createShare = (sharee_id, sharer_id) => (
+export const createShare = (username, sharer_id) => (
   $.ajax({
     method: "POST",
     url: `api/shares`,
-    data: { sharee_id, sharer_id }
+    data: { username, sharer_id }
   })
 );
