@@ -13,14 +13,6 @@ Chartesian is a personal project by Justin Suen.
 - Logged in users can persist their data
 - Supports JSON, TSV, and CSV formats
 
-## Project Design
-
-Chartesian was designed and built in two weeks.
-
-A [proposal] was drafted to help provide an implementation timeline during the development process.
-
-A [database schema][schema] was prepared alongside the design proposal.
-
 ## Design Features
 
 When visited, a simple, minimal splash page is displayed along with a sample chart of the site's capabilities.
@@ -31,15 +23,9 @@ After signing in or using one of 50 independent demo accounts, the user is greet
 
 ![source index]
 
-To preview, a user can click on the individual rows to retrieve the desired table.
-
-![source preview]
-
-To upload, the user can navigate using the sidebar. The upload page supports JSON, CSV, and TSV files through selecting or drag and drop.
+To preview, a user can click on the individual rows to retrieve the desired table. To upload, the user can navigate using the sidebar. The upload page supports JSON, CSV, and TSV files through selecting or drag and drop.
 
 ![source drop]
-
-![source form preview]
 
 To build charts, navigate to the create chart page. From here, users can select a source to use using the dropdown menu. The attributes will be loaded once the user selects a source. Then, users can drag and drop their desired attributes to the drop zones.
 
@@ -53,7 +39,13 @@ After saving, the user will be redirected to the manage charts page where they c
 
 ![chart index]
 
-![chart preview]
+## Project Design
+
+Chartesian was designed and built in two weeks.
+
+A [proposal] was drafted to help provide an implementation timeline during the development process.
+
+A [database schema][schema] was prepared alongside the design proposal.
 
 ## Technology
 
@@ -66,6 +58,16 @@ Here's a list of components and packages I used for this project.
 - [Superagent](https://visionmedia.github.io/superagent/)
 - [React Collapse](https://github.com/nkbt/react-collapse)
 - [React Dropzone](https://github.com/okonet/react-dropzone)
+
+## Change Log
+All notable changes will be documented in this section.
+
+### Unreleased
+- Share charts with other users by username
+- Move from Recharts.js to D3.js
+
+#### [1.0] - 2017-01-20
+- MVPs complete: User authentication, upload data in multiple formats, and create charts
 
 ## Future Implementations
 
