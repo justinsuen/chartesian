@@ -27,11 +27,7 @@ To preview, a user can click on the individual rows to retrieve the desired tabl
 
 ![source drop]
 
-To build charts, navigate to the create chart page. From here, users can select a source to use using the dropdown menu. The attributes will be loaded once the user selects a source. Then, users can drag and drop their desired attributes to the drop zones.
-
-![chart build]
-
-After pressing preview chart, the chart will be created using those axes. Chart types can be selected using the intuitive icons on the bottom.
+To build charts, navigate to the create chart page. From here, users can select a source to use using the dropdown menu. The attributes will be loaded once the user selects a source. Then, users can drag and drop their desired attributes to the drop zones. After pressing preview chart, the chart will be created using those axes. Chart types can be selected using the intuitive icons on the bottom.
 
 ![chart build preview]
 
@@ -64,10 +60,13 @@ All notable changes will be documented in this section.
 
 ### Unreleased
 - Share charts with other users by username
-- Move from Recharts.js to D3.js
+- Move from Recharts.js to D3.js for more customization
 
 #### [1.0] - 2017-01-20
-- MVPs complete: User authentication, upload data in multiple formats, and create charts
+- User authentication
+- Upload data in multiple formats
+- Create charts using uploaded data
+- Host on Heroku
 
 ## Future Implementations
 
