@@ -23,13 +23,13 @@ class Api::SharesController < ApplicationController
   end
 
   def shared_charts
-    @shared_charts = current_user.in_shared_charts
+    @shared_assets = current_user.in_shared_charts
 
     render 'api/shares/shared_assets'
   end
 
   def shared_users
-    @shared_users = Chart.find_by(id: params[:id]).shared_users
+    @shared_assets = Chart.find_by(id: params[:id]).shared_users
 
     render 'api/shares/shared_assets'
   end
