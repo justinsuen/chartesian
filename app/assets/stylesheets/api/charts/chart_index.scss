@@ -36,6 +36,20 @@
   border-radius: 5px;
 }
 
+.chart-items-container.no-charts {
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+    font-family: $font-stack;
+    color: $secondary-text-color;
+  }
+}
+
 .chart-item {
   display: flex;
   flex-direction: column;
