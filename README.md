@@ -31,7 +31,11 @@ To build charts, navigate to the create chart page. From here, users can select 
 
 ![chart build preview]
 
-After saving, the user will be redirected to the manage charts page where they can preview all their created charts.
+If the user desires, he/she can share the chart with other users by entering their usernames. Once shared, the other users will have viewing privileges to the chart created.
+
+![chart build share]
+
+After saving, the user will be redirected to the manage charts page. This is also where the user would view all created charts. To view charts shared with them, the user can navigate to the Shared with Me view in the sidebar.
 
 ![chart index]
 
@@ -59,8 +63,16 @@ Here's a list of components and packages I used for this project.
 All notable changes will be documented in this section.
 
 ### Unreleased
-- Share charts with other users by username
 - Move from Recharts.js to D3.js for more customization
+
+### Known bugs/missing implementation
+- Users cannot update shares or charts
+- No way of finding shared assets
+- Users cannot graph more than one y-axis
+
+#### [1.1.0] - 2017-02-23
+- v1.1 will be focused on chart sharing MVP
+- Share charts with other users by username
 
 #### [1.0] - 2017-01-20
 - User authentication
@@ -70,18 +82,16 @@ All notable changes will be documented in this section.
 
 ## Future Implementations
 
-Currently, Chartesian can only support data upload and charting using one x-axis and one y-axis.
+Currently, Chartesian supports data upload, charting using one x-axis and one y-axis, and chart sharing by username.
 
-The features that will be added later to a [future] readme.
+The features that will be added later can be found in this [future] readme.
 
 [chartesian]: https://www.chartesian.com
 [home page]: ./docs/production/images/splash.png "Chartesian Splash"
 [source index]: ./docs/production/images/source-index.png
-[source preview]: ./docs/production/images/source-preview.png
 [source drop]: ./docs/production/images/source-drop.png
-[source form preview]: ./docs/production/images/source-form-preview.png
-[chart build]: ./docs/production/images/chart-build.png
 [chart build preview]: ./docs/production/images/chart-build-preview.png
+[chart build share]: ./docs/production/images/chart-build-share.png
 [chart index]: ./docs/production/images/chart-index.png
 [chart preview]: ./docs/production/images/chart-preview.png
 [proposal]: ./docs/README.md

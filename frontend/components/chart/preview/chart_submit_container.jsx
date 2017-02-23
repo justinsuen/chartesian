@@ -10,8 +10,23 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createChart: chart => dispatch(createChart(chart)),
-  createShare: (username, sharer_id) => dispatch(createShare(username, sharer_id))
+  createChart: (chart, sharedUsers) => {
+    dispatch(createChart(chart))
+
+    // Create shares using ajax success callback
+    return (
+      $.ajax({
+        method: "GET",
+        url: "api/user/charts",
+        success: (res) => {
+          let chartId = res[res.length-1].id;
+          sharedUsers.forEach((username) =>
+            dispatch(createShare(username, chartId))
+          );
+        }
+      })
+    )
+  }
 });
 
 export default connect(

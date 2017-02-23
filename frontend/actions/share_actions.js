@@ -43,8 +43,8 @@ export const fetchInShare = id => dispatch => (
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );
 
-export const fetchInShares = () => dispatch => (
-  APIUtil.fetchInShares()
+export const fetchInCharts = () => dispatch => (
+  APIUtil.fetchInCharts()
     .then(response => dispatch(receiveInCharts(response)),
       err => dispatch(receiveShareErrors(err.responseJSON)))
 );

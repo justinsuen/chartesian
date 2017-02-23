@@ -53,11 +53,12 @@ class SidebarItem extends React.Component {
     return(
       <div className="sidebar-actions">
         <Link to="/share">Shared with me</Link>
-        <Link to="/share/me">Shared assets</Link>
-        <Link to="/share/groups">Groups</Link>
-        <Link to="/share/settings">Share settings</Link>
       </div>
     );
+
+    // <Link to="/share/me">Shared assets</Link>
+    // <Link to="/share/groups">Groups</Link>
+    // <Link to="/share/settings">Share settings</Link>
   }
 
   renderActions(type) {
