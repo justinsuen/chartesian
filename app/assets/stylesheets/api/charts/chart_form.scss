@@ -253,14 +253,33 @@
 
 .shared-user-list {
   margin-top: 10px;
+  padding: 15px;
+  height: 100%;
+
+  box-sizing: border-box;
   overflow: scroll;
+  border-radius: 5px;
+  background-color: $primary-color-lightest;
+
+  h3 {
+    text-align: center;
+    font-family: $font-stack;
+    font-weight: 300;
+    color: $secondary-text-color;
+  }
 
   .sul-item {
     padding: 10px;
-    margin: 5px 0;
+    margin: 0 0 10px 0;
     border-radius: 5px;
     background-color: $primary-color-lighter;
   }
+}
+
+.no-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .chart-prev-foot {

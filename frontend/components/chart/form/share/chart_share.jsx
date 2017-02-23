@@ -7,7 +7,6 @@ class ChartShare extends React.Component {
 
     this.state = {usernames: this.props.sharedUsers}
 
-    this.handleSave = this.handleSave.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
   }
 
@@ -25,30 +24,31 @@ class ChartShare extends React.Component {
     }
   }
 
-  handleSave(e) {
-    e.preventDefault();
-
-    let {usernames} = this.state;
-    this.props.updateSharedUsers(usernames);
-  }
-
   // TODO: Need to allow user to delete shares
   renderSharedUsers() {
-    return (
-      <div className="shared-user-list">
-        {this.state.usernames.map((u, i) => (
-          <p key={i} className="sul-item">
-            {u}
-          </p>
-        ))}
-      </div>
-    );
+    if (this.state.usernames.length !== 0) {
+      return (
+        <div className="shared-user-list">
+          {this.state.usernames.map((u, i) => (
+            <p key={i} className="sul-item">
+              {u}
+            </p>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className="shared-user-list no-user">
+          <h3>This chart is not shared with anyone!</h3>
+        </div>
+      )
+    }
   }
 
   render() {
     return (
       <div className="chart-form-view">
-        <form onSubmit={this.handleSave} className="chart-share-form">
+        <form className="chart-share-form">
           <h3>Input Users</h3>
           <div className="chart-share-input-form">
             <input type="text"
@@ -57,12 +57,6 @@ class ChartShare extends React.Component {
               className="chart-share-input"/>
 
             { this.renderSharedUsers() }
-          </div>
-
-          <div className="chart-prev-foot">
-            <input type="submit"
-              className="chart-preview-btn"
-              value="Save settings"/>
           </div>
         </form>
       </div>
