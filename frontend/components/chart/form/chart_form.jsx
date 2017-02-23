@@ -54,7 +54,8 @@ class ChartForm extends React.Component {
   }
 
   render() {
-    const options = ["Source", "Labels", "Style", "Share"];
+    // const options = ["Source", "Labels", "Style", "Share"];
+    const options = ["Source", "Share"];
 
     return (
       <div className="chart-form-container">
